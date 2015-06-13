@@ -31,6 +31,7 @@ git/tigrc
 git/gitk
 #gnupg
 #grc
+i3
 input/editrc
 input/inputrc
 irssi

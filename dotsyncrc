@@ -21,8 +21,9 @@ dotsyncrc
 #ack/ackrc
 #aptitude
 #bin:bin
-ctags/ctags
 cmus
+config
+ctags/ctags
 #curl/curlrc
 git/gitconfig
 git/gitignore
@@ -67,6 +68,7 @@ tmux/tmuxinator
 vim/vimrc
 vim/gvimrc
 #wget/wgetrc
+Xmodmap
 Xdefaults
 zsh/fasdrc
 zsh/dotzsh:.zsh

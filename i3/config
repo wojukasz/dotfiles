@@ -179,7 +179,14 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Application launching
-bindsym Mod3+b exec firefox
+bindsym Mod3+f exec firefox
+bindsym Mod3+d exec google-chrome-stable
+
+# CMUS remote
+bindsym Mod3+z exec cmus-remote --prev
+bindsym Mod3+x exec cmus-remote --stop
+bindsym Mod3+c exec cmus-remote --pause
+bindsym Mod3+v exec cmus-remote --next
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

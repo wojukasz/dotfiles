@@ -41,8 +41,8 @@ irssi
 #mutt/muttrc
 #mutt/offlineimaprc
 mysql/my.cnf
-ncmpcpp/config
-ncmpcpp/error.log
+#ncmpcpp/config
+#ncmpcpp/error.log
 postgresql/psqlrc
 python/pythonrc
 python/pylintrc

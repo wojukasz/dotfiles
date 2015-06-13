@@ -8,7 +8,7 @@
 #
 
 # Location of your dotfiles in $HOME
-# DOTFILES=.dotfiles
+DOTFILES=.dotfiles
 
 # dotfiles to symlink
 #
@@ -21,31 +21,31 @@ dotsyncrc
 #ack/ackrc
 #aptitude
 #bin:bin
-#ctags/ctags
-#cmus
+ctags/ctags
+cmus
 #curl/curlrc
-#git/gitconfig
-#git/gitignore
-#git/gitattributes
-#git/tigrc
-#git/gitk
+git/gitconfig
+git/gitignore
+git/gitattributes
+git/tigrc
+git/gitk
 #gnupg
 #grc
-#input/editrc
-#input/inputrc
-#irssi
+input/editrc
+input/inputrc
+irssi
 #mpd/mpd.conf
 #mercurial/hgrc
 #mercurial/hgignore
 #mutt
 #mutt/muttrc
 #mutt/offlineimaprc
-#mysql/my.cnf
-#ncmpcpp/config
-#ncmpcpp/error.log
-#postgresql/psqlrc
-#python/pythonrc
-#python/pylintrc
+mysql/my.cnf
+ncmpcpp/config
+ncmpcpp/error.log
+postgresql/psqlrc
+python/pythonrc
+python/pylintrc
 #rpm/rpmmacros
 #ruby/irbrc
 #ruby/pryrc
@@ -57,15 +57,15 @@ dotsyncrc
 #screen/screenrc
 #shell/hushlogin
 #shell/urlview
-#ssh
+ssh
 #subversion
 #task/task
 #task/taskrc
-#tmux/tmux.conf
-#tmux/tmuxinator
-#vim/dotvim:.vim
-#vim/vimrc
-#vim/gvimrc
+tmux/tmux.conf
+tmux/tmuxinator
+vim/dotvim:.vim
+vim/vimrc
+vim/gvimrc
 #wget/wgetrc
 #zsh/fasdrc
 #zsh/dotzsh:.zsh
@@ -73,12 +73,13 @@ dotsyncrc
 #zsh/zlogout
 #zsh/zprofile
 #zsh/zshenv
-#zsh/zshrc
+zsh/zshrc
 [endfiles]
 
 # Hosts to sync
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
 [hosts]
+macbookpro                       git=ANY                         #git repo, pull from anywhere
 #host1.example.com               git=ANY                        files=custom/dotfile    #git repo, pull from anywhere and link a custom dotfile
 #host2.example.com               git=ANY                                                #git repo, pull from anywhere
 #host3.example.com               git=ANY                                                #git repo, pull from anywhere

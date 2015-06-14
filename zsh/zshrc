@@ -39,9 +39,9 @@ zstyle ':dotzsh:module:*' case-sensitive 'no'
 
 ### Environment module
 # Set which PAGER to use less or more
-##zstyle ':dotzsh:module:environment' pager 'less'
+zstyle ':dotzsh:module:environment' pager 'less'
 # Enable mouse scrolling in less, add the following to *zshrc*
-##zstyle ':dotzsh:module:environment:pager:less' mousescroll 'false'
+zstyle ':dotzsh:module:environment:pager:less' mousescroll 'false'
 
 ### Terminal Module
 # Auto set the tab and window titles.
@@ -49,11 +49,11 @@ zstyle ':dotzsh:module:terminal' auto-title 'yes'
 
 ### Editor module
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':dotzsh:module:editor' keymap 'emacs'
+zstyle ':dotzsh:module:editor' keymap 'vi'
 # Set EDITOR to 'emacs' or 'vi'.
-zstyle ':dotzsh:module:editor' editor 'vi'
+zstyle ':dotzsh:module:editor' editor 'vim'
 # Auto convert .... to ../..
-#zstyle ':dotzsh:module:editor' dot-expansion 'yes'
+zstyle ':dotzsh:module:editor' dot-expansion 'yes'
 
 ### Utility Module
 # Disable `diff` highlighting

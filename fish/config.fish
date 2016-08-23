@@ -1,5 +1,6 @@
+set PATH $PATH "$HOME/bin"
 set -x SSH_ENV "$HOME/.ssh/environment"
-set -x GOPATH "~/git/go"
+set -x GOPATH "$HOME/git/go"
 
 function start_agent
      echo "Initialising new SSH agent..."

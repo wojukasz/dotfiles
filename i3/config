@@ -143,7 +143,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-<<<<<<< HEAD
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls

@@ -1,6 +1,5 @@
 [options]
-font = Droid Sans Mono 10
-
+font = Source Code Pro for Powerline 10
 
 # Solarized dark color scheme
 [colors]

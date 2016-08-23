@@ -77,7 +77,7 @@ set splitright
 
 " "}}}
 
-" Command and Auto commands " {{{
+"$ Command and Auto commands " {{{
 " Sudo write
 comm! W exec 'w !sudo tee % > /dev/null' | e!
 
@@ -121,7 +121,7 @@ if has('win32') || has('win64')
 else
     nnoremap <silent> <LocalLeader>vs :source ~/git/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>vt :tabnew ~/git/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>ve :e ~/.dotfiles/vim/vimrc<CR>
+    nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
     nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo.txt<CR>
     nnoremap <silent> <LocalLeader>tn :e ~/todo.txt<CR>

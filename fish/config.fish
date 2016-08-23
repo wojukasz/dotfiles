@@ -1,4 +1,5 @@
 set PATH $PATH "$HOME/bin"
+set -x EDITOR vim
 set -x SSH_ENV "$HOME/.ssh/environment"
 set -x GOPATH "$HOME/git/go"
 

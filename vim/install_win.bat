@@ -1,0 +1,5 @@
+set BAT_PATH=%~dp0
+set VIMRC_PATH=%BAT_PATH%vimrc
+set VIMRC_DEST=%HOMEDRIVE%%HOMEPATH%\_vimrc
+mklink %VIMRC_DEST% %VIMRC_PATH%
+pause

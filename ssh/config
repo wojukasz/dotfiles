@@ -19,7 +19,7 @@ HashKnownHosts no
 
 # Default
 Host *
-    #User username
+    User alan
     StrictHostKeyChecking ask
     ServerAliveCountMax 6
     ServerAliveInterval 30

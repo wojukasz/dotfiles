@@ -8,7 +8,7 @@
 #
 
 # Location of your dotfiles in $HOME
-DOTFILES=.dotfiles
+DOTFILES=git/dotfiles
 
 # dotfiles to symlink
 #
@@ -20,11 +20,11 @@ DOTFILES=.dotfiles
 dotsyncrc
 #ack/ackrc
 #aptitude
-#bin:bin
-cmus
-config
-ctags/ctags
-#curl/curlrc
+bin:bin
+#ctags/ctags
+#cmus
+curl/curlrc
+fish:.config/fish
 git/gitconfig
 git/gitignore
 git/gitattributes
@@ -32,10 +32,11 @@ git/tigrc
 git/gitk
 #gnupg
 #grc
-i3
+htop:.config/htop
+i3:.config/i3
 input/editrc
 input/inputrc
-irssi
+#irssi
 #mpd/mpd.conf
 #mercurial/hgrc
 #mercurial/hgignore
@@ -45,7 +46,8 @@ irssi
 mysql/my.cnf
 #ncmpcpp/config
 #ncmpcpp/error.log
-postgresql/psqlrc
+omf:.config/omf
+#postgresql/psqlrc
 python/pythonrc
 python/pylintrc
 #rpm/rpmmacros
@@ -61,29 +63,31 @@ python/pylintrc
 #shell/urlview
 ssh
 #subversion
+systemd:.config/systemd
 #task/task
 #task/taskrc
+termite:.config/termite
 tmux/tmux.conf
 tmux/tmuxinator
+uzbl:.config/uzbl
+vim/dotvim:.vim
 vim/vimrc
 vim/gvimrc
-#wget/wgetrc
-Xmodmap
-Xdefaults
-zsh/fasdrc
-zsh/dotzsh:.zsh
-zsh/zlogin
-zsh/zlogout
-zsh/zprofile
-zsh/zshenv
-zsh/zshrc
+wget/wgetrc
+#zsh/fasdrc
+#zsh/dotzsh:.zsh
+#zsh/zlogin
+#zsh/zlogout
+#zsh/zprofile
+#zsh/zshenv
+#zsh/zshrc
 [endfiles]
 
 # Hosts to sync
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
 [hosts]
-macbookpro                       git=ANY                         #git repo, pull from anywhere
 Alans-MBP                        git=ANY                         #git repo, pull from anywhere
+jmp.alan-jenkins.com             git=ANY
 #host1.example.com               git=ANY                        files=custom/dotfile    #git repo, pull from anywhere and link a custom dotfile
 #host2.example.com               git=ANY                                                #git repo, pull from anywhere
 #host3.example.com               git=ANY                                                #git repo, pull from anywhere

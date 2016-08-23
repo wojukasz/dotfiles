@@ -32,6 +32,7 @@ git/tigrc
 git/gitk
 #gnupg
 #grc
+htop:.config/htop
 i3:.config/i3
 input/editrc
 input/inputrc

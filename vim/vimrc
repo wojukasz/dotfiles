@@ -296,8 +296,8 @@ let g:yankring_history_file = '.yankring_history'
 " noremap <C-W>+o :ZoomWin<CR>
 
 " vim-airline
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 if v:version > 701
   " NeoBundle 'zhaocai/GoldenView.Vim'

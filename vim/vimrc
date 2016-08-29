@@ -76,7 +76,6 @@ set splitbelow
 set splitright
 
 " "}}}
-
 "$ Command and Auto commands " {{{
 " Sudo write
 comm! W exec 'w !sudo tee % > /dev/null' | e!
@@ -94,7 +93,6 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=git
 
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 " " }}}
-
 " GUI Fonts " {{{
 if has("gui_running")
   if has("gui_gtk2")
@@ -159,135 +157,133 @@ map <silent> <F12> :set invlist<CR>
 " generate HTML version current buffer using current color scheme
 map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
 " " }}}
-" Setting up vim plugin manager"{{{
-let iCanHazVAM=1
-if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/.vim/bundle/vim-addon-manager/
+" Setting up vim plug"{{{
+let vimPlugNOTInstalled=1
+ if has('win32') || has('win64')
+     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
 
-    let vam_readme=expand('$HOME/.vim/bundle/vim-addon-manager/README.md')
-    if !filereadable(vam_readme)
-        echo "Installing vim-addon-manager.."
-        echo ""
-        silent :exe '!mkdir -p ' . $HOME .'/.vim/bundle'
-        silent :exe '!git clone https://github.com/MarcWeber/vim-addon-manager '. $HOME .'/.vim/bundle/vim-addon-manager'
-        let iCanHazVAM=0
-    endif
-else
-    let vam_readme=expand('~/.vim/bundle/vim-addon-manager/README.md')
-    if !filereadable(vam_readme)
-        echo "Installing Vim Addon Manager.."
-        echo ""
-        silent !mkdir -p ~/.vim/bundle
-        silent !git clone https://github.com/MarcWeber/vim-addon-manager ~/.vim/bundle/vim-addon-manager
-        let iCanHazVAM=0
-    endif
-    set rtp+=~/.vim/bundle/vim-addon-manager/
-endif"}}}
+     let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
+     if !filereadable(vimplugpath)
+         echo "Installing vim-plug.."
+         echo ""
+         silent :exe '!mkdir -p ' . $HOME .'/.vim/autoload'
+         silent :exe '!git clone https://github.com/MarcWeber/vim-addon-manager '. $HOME .'/.vim/bundle/vim-addon-manager'
+         silent :exe '!powershell -command "$clnt = new-object System.Net.WebClient; $clnt.DownloadFile(\"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim\", \""' . vimplugpath . '"\")"'
+         let vimPlugNOTInstalled=0
+     endif
+ else
+     let vimplugpath=expand('~/.vim/autoload/plug.vim')
+     if !filereadable(vimplugpath)
+         echo "Installing vim-plug.."
+         echo ""
+         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+         let vimPlugNOTInstalled=0
+     endif
+ endif"}}}
 " Plugins " {{{
 filetype off
-let g:vim_addon_manager = {'scms': {'git': {}}}
-let g:vim_addon_manager.log_to_buf = 1
-fun! MyGitCheckout(repository, targetDir)
-    let a:repository.url = substitute(a:repository.url, '^git://github', 'http://github', '')
-    return vam#utils#RunShell('git clone --depth=1 $.url $p', a:repository, a:targetDir)
-endfun
-let g:vim_addon_manager.scms.git.clone=['MyGitCheckout']
+call plug#begin()
 
-call vam#ActivateAddons(["github:tpope/vim-commentary", "github:tpope/vim-unimpaired", "github:tpope/vim-vinegar", "github:tpope/vim-repeat", "github:tpope/vim-surround", "github:tpope/vim-speeddating","github:vim-airline/vim-airline",'github:altercation/vim-colors-solarized'])
- "github:svermeulen/vim-easyclip", 
-"github:scrooloose/syntastic","github:myint/syntastic-extras", "github:majutsushi/tagbar", "github:mivok/vimtodo", "vim-poslist","github:tpope/vim-speeddating",  "github:nathanaelkane/vim-indent-guides", "github:lukaszb/vim-web-indent", "github:Raimondi/delimitMate", "github:mbbill/undotree", "github:godlygeek/tabular", "github:spf13/PIV", "github:rking/ag",  "github:garbas/vim-snipmate","github:scrooloose/snipmate-snippets",  "github:Townk/vim-autoclose",  "github:Shougo/neosnippet-snippets", "github:haya14busa/incsearch","snipmate",  
-"mhinz/vim-hugefile"
-"github:honza-snippets", "github:vim-scripts/hexman", "github:vim-scripts/DrawIt","github:ChrisYip/Better-CSS-Syntax-for",  
-""github:Shougo/neocomplete", "github:Shougo/neosnippet", 
-" NeoBundle 'powerline/fonts', {
-" \ 'build': {
-"     \ 'mac': './install.sh',
-"     \ 'linux': './install.sh',
-"     \ 'unix': './install.sh',
-"     \ },
-" \ }
+Plug 'Align'
+Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'LaTeX-Box'
+Plug 'Lokaltog/vim-easymotion'
+" Plug 'LustyJuggler'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet' 
+Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'StanAngeloff/php.vim'
+Plug 'Townk/vim-autoclose'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-bufferline'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'burnettk/vim-angular'
+Plug 'chase/vim-ansible-yaml'
+Plug 'chrisbra/csv.vim'
+Plug 'claco/jasmine.vim'
+Plug 'davidoc/taskpaper.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'evidens/vim-twig'
+Plug 'freitass/todo.txt-vim'
+Plug 'fugitive.vim'
+" Plug 'garbas/vim-snipmate'
+" Plug 'gmarik/snipmate.vim'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/gitv'
+Plug 'groenewege/vim-less'
+Plug 'haya14busa/incsearch.vim'
+Plug 'honza/vim-snippets'
+Plug 'jQuery'
+Plug 'jplaut/vim-arduino-ino'
+Plug 'kien/ctrlp.vim'
+Plug 'leshill/vim-json'
+Plug 'lukaszb/vim-web-indent'
+Plug 'majutsushi/tagbar'
+Plug 'markcornick/vim-vagrant'
+Plug 'matthewsimo/angular-vim-snippets'
+Plug 'mattn/emmet-vim'
+Plug 'mbbill/undotree'
+Plug 'mhinz/vim-hugefile'
+Plug 'mivok/vimtodo'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'myhere/vim-nodejs-complete'
+Plug 'myint/syntastic-extras'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'python_fold_compact'
+Plug 'ragtag.vim' 
+" Plug 'rking/ag'
+Plug 'scrooloose/snipmate-snippets'
+Plug 'scrooloose/syntastic'
+" Plug 'snipmate'  
+Plug 'spf13/PIV'
+Plug 'spf13/vim-preview'
+Plug 'sudo.vim'
+Plug 'svermeulen/vim-easyclip'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'thinca/vim-poslist'
+Plug 'vim-scripts/DrawIt'
+Plug 'vim-scripts/VOoM'
+Plug 'vim-scripts/autohotkey-ahk'
+" Plug 'vim-scripts/hexman'
+Plug 'https://github.com/mattn/gist-vim'
 
-" NeoBundle 'https://github.com/mivok/vimtodo'
-" NeoBundle 'https://github.com/vim-scripts/VOoM'
-" NeoBundle 'https://github.com/tpope/vim-sensible'
-" NeoBundle 'freitass/todo.txt-vim'
-" NeoBundle 'godlygeek/tabular'
-" NeoBundle 'plasticboy/vim-markdown'
-" Bundle 'https://github.com/mivok/vimtodo'
-" Bundle 'LustyJuggler'
-" NeoBundle 'jQuery'
-" NeoBundle 'tpope/vim-markdown'
-" NeoBundle 'tpope/vim-cucumber'
-" NeoBundle 'spf13/vim-preview'
-" NeoBundle 'markcornick/vim-vagrant'
-" NeoBundle 'ekalinin/Dockerfile.vim'
-" NeoBundle 'https://github.com/vim-scripts/autohotkey-ahk'
-" Bundle "python_fold_compact"
-" NeoBundle 'https://github.com/chrisbra/csv.vim'
-" NeoBundle 'https://github.com/Glench/Vim-Jinja2-Syntax'
-" NeoBundle 'https://github.com/evidens/vim-twig'
-" NeoBundle 'leshill/vim-json'
-" NeoBundle 'https://github.com/groenewege/vim-less'
-" NeoBundle 'https://github.com/StanAngeloff/php.vim'
-" NeoBundle 'chase/vim-ansible-yaml'
-" NeoBundle 'https://github.com/digitaltoad/vim-jade'
-" NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
-" NeoBundle 'mustache/vim-mustache-handlebars'
-" NeoBundle 'https://github.com/jplaut/vim-arduino-ino'
-" NeoBundle 'evanmiller/nginx-vim-syntax'
-" NeoBundle 'myhere/vim-nodejs-complete'
-" NeoBundle 'pangloss/vim-javascript'
-" NeoBundle 'othree/javascript-libraries-syntax.vim'
-" NeoBundle 'matthewsimo/angular-vim-snippets'
-" NeoBundle 'claco/jasmine.vim'
-" NeoBundle 'burnettk/vim-angular'
-" NeoBundle 'tpope/vim-haml'
-" Bundle 'https://github.com/gmarik/snipmate.vim'
-" NeoBundle 'SirVer/ultisnips'
-" NeoBundle 'honza/vim-snippets'
-" NeoBundle 'fugitive.vim'
-" NeoBundle 'gregsexton/gitv'
-" Bundle "https://github.com/airblade/vim-gitgutter"
-" NeoBundle 'LaTeX-Box'
-" NeoBundle 'mattn/emmet-vim'
-"Bundle 'ragtag.vim' " A set of useful mappings for working with html and other web languages.
-" NeoBundle 'sudo.vim'
-" NeoBundle 'Align'
-" NeoBundle 'Lokaltog/vim-easymotion'
-" NeoBundle 'https://github.com/bling/vim-bufferline'
-" NeoBundle 'https://github.com/bronson/vim-trailing-whitespace'
-" NeoBundle 'https://github.com/kien/ctrlp.vim'
+if !has('win32') || !has('win64')
+    Plug 'powerline/fonts', { 'do': './install.sh' }
+endif
 
-" colour schemes
-" NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'chriskempson/base16-vim'
+" *TODO* Figure out how to get YouCompleteMe working
+call plug#end()
+" " }}}
+" Plugin Config " {{{
 
 let g:yankring_history_dir = $HOME.'/.vim/'
 let g:yankring_history_file = '.yankring_history'
-"Bundle "https://github.com/mattn/gist-vim"
 
-" syntax for haml, sass and scss.
-" sytax for html5
-" NeoBundle 'Valloric/YouCompleteMe', {
-"      \ 'build' : {
-"      \     'mac' : 'git submodule update --init --recursive; ./install.sh --clang-completer --system-libclang --omnisharp-completer',
-"      \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"      \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-"      \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-"      \    }
-"      \ }
-
-" Snippets
-" Trigger configuration. Do not <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsSnippetDirectories=["ultisnips"]
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
+let g:yankring_history_dir = $HOME.'/.vim/'
+let g:yankring_history_file = '.yankring_history'
 
 
-" let g:LargeFile=1
+let g:LargeFile=1
 
 " allows zooming in on an invididual split.
 "noremap <LocalLeader>o :ZoomWin<CR>
@@ -306,7 +302,7 @@ endif
 
 
 filetype plugin indent on
-" " }}}
+"}}}
 " Gui and theme options"{{{
 if has('gui_running')
     set background=dark
@@ -332,7 +328,8 @@ colorscheme solarized
 " Sudo write
 comm! W exec 'w !sudo tee % > /dev/null' | e!
 
-"Auto commands
+" Auto commands " {{{
+
 au BufRead,BufNewFile {*.php}                                         set ft=php
 " au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby

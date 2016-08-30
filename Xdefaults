@@ -51,6 +51,11 @@ URxvt.cursorUnderline:      false
  
 ! Pointer
 URxvt.pointerBlank:         true
+
+xterm*termName: xterm-256color
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+Xterm*saveLines: 4096
  
 !!Source http://github.com/altercation/solarized
  

@@ -7,6 +7,8 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
 set tags=./tags;$HOME " walk directory tree upto $HOME looking for tags
+set path+=**
+set wildmenu
 " Modeline
 set modeline
 set modelines=5 " default numbers of lines to read for modeline instructions
@@ -192,6 +194,7 @@ call plug#begin()
 " Plug 'svermeulen/vim-easyclip'
 " Plug 'vim-scripts/hexman'
 Plug 'Align'
+Plug 'Shell.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'LaTeX-Box'
 Plug 'Lokaltog/vim-easymotion'

@@ -20,6 +20,7 @@ DOTFILES=git/dotphiles
 dotsyncrc
 #ack/ackrc
 #aptitude
+bashrc
 bin:bin
 #ctags/ctags
 #cmus

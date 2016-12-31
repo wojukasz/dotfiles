@@ -8,7 +8,7 @@
 #
 
 # Location of your dotfiles in $HOME
-DOTFILES=git/dotfiles
+DOTFILES=git/dotphiles
 
 # dotfiles to symlink
 #
@@ -20,6 +20,7 @@ DOTFILES=git/dotfiles
 dotsyncrc
 #ack/ackrc
 #aptitude
+bashrc
 bin:bin
 #ctags/ctags
 #cmus
@@ -90,6 +91,7 @@ Xdefaults
 [hosts]
 Alans-MBP                        git=ANY                         #git repo, pull from anywhere
 jmp.alan-jenkins.com             git=ANY
+bashton-ajenkins                 git=ANY
 #host1.example.com               git=ANY                        files=custom/dotfile    #git repo, pull from anywhere and link a custom dotfile
 #host2.example.com               git=ANY                                                #git repo, pull from anywhere
 #host3.example.com               git=ANY                                                #git repo, pull from anywhere

@@ -7,6 +7,8 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
 set tags=./tags;$HOME " walk directory tree upto $HOME looking for tags
+set path+=**
+set wildmenu
 " Modeline
 set modeline
 set modelines=5 " default numbers of lines to read for modeline instructions
@@ -159,37 +161,43 @@ map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
 " " }}}
 " Setting up vim plug"{{{
 let vimPlugNOTInstalled=1
- if has('win32') || has('win64')
-     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
+let vimPlugURI='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if has('win32') || has('win64')
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
 
-     let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
-     if !filereadable(vimplugpath)
-         echo "Installing vim-plug.."
-         echo ""
-         silent :exe '!mkdir -p ' . $HOME .'/.vim/autoload'
-         silent :exe '!git clone https://github.com/MarcWeber/vim-addon-manager '. $HOME .'/.vim/bundle/vim-addon-manager'
-         silent :exe '!powershell -command "$clnt = new-object System.Net.WebClient; $clnt.DownloadFile(\"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim\", \""' . vimplugpath . '"\")"'
-         let vimPlugNOTInstalled=0
-     endif
- else
-     let vimplugpath=expand('~/.vim/autoload/plug.vim')
-     if !filereadable(vimplugpath)
-         echo "Installing vim-plug.."
-         echo ""
-         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-         let vimPlugNOTInstalled=0
-     endif
- endif"}}}
+    let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
+    if !filereadable(vimplugpath)
+        echo "Installing vim-plug.."
+        echo ""
+        silent :exe '!mkdir -p ' . $HOME .'\.vim\autoload'
+        silent :exe "!powershell -command \"(New-Object Net.WebClient).DownloadFile(\\\"" . vimPlugURI . "\\\", \\\"" . vimplugpath . "\\\")\""
+        let vimPlugNOTInstalled=0
+    endif
+else
+    let vimplugpath=expand('~/.vim/autoload/plug.vim')
+    if !filereadable(vimplugpath)
+        echo "Installing vim-plug.."
+        echo ""
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        let vimPlugNOTInstalled=0
+    endif
+endif"}}}
 " Plugins " {{{
 filetype off
 call plug#begin()
 
+" Plug 'LustyJuggler'
+" Plug 'garbas/vim-snipmate'
+" Plug 'gmarik/snipmate.vim'
+" Plug 'rking/ag'
+" Plug 'snipmate'
+" Plug 'svermeulen/vim-easyclip'
+" Plug 'vim-scripts/hexman'
 Plug 'Align'
-Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
+Plug 'Shell.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'LaTeX-Box'
 Plug 'Lokaltog/vim-easymotion'
-" Plug 'LustyJuggler'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/neocomplete'
@@ -205,6 +213,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'burnettk/vim-angular'
 Plug 'chase/vim-ansible-yaml'
 Plug 'chrisbra/csv.vim'
+Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
 Plug 'claco/jasmine.vim'
 Plug 'davidoc/taskpaper.vim'
 Plug 'digitaltoad/vim-jade'
@@ -213,13 +222,12 @@ Plug 'evanmiller/nginx-vim-syntax'
 Plug 'evidens/vim-twig'
 Plug 'freitass/todo.txt-vim'
 Plug 'fugitive.vim'
-" Plug 'garbas/vim-snipmate'
-" Plug 'gmarik/snipmate.vim'
 Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv'
 Plug 'groenewege/vim-less'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
+Plug 'https://github.com/mattn/gist-vim'
 Plug 'jQuery'
 Plug 'jplaut/vim-arduino-ino'
 Plug 'kien/ctrlp.vim'
@@ -241,13 +249,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'python_fold_compact'
 Plug 'ragtag.vim'
-" Plug 'rking/ag'
+Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/snipmate-snippets'
 Plug 'scrooloose/syntastic'
-" Plug 'snipmate'
 Plug 'spf13/PIV'
 Plug 'spf13/vim-preview'
-" Plug 'svermeulen/vim-easyclip'
+Plug 'thinca/vim-poslist'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-haml'
@@ -259,7 +266,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
-Plug 'thinca/vim-poslist'
 Plug 'vim-scripts/DrawIt'
 Plug 'vim-scripts/VOoM'
 Plug 'vim-scripts/autohotkey-ahk'
@@ -270,10 +276,17 @@ Plug 'puppetlabs/puppet-syntax-vim'
 
 if !has('win32') || !has('win64')
     Plug 'powerline/fonts', { 'do': './install.sh' }
+else
+    Plug 'powerline/fonts', { 'do': './install.ps1' }
 endif
+call plug#end()
 
 " *TODO* Figure out how to get YouCompleteMe working
-call plug#end()
+
+if !vimPlugNOTInstalled
+    PlugUpdate
+endif
+
 " " }}}
 " Plugin Config " {{{
 

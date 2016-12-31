@@ -274,10 +274,10 @@ Plug 'https://github.com/mattn/gist-vim'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'puppetlabs/puppet-syntax-vim'
 
-if !has('win32') || !has('win64')
-    Plug 'powerline/fonts', { 'do': './install.sh' }
-else
+if has('win32') || has('win64')
     Plug 'powerline/fonts', { 'do': './install.ps1' }
+else
+    Plug 'powerline/fonts', { 'do': './install.sh' }
 endif
 call plug#end()
 

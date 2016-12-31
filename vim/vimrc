@@ -265,6 +265,8 @@ Plug 'vim-scripts/VOoM'
 Plug 'vim-scripts/autohotkey-ahk'
 " Plug 'vim-scripts/hexman'
 Plug 'https://github.com/mattn/gist-vim'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'puppetlabs/puppet-syntax-vim'
 
 if !has('win32') || !has('win64')
     Plug 'powerline/fonts', { 'do': './install.sh' }
@@ -278,10 +280,6 @@ call plug#end()
 let g:yankring_history_dir = $HOME.'/.vim/'
 let g:yankring_history_file = '.yankring_history'
 
-let g:yankring_history_dir = $HOME.'/.vim/'
-let g:yankring_history_file = '.yankring_history'
-
-
 let g:LargeFile=1
 
 " allows zooming in on an invididual split.
@@ -291,7 +289,7 @@ let g:LargeFile=1
 " noremap <C-W>+o :ZoomWin<CR>
 
 " vim-airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 
 if v:version > 701
@@ -319,9 +317,9 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-colorscheme solarized
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+" colorscheme solarized
 "}}}
 " Command and Auto commands " {{{
 " Sudo write

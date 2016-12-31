@@ -185,7 +185,6 @@ endif"}}}
 " Plugins " {{{
 filetype off
 call plug#begin()
-
 " Plug 'LustyJuggler'
 " Plug 'garbas/vim-snipmate'
 " Plug 'gmarik/snipmate.vim'
@@ -273,6 +272,7 @@ Plug 'vim-scripts/autohotkey-ahk'
 Plug 'https://github.com/mattn/gist-vim'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'mtth/scratch.vim'
 
 if has('win32') || has('win64')
     Plug 'powerline/fonts', { 'do': './install.ps1' }

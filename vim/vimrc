@@ -1,4 +1,133 @@
 " TODO: http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks/225852#225852
+" Setting up vim plug"{{{
+let vimPlugNOTInstalled=1
+let vimPlugURI='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if has('win32') || has('win64')
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
+
+    let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
+    if !filereadable(vimplugpath)
+        echo "Installing vim-plug.."
+        echo ""
+        silent :exe '!mkdir -p ' . $HOME .'\.vim\autoload'
+        silent :exe "!powershell -command \"(New-Object Net.WebClient).DownloadFile(\\\"" . vimPlugURI . "\\\", \\\"" . vimplugpath . "\\\")\""
+        let vimPlugNOTInstalled=0
+    endif
+else
+    let vimplugpath=expand('~/.vim/autoload/plug.vim')
+    if !filereadable(vimplugpath)
+        echo "Installing vim-plug.."
+        echo ""
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        let vimPlugNOTInstalled=0
+    endif
+endif"}}}
+" Plugins " {{{
+filetype off
+call plug#begin()
+" Plug 'LustyJuggler'
+" Plug 'garbas/vim-snipmate'
+" Plug 'gmarik/snipmate.vim'
+" Plug 'rking/ag'
+" Plug 'snipmate'
+" Plug 'svermeulen/vim-easyclip'
+" Plug 'vim-scripts/hexman'
+Plug 'Align'
+Plug 'Shell.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'LaTeX-Box'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'StanAngeloff/php.vim'
+Plug 'Townk/vim-autoclose'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-bufferline'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'burnettk/vim-angular'
+Plug 'chase/vim-ansible-yaml'
+Plug 'chrisbra/csv.vim'
+Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
+Plug 'claco/jasmine.vim'
+Plug 'davidoc/taskpaper.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'evidens/vim-twig'
+Plug 'freitass/todo.txt-vim'
+Plug 'fugitive.vim'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/gitv'
+Plug 'groenewege/vim-less'
+Plug 'haya14busa/incsearch.vim'
+Plug 'honza/vim-snippets'
+Plug 'https://github.com/mattn/gist-vim'
+Plug 'jQuery'
+Plug 'jplaut/vim-arduino-ino'
+Plug 'kien/ctrlp.vim'
+Plug 'leshill/vim-json'
+Plug 'lukaszb/vim-web-indent'
+Plug 'majutsushi/tagbar'
+Plug 'markcornick/vim-vagrant'
+Plug 'matthewsimo/angular-vim-snippets'
+Plug 'mattn/emmet-vim'
+Plug 'mbbill/undotree'
+Plug 'mhinz/vim-hugefile'
+Plug 'mivok/vimtodo'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'myhere/vim-nodejs-complete'
+Plug 'myint/syntastic-extras'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'python_fold_compact'
+Plug 'ragtag.vim'
+Plug 'rodjek/vim-puppet'
+Plug 'scrooloose/snipmate-snippets'
+Plug 'scrooloose/syntastic'
+Plug 'spf13/PIV'
+Plug 'spf13/vim-preview'
+Plug 'thinca/vim-poslist'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/DrawIt'
+Plug 'vim-scripts/VOoM'
+Plug 'vim-scripts/autohotkey-ahk'
+" Plug 'vim-scripts/hexman'
+Plug 'https://github.com/mattn/gist-vim'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'mtth/scratch.vim'
+
+if has('win32') || has('win64')
+    Plug 'powerline/fonts', { 'do': './install.ps1' }
+else
+    Plug 'powerline/fonts', { 'do': './install.sh' }
+endif
+call plug#end()
+
+" *TODO* Figure out how to get YouCompleteMe working
+
+if !vimPlugNOTInstalled
+    PlugUpdate
+endif
+
+" " }}}
 " General "{{{
 set nocompatible  " disable vi compatibility.
 set autowrite  " Writes on make/shell commands
@@ -24,7 +153,7 @@ set ignorecase  " Do case in sensitive matching with
 set smartcase       " be sensitive when there's a capital letter
 " "}}}
 " Formatting "{{{
-set fo+=o " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set fo-=o " Do not automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
 set fo-=r " Do not automatically insert a comment leader after an enter
 set fo-=t " Do no auto-wrap text using textwidth (does not apply to comments)
 
@@ -162,135 +291,6 @@ map <F3> :Git push<CR>
 
 " generate HTML version current buffer using current color scheme
 map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
-" " }}}
-" Setting up vim plug"{{{
-let vimPlugNOTInstalled=1
-let vimPlugURI='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
-
-    let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
-    if !filereadable(vimplugpath)
-        echo "Installing vim-plug.."
-        echo ""
-        silent :exe '!mkdir -p ' . $HOME .'\.vim\autoload'
-        silent :exe "!powershell -command \"(New-Object Net.WebClient).DownloadFile(\\\"" . vimPlugURI . "\\\", \\\"" . vimplugpath . "\\\")\""
-        let vimPlugNOTInstalled=0
-    endif
-else
-    let vimplugpath=expand('~/.vim/autoload/plug.vim')
-    if !filereadable(vimplugpath)
-        echo "Installing vim-plug.."
-        echo ""
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        let vimPlugNOTInstalled=0
-    endif
-endif"}}}
-" Plugins " {{{
-filetype off
-call plug#begin()
-" Plug 'LustyJuggler'
-" Plug 'garbas/vim-snipmate'
-" Plug 'gmarik/snipmate.vim'
-" Plug 'rking/ag'
-" Plug 'snipmate'
-" Plug 'svermeulen/vim-easyclip'
-" Plug 'vim-scripts/hexman'
-Plug 'Align'
-Plug 'Shell.vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'LaTeX-Box'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'Matt-Deacalion/vim-systemd-syntax'
-Plug 'Raimondi/delimitMate'
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'StanAngeloff/php.vim'
-Plug 'Townk/vim-autoclose'
-Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
-Plug 'bling/vim-bufferline'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'burnettk/vim-angular'
-Plug 'chase/vim-ansible-yaml'
-Plug 'chrisbra/csv.vim'
-Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
-Plug 'claco/jasmine.vim'
-Plug 'davidoc/taskpaper.vim'
-Plug 'digitaltoad/vim-jade'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'evidens/vim-twig'
-Plug 'freitass/todo.txt-vim'
-Plug 'fugitive.vim'
-Plug 'godlygeek/tabular'
-Plug 'gregsexton/gitv'
-Plug 'groenewege/vim-less'
-Plug 'haya14busa/incsearch.vim'
-Plug 'honza/vim-snippets'
-Plug 'https://github.com/mattn/gist-vim'
-Plug 'jQuery'
-Plug 'jplaut/vim-arduino-ino'
-Plug 'kien/ctrlp.vim'
-Plug 'leshill/vim-json'
-Plug 'lukaszb/vim-web-indent'
-Plug 'majutsushi/tagbar'
-Plug 'markcornick/vim-vagrant'
-Plug 'matthewsimo/angular-vim-snippets'
-Plug 'mattn/emmet-vim'
-Plug 'mbbill/undotree'
-Plug 'mhinz/vim-hugefile'
-Plug 'mivok/vimtodo'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'myhere/vim-nodejs-complete'
-Plug 'myint/syntastic-extras'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
-Plug 'python_fold_compact'
-Plug 'ragtag.vim'
-Plug 'rodjek/vim-puppet'
-Plug 'scrooloose/snipmate-snippets'
-Plug 'scrooloose/syntastic'
-Plug 'spf13/PIV'
-Plug 'spf13/vim-preview'
-Plug 'thinca/vim-poslist'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/DrawIt'
-Plug 'vim-scripts/VOoM'
-Plug 'vim-scripts/autohotkey-ahk'
-" Plug 'vim-scripts/hexman'
-Plug 'https://github.com/mattn/gist-vim'
-Plug 'jtratner/vim-flavored-markdown'
-Plug 'puppetlabs/puppet-syntax-vim'
-Plug 'mtth/scratch.vim'
-
-if has('win32') || has('win64')
-    Plug 'powerline/fonts', { 'do': './install.ps1' }
-else
-    Plug 'powerline/fonts', { 'do': './install.sh' }
-endif
-call plug#end()
-
-" *TODO* Figure out how to get YouCompleteMe working
-
-if !vimPlugNOTInstalled
-    PlugUpdate
-endif
-
 " " }}}
 " Plugin Config " {{{
 

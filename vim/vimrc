@@ -33,12 +33,12 @@ call plug#begin()
 " Plug 'svermeulen/vim-easyclip'
 " Plug 'vim-scripts/hexman'
 Plug 'Align'
-Plug 'Shell.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'LaTeX-Box'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'Raimondi/delimitMate'
+Plug 'Shell.vim'
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -67,8 +67,10 @@ Plug 'groenewege/vim-less'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/mattn/gist-vim'
+Plug 'https://github.com/mattn/gist-vim'
 Plug 'jQuery'
 Plug 'jplaut/vim-arduino-ino'
+Plug 'jtratner/vim-flavored-markdown'
 Plug 'kien/ctrlp.vim'
 Plug 'leshill/vim-json'
 Plug 'lukaszb/vim-web-indent'
@@ -79,6 +81,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-hugefile'
 Plug 'mivok/vimtodo'
+Plug 'mtth/scratch.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'myhere/vim-nodejs-complete'
 Plug 'myint/syntastic-extras'
@@ -86,8 +89,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
+Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'python_fold_compact'
-Plug 'ragtag.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/snipmate-snippets'
 Plug 'scrooloose/syntastic'
@@ -96,23 +99,23 @@ Plug 'spf13/vim-preview'
 Plug 'thinca/vim-poslist'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/DrawIt'
 Plug 'vim-scripts/VOoM'
 Plug 'vim-scripts/autohotkey-ahk'
-" Plug 'vim-scripts/hexman'
-Plug 'https://github.com/mattn/gist-vim'
-Plug 'jtratner/vim-flavored-markdown'
-Plug 'puppetlabs/puppet-syntax-vim'
-Plug 'mtth/scratch.vim'
 
 if has('win32') || has('win64')
     Plug 'powerline/fonts', { 'do': './install.ps1' }
@@ -214,7 +217,6 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=rub
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
 au BufRead,BufNewFile {*.taskpaper}                                   set ft=taskpaper
 au BufRead,BufNewFile {*.less}                                        set ft=less
-au BufRead,BufNewFile {*.html}                                        set ft=twig
 au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
 au BufRead,BufNewFile *.pde                                           set filetype=arduino
 au BufRead,BufNewFile *.ino                                           set filetype=arduino
@@ -239,6 +241,7 @@ let mapleader = ","
 let maplocalleader = ","
 if has('win32') || has('win64')
     set directory=.,$TEMP " Swap file support for windows.
+    set vimrcpath = 
     nnoremap <silent> <LocalLeader>vs :source $HOME/_vimrc<CR>
     nnoremap <silent> <LocalLeader>vt :tabnew $HOME/_vimrc<CR>
     nnoremap <silent> <LocalLeader>ve :e $HOME/_vimrc<CR>
@@ -256,7 +259,6 @@ else
 endif
 
 nnoremap <silent> <LocalLeader><Space> :noh<CR>
-nnoremap <silent> <Space>b :LustyJuggler<CR>
 
 " Buffer maps
 "" Close buffer without closing split

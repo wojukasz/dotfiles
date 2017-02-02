@@ -184,7 +184,8 @@ let g:PHP_default_indenting = 1
 let g:PHP_vintage_case_default_indent = 1
 " "}}}
 " Visual "{{{
-set number  " Line numbers off
+set number  " Line numbers on
+set relativenumber " and relative numbering too!
 set showmatch  " Show matching brackets.
 set matchtime=5  " Bracket blinking.
 set novisualbell  " No blinking

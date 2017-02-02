@@ -39,3 +39,4 @@ subversion/README.txt
 subversion/auth/*
 task/task/*.data
 vim/dotvim/bundle/*
+vim/dotvim/plugged/*

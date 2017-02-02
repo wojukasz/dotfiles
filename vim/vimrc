@@ -237,7 +237,7 @@ if has("gui_running")
 endif
 " }}}
 " Key mappings " {{{
-let mapleader = ","
+let mapleader = "\<Space>"
 let maplocalleader = ","
 if has('win32') || has('win64')
     let directory=.,$TEMP " Swap file support for windows.

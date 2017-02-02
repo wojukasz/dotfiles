@@ -156,9 +156,9 @@ inoremap <C-S> <C-O>:update<CR>
 " show/Hide hidden Chars
 map <silent> <F12> :set invlist<CR>
 
-map <F1> :Gwrite
-map <F2> :Gcommit
-map <F3> :Git push
+map <F1> :Gwrite<CR>
+map <F2> :Gcommit<CR>
+map <F3> :Git push<CR>
 
 " generate HTML version current buffer using current color scheme
 map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>

@@ -296,6 +296,10 @@ map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
 " Expand region mappings for terryma/vim-expand-region plugin.
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" Jump around using enter and backspace instead of g
+nnoremap <CR> G
+nnoremap <BS> gg
 " " }}}
 " Plugin Config " {{{
 

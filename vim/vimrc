@@ -66,7 +66,6 @@ Plug 'groenewege/vim-less'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/mattn/gist-vim'
-Plug 'https://github.com/mattn/gist-vim'
 Plug 'jQuery'
 Plug 'jplaut/vim-arduino-ino'
 Plug 'jtratner/vim-flavored-markdown'
@@ -95,6 +94,7 @@ Plug 'scrooloose/snipmate-snippets'
 Plug 'scrooloose/syntastic'
 Plug 'spf13/PIV'
 Plug 'spf13/vim-preview'
+Plug 'terryma/vim-expand-region'
 Plug 'thinca/vim-poslist'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-cucumber'
@@ -292,6 +292,10 @@ map <F3> :Git push<CR>
 
 " generate HTML version current buffer using current color scheme
 map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
+
+" Expand region mappings for terryma/vim-expand-region plugin.
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 " " }}}
 " Plugin Config " {{{
 

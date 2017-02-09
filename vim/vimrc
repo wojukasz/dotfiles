@@ -323,7 +323,8 @@ if v:version > 701
 endif
 " let g:goldenview__enable_default_mapping=0
 
-let g:syntastic_puppet_checkers = ['puppetlint']
+let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
+let g:syntastic_aggregate_errors = 1
 
 
 filetype plugin indent on

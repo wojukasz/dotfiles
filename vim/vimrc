@@ -324,6 +324,7 @@ endif
 " let g:goldenview__enable_default_mapping=0
 
 let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
+let g:syntastic_puppet_puppet_args = "--parser future"
 let g:syntastic_aggregate_errors = 1
 
 

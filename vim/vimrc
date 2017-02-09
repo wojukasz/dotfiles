@@ -356,6 +356,7 @@ comm! W exec 'w !sudo tee % > /dev/null' | e!
 
 " Auto commands " {{{
 
+au FileType puppet setlocal tabstop=8 expandtab shiftwidth=2 softtabstop=2
 au BufRead,BufNewFile {*.php}                                         set ft=php
 " au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby

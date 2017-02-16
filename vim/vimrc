@@ -188,6 +188,11 @@ let g:PHP_removeCRwhenUnix = 1
 let g:PHP_outdentSLComments = 1
 let g:PHP_default_indenting = 1
 let g:PHP_vintage_case_default_indent = 1
+
+" Stop VIM hiding the quote marks in JSON files:
+set conceallevel=0
+let g:vim_json_syntax_conceal=0
+
 " "}}}
 " Visual "{{{
 set number  " Line numbers on

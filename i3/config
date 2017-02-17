@@ -180,6 +180,6 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 # autostart
 exec --no-startup-id twmnd
 exec --no-startup-id slack
-exec --no-startup-id google-chrome
+exec --no-startup-id google-chrome-stable
 exec --no-startup-id termite
 

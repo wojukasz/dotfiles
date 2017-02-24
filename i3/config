@@ -174,8 +174,8 @@ bindsym $mod+Delete mode "$mode_system"
 ##bindsym Mod4+Mod1+l exec i3lock -f -i `/home/alan/Pictures/lockscreens/random.sh` -c 1f67b3
 bindsym Mod4+Mod1+l exec xscreensaver-command --lock
 bindsym Mod4+Mod1+c exec shutter
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # autostart

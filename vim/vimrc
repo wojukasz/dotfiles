@@ -74,6 +74,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/mattn/gist-vim'
 Plug 'jQuery'
+Plug 'jbnicolai/vim-AnsiEsc'
 Plug 'jplaut/vim-arduino-ino'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'kien/ctrlp.vim'
@@ -327,7 +328,7 @@ let g:LargeFile=1
 " noremap <C-W>+o :ZoomWin<CR>
 
 " vim-airline
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 if v:version > 701

@@ -110,6 +110,7 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
@@ -379,6 +380,7 @@ au BufRead,BufNewFile {*.taskpaper}                                   set ft=tas
 au BufRead,BufNewFile {*.less}                                        set ft=less
 au BufRead,BufNewFile {*.html}                                        set ft=html
 au BufRead,BufNewFile {*.jade}                                        set ft=jade
+au BufRead,BufNewFile {*.tick}                                        :AnsiEsc
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
 
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file

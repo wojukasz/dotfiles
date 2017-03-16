@@ -44,3 +44,4 @@ vim/dotvim/.netrwhist
 vim/dotvim/autoload/*
 vim/dotvim/spell/*
 bin/_vpn-bash_completion.sh
+systemd/user/default.target.wants/*

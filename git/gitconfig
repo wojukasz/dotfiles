@@ -9,7 +9,7 @@
 
 # Global Config
 [user]
-	email = alan.james.jenkins@gmail.com
+	email = alan.jenkins@bashton.com
 	name = Alan Jenkins
     #signingkey = **Your GPG ID**
 
@@ -149,3 +149,5 @@
 [user]
 	name = Alan James Jenkins
 	email = alan.james.jenkins@gmail.com
+[pull]
+	rebase = true

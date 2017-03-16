@@ -40,3 +40,4 @@ subversion/auth/*
 task/task/*.data
 vim/dotvim/bundle/*
 vim/dotvim/plugged/*
+vim/dotvim/.netrwhist

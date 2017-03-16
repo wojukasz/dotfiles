@@ -84,6 +84,7 @@ Plug 'matthewsimo/angular-vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-hugefile'
+Plug 'mileszs/ack.vim'
 Plug 'mivok/vimtodo'
 Plug 'mtth/scratch.vim'
 Plug 'mustache/vim-mustache-handlebars'
@@ -93,7 +94,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'python_fold_compact'
-Plug 'rking/ag'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/snipmate-snippets'
 Plug 'spf13/PIV'
@@ -341,6 +341,10 @@ let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
 let g:syntastic_puppet_puppet_args = "--parser future"
 let g:syntastic_aggregate_errors = 1
 
+" ack.vim
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 filetype plugin indent on
 "}}}

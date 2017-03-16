@@ -12,11 +12,19 @@ general {
 }
 
 order += "disk /"
-order += "ethernet eth0"
+order += "ethernet wlp58s0"
 order += "load"
+order += "battery 0"
 order += "tztime local"
 
-ethernet eth0 {
+battery 0 {
+        format = "%status %remaining (%emptytime %consumption)"
+        status_chr = "CHR"
+        status_bat = "BAT"
+        low_threshold = 30
+}
+
+ethernet wlp58s0 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip"
         format_down = "E: down"
@@ -27,7 +35,7 @@ battery 0 {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%A, %Y-%m-%d %H:%M:%S"
 }
 
 load {

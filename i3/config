@@ -176,6 +176,9 @@ bindsym $mod+KP_Add exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -R
 bindsym $mod+KP_Subtract exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
 bindsym $mod+KP_Multiply exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
+# Keepass autotype shortcut:
+bindsym $mod+Shift+a exec "keepass -auto-type-selected"
+
 # launcher shortcuts
 bindsym Mod4+Mod1+l exec xscreensaver-command --lock
 bindsym Mod4+Mod1+c exec shutter

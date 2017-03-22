@@ -2,6 +2,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="vim"
 export HISTCONTROL=ignoredups:ignorespace
 export PATH="$PATH:/home/alan/go/bin"
+export PATH="$PATH:/home/alan/git/tfenv/bin"
 export GOPATH="/home/alan/go"
 source ~/bin/_vpn-bash_completion.sh
 source /home/alan/git/bashton-my-aws/functions # bashton-my-aws

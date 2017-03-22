@@ -176,6 +176,10 @@ bindsym $mod+KP_Add exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -R
 bindsym $mod+KP_Subtract exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
 bindsym $mod+KP_Multiply exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
+# Move workspace shortcuts
+bindsym $mod+Shift+Mod1+Left move workspace to output left
+bindsym $mod+Shift+Mod1+Right move workspace to output right
+
 # Keepass autotype shortcut:
 bindsym $mod+Shift+a exec "keepass -auto-type-selected"
 

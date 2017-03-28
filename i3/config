@@ -168,6 +168,18 @@ mode "$mode_system" {
 }
 bindsym $mod+Delete mode "$mode_system"
 
+set $mode_monitor System (w) work, (h) home, (l) laptop
+mode "$mode_monitor" {
+    bindsym w exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --mode 3840x2160 --right-of eDP1
+    bindsym h exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --mode 3840x2160 --right-of eDP1
+    bindsym l exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --off
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+Mod1+m mode "$mode_monitor"
+
 # Volume control shortcuts
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
@@ -175,6 +187,10 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blo
 bindsym $mod+KP_Add exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
 bindsym $mod+KP_Subtract exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
 bindsym $mod+KP_Multiply exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+
+# Brightness control shortcuts
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 2
 
 # Move workspace shortcuts
 bindsym $mod+Shift+Mod1+Left move workspace to output left
@@ -191,7 +207,8 @@ bindsym $mod+g exec i3finder -a move
 bindsym $mod+b exec i3finder -a back
 
 # autostart
-exec --no-startup-id xscreensaver -no-startup
+#exec --no-startup-id xscreensaver -no-startup
+exec --no-startup-id xmodmap ~/.config/xmodmap/config
 #exec --no-startup-id twmnd
 # exec --no-startup-id xfce
 exec --no-startup-id nm-applet
@@ -199,3 +216,8 @@ exec --no-startup-id slack
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id termite
 
+
+# Window tweaks
+## Google Chrome
+for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
+for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable

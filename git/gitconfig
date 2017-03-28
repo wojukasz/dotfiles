@@ -9,7 +9,7 @@
 
 # Global Config
 [user]
-    email = alan.jenkins@bashton.com
+    email = alan.jenkins@claranet.uk
     name = Alan Jenkins
     #signingkey = **Your GPG ID**
 

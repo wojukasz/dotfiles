@@ -3,6 +3,7 @@ export EDITOR="vim"
 export HISTCONTROL=ignoredups:ignorespace
 export PATH="$PATH:/home/alan/go/bin"
 export PATH="$PATH:/home/alan/git/tfenv/bin"
+export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
 export GOPATH="/home/alan/go"
 source ~/bin/_vpn-bash_completion.sh
 source /home/alan/git/bashton-my-aws/functions # bashton-my-aws

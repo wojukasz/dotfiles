@@ -48,6 +48,7 @@ input/inputrc
 mysql/my.cnf
 #ncmpcpp/config
 #ncmpcpp/error.log
+obs-studio:.config/obs-studio
 omf:.config/omf
 #postgresql/psqlrc
 python/pythonrc

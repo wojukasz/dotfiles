@@ -31,6 +31,10 @@ mutt/cache/*
 mutt/certificates
 mutt/mailboxes.*
 mutt/smime/*
+obs-studio/logs/*
+obs-studio/profiler_data/*
+obs-studio/basic/profiles/Untitled/service.json
+obs-studio/basic/profiles/Untitled/service.json.bak
 ssh/environment*
 ssh/id*
 ssh/known_hosts

@@ -170,7 +170,7 @@ bindsym $mod+Delete mode "$mode_system"
 
 set $mode_monitor System (w) work, (h) home, (l) laptop
 mode "$mode_monitor" {
-    bindsym w exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --mode 3840x2160 --right-of eDP1 && i3-msg "workspace 2; move workspace to DP1; workspace 3; move workspace to DP1; workspace 10; move workspace to DP1;"
+    bindsym w exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --mode 3840x2160 --right-of eDP1
     bindsym h exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --auto --right-of eDP1
     bindsym l exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --off
 

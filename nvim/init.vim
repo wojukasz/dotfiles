@@ -3,28 +3,28 @@
 let vimPlugNOTInstalled=1
 let vimPlugURI='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
+    set runtimepath=$HOME/.config/nvim/,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
 
-    let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
+    let vimplugpath=expand('$HOME/.config/nvim/autoload/plug.vim')
     if !filereadable(vimplugpath)
         echo "Installing vim-plug.."
         echo ""
-        silent :exe '!mkdir -p ' . $HOME .'\.vim\autoload'
+        silent :exe '!mkdir -p ' . $HOME .'\.config\nvim\autoload'
         silent :exe "!powershell -command \"(New-Object Net.WebClient).DownloadFile(\\\"" . vimPlugURI . "\\\", \\\"" . vimplugpath . "\\\")\""
         let vimPlugNOTInstalled=0
     endif
 else
-    let vimplugpath=expand('~/.vim/autoload/plug.vim')
+    let vimplugpath=expand('~/.config/nvim/autoload/plug.vim')
     if !filereadable(vimplugpath)
         echo "Installing vim-plug.."
         echo ""
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         let vimPlugNOTInstalled=0
     endif
 endif"}}}
 " Plugins " {{{
 filetype off
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 " Plug 'LustyJuggler'
 " Plug 'Raimondi/delimitMate'
 " Plug 'Townk/vim-autoclose'
@@ -268,11 +268,10 @@ if has('win32') || has('win64')
     nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
     nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 else
-    let vimrcpath = $HOME . "/git/dotphiles/vim/vimrc"
-    nnoremap <silent> <LocalLeader>vs :source ~/git/dotphiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotphiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>ve :e ~/git/dotphiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
+    nnoremap <silent> <LocalLeader>vs :source ~/git/dotphiles/nvim/init.vim<CR>
+    nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotphiles/nvim/init.vim<CR>
+    nnoremap <silent> <LocalLeader>ve :e ~/git/dotphiles/nvim/init.vim<CR>
+    nnoremap <silent> <LocalLeader>vd :e ~/.config/nvim/ <CR>
     nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo.txt<CR>
     nnoremap <silent> <LocalLeader>tn :e ~/todo.txt<CR>
     " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>

@@ -225,12 +225,12 @@ bindsym $mod+g exec i3finder -a move
 bindsym $mod+b exec i3finder -a back
 
 # autostart
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec /usr/bin/slack
 exec /usr/bin/termite
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/keepass
 exec nm-applet
-exec --no-startup-id xmodmap ~/.config/xmodmap/config
 
 # Set window classes per workspace
 assign [class="^Slack$"] → 1

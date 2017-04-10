@@ -79,7 +79,6 @@ vim/vimrc
 vim/gvimrc
 wget/wgetrc
 Xdefaults
-xmodmap:.config/xmodmap
 #zsh/fasdrc
 #zsh/dotzsh:.zsh
 #zsh/zlogin

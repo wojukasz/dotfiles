@@ -51,6 +51,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'bashton-ajenkins/ultisnips-terraform-snippets'
 Plug 'bling/vim-bufferline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'burnettk/vim-angular'

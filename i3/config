@@ -185,11 +185,11 @@ bindsym Hyper+m exec --no-startup-id i3-msg "workspace 2; move workspace to DP1;
 set $mode_screenshot Active window to clipboard (a), Active window to file (A), Screen to clipboard (s), Screen to file (S), Selected rectangle to clipboard (r), Selected rectangle to file (R)
 mode "$mode_screenshot" {
     bindsym a exec --no-startup-id maim -i$(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-    bindsym A exec --no-startup-id maim -i$(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png
+    bindsym Shift+a exec --no-startup-id maim -i$(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png
     bindsym s exec --no-startup-id maim | xclip -selection clipboard -t image/png
-    bindsym S exec --no-startup-id maim ~/Pictures/screenshots/$(date +%s).png
+    bindsym Shift+s exec --no-startup-id maim ~/Pictures/screenshots/$(date +%s).png
     bindsym r exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-    bindsym R exec --no-startup-id maim -s ~/Pictures/screenshots/$(date +%s).png
+    bindsym Shift+r exec --no-startup-id maim -s ~/Pictures/screenshots/$(date +%s).png
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

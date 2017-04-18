@@ -101,7 +101,7 @@ zstyle ':dotzsh:module:ssh:agent' forwarding 'yes'
 # Set default theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':dotzsh:module:theme' theme 'dotphiles'
+zstyle ':dotzsh:module:theme' theme 'minimal'
 ### Set custom theme based on hostname or domain
 # zstyle ':dotzsh:module:theme:hostname:your-host-here' theme 'dotphiles' 'soldark' 'magenta'
 # zstyle ':dotzsh:module:theme:hostname:your-other-host-here' theme 'dotphiles' 'soldark' 'violet'
@@ -112,3 +112,26 @@ source "$DOTZSH/init.zsh"
 
 ### Customize to your needs...
 
+alias jctlw="sudo journalctl -u wpa_supplicant@wlp58s0"
+alias key1="ssh-add ~/.ssh/id_rsa"
+alias key="ssh-add ~/.ssh/id_ed25519"
+alias keyb="ssh-add ~/.ssh/id_bashton"
+alias keyp="ssh-add ~/.ssh/id_personal"
+alias keypo="ssh-add ~/.ssh/id_personal_old"
+alias rewifi="sudo systemctl restart wpa_supplicant@wlp58s0"
+alias sleep="i3lock && sudo systemctl suspend"
+alias snowrep="~/git/bashton-servicenow/reports.py"
+alias snowtick="~/git/bashton-servicenow/view-ticket.py"
+alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
+alias tf="terraform"
+
+export EDITOR="vim"
+export GOPATH="/home/alan/go"
+export HISTCONTROL=ignoredups:ignorespace
+export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:/home/alan/git/tfenv/bin"
+export PATH="$PATH:/home/alan/go/bin"
+
+source /home/alan/git/bashton-my-aws/functions # bashton-my-aws
+source /home/alan/git/bashton-sshuttle/sshuttle-vpn # bashton-sshuttle
+source /usr/share/git/completion/git-completion.zsh

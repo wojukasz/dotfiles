@@ -1,6 +1,5 @@
 alias jctlw="sudo journalctl -u wpa_supplicant@wlp58s0"
-alias key1="ssh-add ~/.ssh/id_rsa"
-alias key="ssh-add ~/.ssh/id_ed25519"
+alias key="ssh-add ~/.ssh/id_rsa"
 alias keyb="ssh-add ~/.ssh/id_bashton"
 alias keyp="ssh-add ~/.ssh/id_personal"
 alias keypo="ssh-add ~/.ssh/id_personal_old"
@@ -10,6 +9,10 @@ alias snowrep="~/git/bashton-servicenow/reports.py"
 alias snowtick="~/git/bashton-servicenow/view-ticket.py"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
+
+alias sdo="cd ~/git/superdry/osaka"
+alias sdl="cd ~/git/superdry/laguna"
+alias misg="cd ~/git/missguided/realgit/"
 
 export EDITOR="vim"
 export GOPATH="/home/alan/go"

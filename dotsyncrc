@@ -8,7 +8,7 @@
 #
 
 # Location of your dotfiles in $HOME
-DOTFILES=git/dotphiles
+DOTFILES=git/dotfiles
 
 # dotfiles to symlink
 #

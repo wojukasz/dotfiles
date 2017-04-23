@@ -271,10 +271,10 @@ if has('win32') || has('win64')
     nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
     nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 else
-    let vimrcpath = $HOME . "/git/dotphiles/vim/vimrc"
-    nnoremap <silent> <LocalLeader>vs :source ~/git/dotphiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotphiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>ve :e ~/git/dotphiles/vim/vimrc<CR>
+    let vimrcpath = $HOME . "/git/dotfiles/vim/vimrc"
+    nnoremap <silent> <LocalLeader>vs :source ~/git/dotfiles/vim/vimrc<CR>
+    nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotfiles/vim/vimrc<CR>
+    nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
     nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo.txt<CR>
     nnoremap <silent> <LocalLeader>tn :e ~/todo.txt<CR>

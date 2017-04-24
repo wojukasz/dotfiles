@@ -245,6 +245,7 @@ au BufRead,BufNewFile {*.tex}                                         nnoremap <
 au BufRead,BufNewFile *.pde                                           set filetype=arduino
 au BufRead,BufNewFile *.ino                                           set filetype=arduino
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set complete=.,w,b,u,t,kspell
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 " " }}}

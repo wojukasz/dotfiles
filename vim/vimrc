@@ -238,13 +238,14 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=mar
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set wrap
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set spell
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set complete=.,w,b,u,t,kspell
 au BufRead,BufNewFile {*.taskpaper}                                   set ft=taskpaper
 au BufRead,BufNewFile {*.less}                                        set ft=less
 au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
 au BufRead,BufNewFile *.pde                                           set filetype=arduino
 au BufRead,BufNewFile *.ino                                           set filetype=arduino
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
-
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                set complete=.,w,b,u,t,kspell
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 " " }}}
 " GUI Fonts " {{{

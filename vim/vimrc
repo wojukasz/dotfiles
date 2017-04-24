@@ -327,6 +327,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " nnoremap <BS> gg
 " " }}}
 " Plugin Config " {{{
+" ale linters
+let g:ale_linters = {'gitcommit': ['proselint']}
+" Yankring settings
 
 let g:yankring_history_dir = $HOME.'/.vim/'
 let g:yankring_history_file = '.yankring_history'

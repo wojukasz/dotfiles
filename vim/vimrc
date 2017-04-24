@@ -385,6 +385,11 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
 colorscheme solarized8_dark_high
+
+" cursor will change color depending on vim mode in use
+let &t_SI = "\<Esc>]12;yellow\x7"
+let &t_SR = "\<Esc>]12;red\x7"
+let &t_EI = "\<Esc>]12;green\x7"
 "}}}
 " Command and Auto commands " {{{
 " Sudo write

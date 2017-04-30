@@ -28,6 +28,7 @@ call plug#begin()
 " Plug 'LustyJuggler'
 " Plug 'Raimondi/delimitMate'
 " Plug 'Townk/vim-autoclose'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer --racer-completer' }
 " Plug 'garbas/vim-snipmate'
 " Plug 'gmarik/snipmate.vim'
 " Plug 'myint/syntastic-extras'
@@ -47,9 +48,9 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'StanAngeloff/php.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer --racer-completer' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'ajh17/VimCompletesMe',
 Plug 'altercation/vim-colors-solarized'
 Plug 'bashton-ajenkins/ultisnips-terraform-snippets'
 Plug 'bling/vim-bufferline'
@@ -75,6 +76,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/mattn/gist-vim'
+Plug 'int3/vim-extradite',
 Plug 'jQuery'
 Plug 'jbnicolai/vim-AnsiEsc'
 Plug 'jnurmine/Zenburn'

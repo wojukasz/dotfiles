@@ -10,6 +10,7 @@ alias snowtick="~/git/bashton-servicenow/view-ticket.py"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 
+alias cdot="cd ~/git/dotfiles/"
 alias sdo="cd ~/git/superdry/osaka"
 alias sdl="cd ~/git/superdry/laguna"
 alias misg="cd ~/git/missguided/realgit/"

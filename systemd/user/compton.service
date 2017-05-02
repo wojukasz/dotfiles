@@ -1,0 +1,12 @@
+[Unit]
+Description=Compton compositing manager.
+
+[Service]
+ExecStart=/usr/bin/compton
+Type=simple
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=environment.target
+

@@ -87,6 +87,7 @@ vim/dotvim:.vim
 vim/gvimrc
 vim/vimrc
 wget/wgetrc
+xscreensaver
 [endfiles]
 
 # Hosts to sync

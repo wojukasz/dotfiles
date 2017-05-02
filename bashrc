@@ -10,11 +10,11 @@ alias snowtick="~/git/bashton-servicenow/view-ticket.py"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 
-alias cdot="cd ~/git/dotfiles/"
 alias cdg="cd ~/git/"
-alias sdo="cd ~/git/superdry/osaka"
-alias sdl="cd ~/git/superdry/laguna"
+alias cdot="cd ~/git/dotfiles/"
 alias misg="cd ~/git/missguided/realgit/"
+alias sdl="cd ~/git/superdry/laguna"
+alias sdo="cd ~/git/superdry/osaka"
 
 export EDITOR="vim"
 export GOPATH="/home/alan/go"
@@ -22,6 +22,7 @@ export HISTCONTROL=ignoredups:ignorespace
 export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
 export PATH="$PATH:/home/alan/git/tfenv/bin"
 export PATH="$PATH:/home/alan/go/bin"
+export PATH="$PATH:/home/alan/bin"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 source /home/alan/git/bashton-my-aws/functions # bashton-my-aws

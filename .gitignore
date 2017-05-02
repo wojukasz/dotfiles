@@ -35,6 +35,7 @@ obs-studio/logs/*
 obs-studio/profiler_data/*
 obs-studio/basic/profiles/Untitled/service.json
 obs-studio/basic/profiles/Untitled/service.json.bak
+ssh/authorized_keys
 ssh/environment*
 ssh/id*
 ssh/known_hosts

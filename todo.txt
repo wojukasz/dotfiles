@@ -1,7 +1,1 @@
-Fix these vim plugins:
-[vim-plug] Invalid argument: Align (implicit `vim-scripts' expansion is deprecated)
-[vim-plug] Invalid argument: LaTeX-Box (implicit `vim-scripts' expansion is deprecated)
-[vim-plug] Invalid argument: Shell.vim (implicit `vim-scripts' expansion is deprecated)
-[vim-plug] Invalid argument: jQuery (implicit `vim-scripts' expansion is deprecated)
-[vim-plug] Invalid argument: python_fold_compact (implicit `vim-scripts' expansion is deprecated)
-
+* Improve the TMUX config.

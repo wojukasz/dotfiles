@@ -10,7 +10,7 @@ alias snowtick="~/git/bashton-servicenow/view-ticket.py"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 
-alias awsconsole="~/git/awsconsole/awsconsole"
+alias awsconsole="~/git/awsconsole/awsconsole -b google-chrome-stable"
 alias cdg="cd ~/git/"
 alias cdot="cd ~/git/dotfiles/"
 alias misg="cd ~/git/missguided/realgit/"

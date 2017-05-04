@@ -226,7 +226,7 @@ set foldmethod=marker " Fold on the marker
 set foldlevel=0 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-"set mouse-=a   " Disable mouse
+set mouse=a   " Enable mouse
 set mousehide  " Hide mouse after chars typed
 
 set splitbelow

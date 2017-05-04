@@ -81,6 +81,7 @@ ssh
 systemd:.config/systemd
 termite:.config/termite
 tmux/tmux.conf
+tmux/dottmux:.tmux
 tmux/tmuxinator
 uzbl:.config/uzbl
 vim/dotvim:.vim

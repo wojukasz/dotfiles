@@ -78,7 +78,7 @@ obs-studio:.config/obs-studio
 omf:.config/omf
 python/pylintrc
 python/pythonrc
-ssh
+ssh/config:.ssh/config
 systemd:.config/systemd
 termite:.config/termite
 tmux/tmux.conf

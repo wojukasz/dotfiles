@@ -230,7 +230,7 @@ exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec /usr/bin/slack
 exec /home/alan/bin/st -e tmux a
 exec /usr/bin/google-chrome-stable
-exec /usr/bin/keepass
+exec /usr/bin/keepass ~/bashton.kdbx
 exec nm-applet
 
 # Set window classes per workspace

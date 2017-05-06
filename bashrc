@@ -27,8 +27,22 @@ export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
 export PATH="$PATH:/home/alan/git/tfenv/bin"
 export PATH="$PATH:/home/alan/go/bin"
 export PATH="$PATH:/home/alan/bin"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-source /home/alan/git/bashton-my-aws/functions # bashton-my-aws
-source /home/alan/git/bashton-sshuttle/sshuttle-vpn # bashton-sshuttle
-source /usr/share/git/completion/git-completion.bash
+if [ -z "$SSH_AUTH_SOCK" ];
+then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
+SOURCE_FILES=(
+    /home/alan/git/bashton-my-aws/functions
+    /home/alan/git/bashton-sshuttle/sshuttle-vpn
+    /usr/share/git/completion/git-completion.bash
+)
+
+for FILE in "${SOURCE_FILES[@]}";
+do
+    if [ -e "$FILE" ];
+    then
+        source "$FILE"
+    fi
+done

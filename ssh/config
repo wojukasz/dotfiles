@@ -12,7 +12,7 @@ ForwardAgent yes
 #VisualHostKey yes
 HashKnownHosts no
 #ConnectTimeout 2
-IdentitiesOnly yes
+#IdentitiesOnly yes
 
 # My Hosts
 #Host hostname hostname.fqdn.com

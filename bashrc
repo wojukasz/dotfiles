@@ -6,6 +6,7 @@ alias jctlw="sudo journalctl -u wpa_supplicant@wlp58s0"
 alias key="ssh-add ~/.ssh/id_rsa"
 alias keyb="ssh-add ~/.ssh/id_bashton"
 alias keyp="ssh-add ~/.ssh/id_personal"
+alias keypa="ssh-add ~/.ssh/id_alan-aws"
 alias keypo="ssh-add ~/.ssh/id_personal_old"
 alias ll='ls --color=always'
 alias ls='ls --color=always'

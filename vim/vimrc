@@ -227,9 +227,9 @@ set nowrap
 set textwidth=0     " Don't wrap lines by default
 set wildmode=longest,list " At command line, complete longest common string, then list alternatives.
 
-set tabstop=4    " Set the default tabstop
-set softtabstop=4
-set shiftwidth=4 " Set the default shift width for indents
+set tabstop=2    " Set the default tabstop
+set softtabstop=2
+set shiftwidth=2 " Set the default shift width for indents
 set expandtab   " Make tabs into spaces (set by tabstop)
 
 set cindent

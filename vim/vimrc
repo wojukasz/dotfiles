@@ -233,26 +233,31 @@ set splitbelow
 set splitright
 
 " "}}}
-"$ Command and Auto commands " {{{
+" Command and Auto commands " {{{
 " Sudo write
 comm! W exec 'w !sudo tee % > /dev/null' | e!
 
 "Auto commands
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set wrap
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set spell
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set complete=.,w,b,u,t,kspell
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set complete=.,w,b,u,t,kspell
-au BufRead,BufNewFile {*.taskpaper}                                   set ft=taskpaper
-au BufRead,BufNewFile {*.less}                                        set ft=less
-au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
-au BufRead,BufNewFile *.pde                                           set filetype=arduino
+" au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
 au BufRead,BufNewFile *.ino                                           set filetype=arduino
+au BufRead,BufNewFile *.pde                                           set filetype=arduino
+au BufRead,BufNewFile {*.html}                                        set ft=html
+au BufRead,BufNewFile {*.jade}                                        set ft=jade
+au BufRead,BufNewFile {*.less}                                        set ft=less
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set spell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set wrap
+au BufRead,BufNewFile {*.php}                                         set ft=php
+au BufRead,BufNewFile {*.taskpaper}                                   set ft=taskpaper
+au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
+au BufRead,BufNewFile {*.tick}                                        :AnsiEsc
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                set complete=.,w,b,u,t,kspell
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                set complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
+au FileType puppet setlocal tabstop=8 expandtab shiftwidth=2 softtabstop=2
 " " }}}
 " GUI Fonts " {{{
 if has("gui_running")
@@ -408,23 +413,3 @@ let &t_SI = "\<Esc>]12;yellow\x7"
 let &t_SR = "\<Esc>]12;red\x7"
 let &t_EI = "\<Esc>]12;green\x7"
 "}}}
-" Command and Auto commands " {{{
-" Sudo write
-comm! W exec 'w !sudo tee % > /dev/null' | e!
-
-" Auto commands " {{{
-
-au FileType puppet setlocal tabstop=8 expandtab shiftwidth=2 softtabstop=2
-au BufRead,BufNewFile {*.php}                                         set ft=php
-" au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
-au BufRead,BufNewFile {*.taskpaper}                                   set ft=taskpaper
-au BufRead,BufNewFile {*.less}                                        set ft=less
-au BufRead,BufNewFile {*.html}                                        set ft=html
-au BufRead,BufNewFile {*.jade}                                        set ft=jade
-au BufRead,BufNewFile {*.tick}                                        :AnsiEsc
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
-
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
-" " }}}

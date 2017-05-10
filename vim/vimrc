@@ -278,7 +278,7 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=git
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
-au FileType puppet setlocal tabstop=8 expandtab shiftwidth=2 softtabstop=2
+au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 " " }}}
 " Key mappings " {{{
 let mapleader = "\<Space>"

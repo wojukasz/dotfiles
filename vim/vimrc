@@ -151,6 +151,51 @@ if !vimPlugNOTInstalled
 endif
 
 " " }}}
+" Plugin Config " {{{
+" ale linters
+let g:ale_linters = {'gitcommit': ['proselint']}
+" Yankring settings
+
+let g:yankring_history_dir = $HOME.'/.vim/'
+let g:yankring_history_file = '.yankring_history'
+
+let g:LargeFile=1
+
+" allows zooming in on an invididual split.
+"noremap <LocalLeader>o :ZoomWin<CR>
+"vnoremap <LocalLeader>o <C-C>:ZoomWin<CR>
+"inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
+" noremap <C-W>+o :ZoomWin<CR>
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+if v:version > 701
+  " NeoBundle 'zhaocai/GoldenView.Vim'
+endif
+" let g:goldenview__enable_default_mapping=0
+
+let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
+let g:syntastic_puppet_puppet_args = "--parser future"
+let g:syntastic_aggregate_errors = 1
+
+" ack.vim
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+" Ultisnips
+let g:UltiSnipsEditSplit="context"
+let g:UltiSnipsSnippetsDir="~/.vim/ultisnips-custom-snippets/"
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+filetype plugin indent on
+"}}}
 " General "{{{
 set nocompatible  " disable vi compatibility.
 set autowrite  " Writes on make/shell commands
@@ -208,31 +253,6 @@ set conceallevel=0
 let g:vim_json_syntax_conceal=0
 
 " "}}}
-" Visual "{{{
-set number  " Line numbers on
-set relativenumber " and relative numbering too!
-set showmatch  " Show matching brackets.
-set matchtime=5  " Bracket blinking.
-set novisualbell  " No blinking
-set noerrorbells  " No noise.
-set vb t_vb= " disable any beeps or flashes on error
-set shortmess=atI " Shortens messages
-set cursorline
-
-set nolist " Display unprintable characters f12 - switches
-
-set foldenable " Turn on folding
-set foldmethod=marker " Fold on the marker
-set foldlevel=0 " Don't autofold anything (but I can still fold manually)
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-
-set mouse=a   " Enable mouse
-set mousehide  " Hide mouse after chars typed
-
-set splitbelow
-set splitright
-
-" "}}}
 " Command and Auto commands " {{{
 " Sudo write
 comm! W exec 'w !sudo tee % > /dev/null' | e!
@@ -259,18 +279,6 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=rub
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 au FileType puppet setlocal tabstop=8 expandtab shiftwidth=2 softtabstop=2
 " " }}}
-" GUI Fonts " {{{
-if has("gui_running")
-  if has("gui_gtk2")
-    " set guifont=Inconsolata\ 12
-    set guifont=Terminal:h14:cOEM
-  elseif has("gui_win32")
-    " set guifont=Consolas:h11:cANSI
-    " set guifont=Liberation_Mono_for_Powerline:h10
-    set guifont=Terminal:h14:cOEM
-  endif
-endif
-" }}}
 " Key mappings " {{{
 let mapleader = "\<Space>"
 let maplocalleader = ","
@@ -339,51 +347,31 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " nnoremap <CR> G
 " nnoremap <BS> gg
 " " }}}
-" Plugin Config " {{{
-" ale linters
-let g:ale_linters = {'gitcommit': ['proselint']}
-" Yankring settings
+" Visual "{{{
+set number  " Line numbers on
+set relativenumber " and relative numbering too!
+set showmatch  " Show matching brackets.
+set matchtime=5  " Bracket blinking.
+set novisualbell  " No blinking
+set noerrorbells  " No noise.
+set vb t_vb= " disable any beeps or flashes on error
+set shortmess=atI " Shortens messages
+set cursorline
 
-let g:yankring_history_dir = $HOME.'/.vim/'
-let g:yankring_history_file = '.yankring_history'
+set nolist " Display unprintable characters f12 - switches
 
-let g:LargeFile=1
+set foldenable " Turn on folding
+set foldmethod=marker " Fold on the marker
+set foldlevel=0 " Don't autofold anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-" allows zooming in on an invididual split.
-"noremap <LocalLeader>o :ZoomWin<CR>
-"vnoremap <LocalLeader>o <C-C>:ZoomWin<CR>
-"inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
-" noremap <C-W>+o :ZoomWin<CR>
+set mouse=a   " Enable mouse
+set mousehide  " Hide mouse after chars typed
 
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+set splitbelow
+set splitright
 
-if v:version > 701
-  " NeoBundle 'zhaocai/GoldenView.Vim'
-endif
-" let g:goldenview__enable_default_mapping=0
-
-let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
-let g:syntastic_puppet_puppet_args = "--parser future"
-let g:syntastic_aggregate_errors = 1
-
-" ack.vim
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
-
-" Ultisnips
-let g:UltiSnipsEditSplit="context"
-let g:UltiSnipsSnippetsDir="~/.vim/ultisnips-custom-snippets/"
-
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-filetype plugin indent on
-"}}}
+" "}}}
 " Gui and theme options"{{{
 if has('gui_running')
     set background=dark
@@ -413,3 +401,15 @@ let &t_SI = "\<Esc>]12;yellow\x7"
 let &t_SR = "\<Esc>]12;red\x7"
 let &t_EI = "\<Esc>]12;green\x7"
 "}}}
+" GUI Fonts " {{{
+if has("gui_running")
+  if has("gui_gtk2")
+    " set guifont=Inconsolata\ 12
+    set guifont=Terminal:h14:cOEM
+  elseif has("gui_win32")
+    " set guifont=Consolas:h11:cANSI
+    " set guifont=Liberation_Mono_for_Powerline:h10
+    set guifont=Terminal:h14:cOEM
+  endif
+endif
+" }}}

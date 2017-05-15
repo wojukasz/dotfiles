@@ -29,13 +29,17 @@ call plug#begin()
 " Plug 'Raimondi/delimitMate'
 " Plug 'Townk/vim-autoclose'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer --racer-completer' }
+" Plug 'freitass/todo.txt-vim'
 " Plug 'garbas/vim-snipmate'
 " Plug 'gmarik/snipmate.vim'
+" Plug 'mivok/vimtodo'
 " Plug 'myint/syntastic-extras'
 " Plug 'puppetlabs/puppet-syntax-vim'
 " Plug 'scrooloose/syntastic'
 " Plug 'snipmate'
 " Plug 'svermeulen/vim-easyclip'
+" Plug 'tomtom/tlib_vim'
+" Plug 'tomtom/ttodo_vim'
 " Plug 'tpope/vim-vinegar'
 " Plug 'vim-scripts/hexman'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -60,13 +64,13 @@ Plug 'christoomey/vim-system-copy'
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
 Plug 'claco/jasmine.vim'
 Plug 'davidoc/taskpaper.vim'
+Plug 'dbeniamine/todo.txt-vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim/' }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'evidens/vim-twig'
-Plug 'freitass/todo.txt-vim'
 Plug 'godlygeek/tabular'
 Plug 'gregsexton/gitv'
 Plug 'groenewege/vim-less'
@@ -90,7 +94,6 @@ Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-hugefile'
 Plug 'mileszs/ack.vim'
-Plug 'mivok/vimtodo'
 Plug 'mtth/scratch.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'myhere/vim-nodejs-complete'
@@ -137,6 +140,7 @@ Plug 'vim-scripts/autohotkey-ahk'
 Plug 'vim-scripts/jQuery'
 Plug 'vim-scripts/python_fold_compact'
 Plug 'w0rp/ale'
+Plug 'zhaocai/GoldenView.Vim'
 
 if has('win32') || has('win64')
     Plug 'powerline/fonts', { 'do': './install.ps1' }
@@ -145,55 +149,37 @@ else
 endif
 call plug#end()
 
-" *TODO* Figure out how to get YouCompleteMe working
-
 if !vimPlugNOTInstalled
     PlugUpdate
 endif
 
 " " }}}
 " Plugin Config " {{{
-" ale linters
-let g:ale_linters = {'gitcommit': ['proselint']}
-" Yankring settings
-
-let g:yankring_history_dir = $HOME.'/.vim/'
-let g:yankring_history_file = '.yankring_history'
-
-let g:LargeFile=1
-
-" allows zooming in on an invididual split.
-"noremap <LocalLeader>o :ZoomWin<CR>
-"vnoremap <LocalLeader>o <C-C>:ZoomWin<CR>
-"inoremap <LocalLeader>o <C-O>:ZoomWin<CR>
-" noremap <C-W>+o :ZoomWin<CR>
-
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-if v:version > 701
-  " NeoBundle 'zhaocai/GoldenView.Vim'
-endif
-" let g:goldenview__enable_default_mapping=0
-
-let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
-let g:syntastic_puppet_puppet_args = "--parser future"
-let g:syntastic_aggregate_errors = 1
-
 " ack.vim
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
+" ale linters
+let g:ale_linters = {'gitcommit': ['proselint']}
+
+" Goldenview
+let g:goldenview__enable_default_mapping=0
+
+" Large file editing
+let g:LargeFile=1
+
 " Ultisnips
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetsDir="~/.vim/ultisnips-custom-snippets/"
-
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 filetype plugin indent on
 "}}}
@@ -290,16 +276,16 @@ if has('win32') || has('win64')
     nnoremap <silent> <LocalLeader>vt :tabnew $HOME/_vimrc<CR>
     nnoremap <silent> <LocalLeader>ve :e $HOME/_vimrc<CR>
     nnoremap <silent> <LocalLeader>vd :e $HOME/.vim/ <CR>
-    nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
-    nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
+    " nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
+    " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 else
     let vimrcpath = $HOME . "/git/dotfiles/vim/vimrc"
     nnoremap <silent> <LocalLeader>vs :source ~/git/dotfiles/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotfiles/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
-    nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo.txt<CR>
-    nnoremap <silent> <LocalLeader>tn :e ~/todo.txt<CR>
+    nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo/todo.txt<CR>
+    " nnoremap <silent> <LocalLeader>tn :e ~/todo.txt<CR>
     " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 endif
 

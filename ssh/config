@@ -41,3 +41,7 @@ Host work.github
 
 Host home
     HostName home.alan-jenkins.com
+
+Host git-codecommit.*.amazonaws.com
+    User APKAJP4CQH4RUHVPT4OQ
+    IdentityFile ~/.ssh/id_personal_old.pub

@@ -155,32 +155,40 @@ endif
 
 " " }}}
 " Plugin Config " {{{
-" ack.vim
+" {{{ ack.vim
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
-
-" ale linters
+"}}}
+" {{{ ale linters
 let g:ale_linters = {'gitcommit': ['proselint']}
-
-" Goldenview
+" }}}
+" {{{ Goldenview
 let g:goldenview__enable_default_mapping=0
-
-" Large file editing
+" }}}
+" {{{ Large file editing
 let g:LargeFile=1
-
-" Ultisnips
+" }}}
+" {{{ dbeniamine/todo.txt-vim
+" Use todo#Complete as the omni complete function for todo files
+au filetype todo setlocal omnifunc=todo#Complete
+" Auto complete projects
+au filetype todo imap <buffer> + +<C-X><C-O>
+" Auto complete contexts
+au filetype todo imap <buffer> @ @<C-X><C-O>
+" }}}
+" {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetsDir="~/.vim/ultisnips-custom-snippets/"
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" vim-airline
+" }}}
+" {{{ vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-
+" }}}
 filetype plugin indent on
 "}}}
 " General "{{{

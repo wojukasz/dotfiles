@@ -285,7 +285,6 @@ else
     nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
     nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
     nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo/todo.txt<CR>
-    " nnoremap <silent> <LocalLeader>tn :e ~/todo.txt<CR>
     " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 endif
 

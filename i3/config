@@ -198,6 +198,8 @@ mode "$mode_screenshot" {
 }
 bindsym Print mode "$mode_screenshot"
 
+# Bluetooth headset shortcuts
+bindsym $mod+Shift+KP_Multiply exec --no-startup-id echo -e 'connect 00:11:A5:07:F8:2C\nquit' | bluetoothctl
 
 # Volume control shortcuts
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks

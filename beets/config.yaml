@@ -1,11 +1,7 @@
 directory: /media/storage/music
-library: /media/storage/music/music.blb
+library: ~/Dropbox/beets.db
 
-plugins: plexupdate chroma
+plugins: chroma
 
 import:
     move: yes
-
-plex:
-    host: localhost
-    port: 32400

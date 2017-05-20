@@ -57,6 +57,7 @@ zsh/zshrc
 Xdefaults
 bashrc
 bash_profile
+beets:.config/beets
 bin:bin
 curl/curlrc
 dotsyncrc

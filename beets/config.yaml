@@ -1,0 +1,11 @@
+directory: /media/storage/music
+library: /media/storage/music/music.blb
+
+plugins: plexupdate chroma
+
+import:
+    move: yes
+
+plex:
+    host: localhost
+    port: 32400

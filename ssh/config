@@ -44,4 +44,4 @@ Host home
 
 Host git-codecommit.*.amazonaws.com
     User APKAJP4CQH4RUHVPT4OQ
-    IdentityFile ~/.ssh/id_personal_old.pub
+    IdentityFile ~/.ssh/id_personal_old

@@ -10,6 +10,7 @@ alias keypa="ssh-add ~/.ssh/id_alan-aws"
 alias keypo="ssh-add ~/.ssh/id_personal_old"
 alias ll='ls --color=always'
 alias ls='ls --color=always'
+alias misg="cd ~/git/missguided"
 alias misg="cd ~/git/missguided/realgit/"
 alias rewifi="sudo systemctl restart wpa_supplicant@wlp58s0"
 alias sdl="cd ~/git/superdry/laguna"

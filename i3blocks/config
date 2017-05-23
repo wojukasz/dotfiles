@@ -59,6 +59,7 @@ markup=pango
 label=
 command=curl -s https://svrqc.com/api/1.0/ip/my | sed 's/"//g'
 interval=60
+separator=false
 
 [iface]
 label=

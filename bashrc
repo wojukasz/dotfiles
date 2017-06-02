@@ -17,7 +17,7 @@ alias sdo="cd ~/git/superdry/osaka"
 alias sdw="cd ~/git/superdry/windcheater"
 alias sleep="i3lock && sudo systemctl suspend"
 alias snowrep="~/git/bashton-servicenow/reports.py"
-alias snowtick="~/git/bashton-servicenow/view-ticket.py"
+alias snowtick="~/git/bashton-servicenow/view-ticket.py --nobox"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 

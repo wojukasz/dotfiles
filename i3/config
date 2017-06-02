@@ -202,12 +202,12 @@ bindsym Print mode "$mode_screenshot"
 bindsym $mod+Shift+KP_Multiply exec --no-startup-id echo -e 'connect 00:11:A5:07:F8:2C\nquit' | bluetoothctl
 
 # Volume control shortcuts
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
-bindsym $mod+KP_Add exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
-bindsym $mod+KP_Subtract exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
-bindsym $mod+KP_Multiply exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) +2% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) -2% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec pactl set-sink-mute $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) toggle && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Add exec --no-startup-id pactl set-sink-volume $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) +2% && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Subtract exec --no-startup-id pactl set-sink-volume $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) -2% && pkill -RTMIN+10 i3blocks
+bindsym $mod+KP_Multiply exec --no-startup-id pactl set-sink-mute $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) toggle && pkill -RTMIN+10 i3blocks
 
 # Brightness control shortcuts
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2

@@ -57,7 +57,7 @@ markup=pango
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [pubip]
 label=
-command=curl -s http://svrqc.com/api/1.0/ip/my | sed 's/"//g'
+command=curl -s https://svrqc.com/api/1.0/ip/my | sed 's/"//g'
 interval=60
 separator=false
 

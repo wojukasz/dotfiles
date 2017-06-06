@@ -171,16 +171,16 @@ bindsym $mod+Delete mode "$mode_system"
 
 set $mode_monitor System (w) work, (h) home, (l) laptop
 mode "$mode_monitor" {
-    bindsym w exec --no-startup-id xrandr --output eDP-1 --mode 3200x1800 --output DP-1 --mode 3840x2160 --right-of eDP-1
-    bindsym h exec --no-startup-id xrandr --output eDP-1 --mode 3200x1800 --output DP-1 --auto --right-of eDP-1
-    bindsym l exec --no-startup-id xrandr --output eDP-1 --mode 3200x1800 --output DP-1 --off
+    bindsym w exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --mode 3840x2160 --right-of eDP1
+    bindsym h exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --auto --right-of eDP1
+    bindsym l exec --no-startup-id xrandr --output eDP1 --mode 3200x1800 --output DP1 --off
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+Mod1+m mode "$mode_monitor"
-bindsym Hyper+m exec --no-startup-id i3-msg "workspace 2; move workspace to DP-1; workspace 3; move workspace to DP-1; workspace 10; move workspace to DP-1; workspace 1;"
+bindsym Hyper+m exec --no-startup-id i3-msg "workspace 2; move workspace to DP1; workspace 3; move workspace to DP1; workspace 10; move workspace to DP1; workspace 1;"
 
 # Screenshot mode
 set $mode_screenshot Active window to clipboard (a), Active window to file (A), Screen to clipboard (s), Screen to file (S), Selected rectangle to clipboard (r), Selected rectangle to file (R)

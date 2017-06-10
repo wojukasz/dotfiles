@@ -98,6 +98,7 @@ xscreensaver
 ## hostname                     type=masterhost, ANY or NONE    files=dotfile:tolink,another:tolink
 [hosts]
 Alans-MBP                        git=ANY                         #git repo, pull from anywhere
+alan-pc.home.alan-jenkins.com    git=ANY                         #git repo, pull from anywhere
 jmp.alan-jenkins.com             git=ANY
 bashton-ajenkins                 git=ANY
 ditto.home.alan-jenkins.com      git=ANY

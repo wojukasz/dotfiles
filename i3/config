@@ -240,6 +240,7 @@ exec nm-applet
 assign [class="^Slack$"] → 1
 assign [class="^Termite$"] → 2
 assign [class="^st$"] → 2
+assign [class="^st-256color$"] → 2
 assign [window_role="^browser$"] → 3
 assign [class="^KeePass2$"] → 10
 

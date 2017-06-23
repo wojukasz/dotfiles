@@ -179,7 +179,7 @@ au filetype todo imap <buffer> @ @<C-X><C-O>
 " }}}
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"
-let g:UltiSnipsSnippetsDir="~/.vim/ultisnips-custom-snippets/"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-custom-snippets"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"

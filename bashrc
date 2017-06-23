@@ -34,6 +34,12 @@ then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
+function sdftpssh()
+{
+    ENVNAME=$1
+    ssh `instances | instance-tags | grep ftp | grep $1 | instance-ip | awk '{ print $2; }'`
+}
+
 SOURCE_FILES=(
     /home/alan/git/bashton-my-aws/functions
     /home/alan/git/bashton-sshuttle/sshuttle-vpn

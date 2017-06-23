@@ -201,6 +201,7 @@ bindsym Print mode "$mode_screenshot"
 
 # Bluetooth headset shortcuts
 bindsym $mod+Shift+KP_Multiply exec --no-startup-id "echo -e \\"if echo -e 'info 10:4F:A8:F9:DA:74' | bluetoothctl | grep 'Connected: yes' &> /dev/null; then echo -e 'disconnect 10:4F:A8:F9:DA:74\nquit' | bluetoothctl; else echo -e 'connect 10:4F:A8:F9:DA:74\nquit' | bluetoothctl; fi\\" | bash"
+bindsym $mod+Shift+KP_Divide exec --no-startup-id "echo -e \\"if pactl list | grep -A 7 'bluez.alias' | grep 'Active Profile' | grep 'a2dp_sink'; then pactl set-card-profile `pactl list | grep -B 6 'MDR-1000X' | grep 'Card' | grep -Eo '[0-9]+'` headset_head_unit; else pactl set-card-profile `pactl list | grep -B 6 'MDR-1000X' | grep 'Card' | grep -Eo '[0-9]+'` a2dp_sink; fi\\" | bash"
 
 # Volume control shortcuts
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl info | grep 'Default Sink:' | cut -d' ' -f3) +2% && pkill -RTMIN+10 i3blocks

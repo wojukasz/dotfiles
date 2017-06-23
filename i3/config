@@ -240,6 +240,7 @@ exec /home/alan/bin/st -e tmux a
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/bashton.kdbx
 exec nm-applet
+exec /usr/bin/spotify
 
 # Set window classes per workspace
 assign [class="^Slack$"] → 1
@@ -247,6 +248,7 @@ assign [class="^Termite$"] → 2
 assign [class="^st$"] → 2
 assign [class="^st-256color$"] → 2
 assign [window_role="^browser$"] → 3
+asssign [class="^spotify"] → 9
 assign [class="^KeePass2$"] → 10
 
 # Window tweaks

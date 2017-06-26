@@ -248,7 +248,7 @@ assign [class="^Termite$"] → 2
 assign [class="^st$"] → 2
 assign [class="^st-256color$"] → 2
 assign [window_role="^browser$"] → 3
-assign [class="^spotify"] → 9
+for_window [class="Spotify"] move to workspace 9 # workaround for spotify not setting window hints correctly.
 assign [class="^KeePass2$"] → 10
 
 # Window tweaks

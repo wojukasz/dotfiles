@@ -44,6 +44,8 @@ function sdftpssh()
 SOURCE_FILES=(
     /home/alan/git/bashton-my-aws/functions
     /home/alan/git/bashton-sshuttle/sshuttle-vpn
+    /usr/share/bash-completion/bash_completion
+    /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
 )
 

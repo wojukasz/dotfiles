@@ -163,12 +163,6 @@ endif
 " {{{ ale linters
 let g:ale_linters = {'gitcommit': ['proselint']}
 " }}}
-" {{{ Goldenview
-let g:goldenview__enable_default_mapping=0
-" }}}
-" {{{ Large file editing
-let g:LargeFile=1
-" }}}
 " {{{ dbeniamine/todo.txt-vim
 " Use todo#Complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#Complete
@@ -176,6 +170,17 @@ au filetype todo setlocal omnifunc=todo#Complete
 au filetype todo imap <buffer> + +<C-X><C-O>
 " Auto complete contexts
 au filetype todo imap <buffer> @ @<C-X><C-O>
+" }}}
+" {{{ Goldenview
+let g:goldenview__enable_default_mapping=0
+" }}}
+" {{{ Large file editing
+let g:LargeFile=1
+" }}}
+" {{{ Pymode
+let g:pymode_lint_config = '$HOME/.pylint.rc'
+let g:pymode_options_max_line_length=100
+let g:pymode_rope=0
 " }}}
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"

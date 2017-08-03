@@ -35,10 +35,9 @@ then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
-function sdftpssh()
+function instgrep()
 {
-    ENVNAME=$1
-    ssh `instances | instance-tags | grep ftp | grep $1 | instance-ip | awk '{ print $2; }'`
+    instances | instance-tags | grep $1 | instance-ssh-details
 }
 
 SOURCE_FILES=(

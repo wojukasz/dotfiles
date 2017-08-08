@@ -40,6 +40,24 @@ function instgrep()
     instances | instance-tags | grep $1 | instance-ssh-details
 }
 
+function issh()
+{
+    ssh `instances | instance-tags | grep $1 | instance-ip | awk '{ print $2; }'`
+}
+
+function essh()
+{
+    ssh `instances | instance-tags | grep $1 | instance-ip | awk '{ print $3; }'`
+}
+
+function ipuplog()
+{
+    IP=$(instances | instance-tags | grep $1 | instance-ip | awk '{ print $2; }')
+    ssh -t $IP "sudo cp /var/log/puppetlabs/puppet/puppet.json ~alan/ && sudo chown alan:alan ~alan/puppet.json"
+    scp ${IP}:puppet.json /tmp/puppet.json
+    /home/alan/git/puppet-log-reader/plr.py -p /tmp/puppet.json
+}
+
 SOURCE_FILES=(
     /home/alan/git/bashton-my-aws/functions
     /home/alan/git/bashton-sshuttle/sshuttle-vpn

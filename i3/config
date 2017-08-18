@@ -257,6 +257,7 @@ bindsym $mod+b exec i3finder -a back
 
 # autostart
 # exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec --no-startup-id ~/.fehbg
 exec /usr/bin/slack
 exec /home/alan/bin/st -e tmux a
 exec /usr/bin/google-chrome-stable

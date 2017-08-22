@@ -108,6 +108,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'python-mode/python-mode'
+Plug 'reedes/vim-pencil'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/snipmate-snippets'
 Plug 'spf13/PIV'
@@ -176,8 +177,6 @@ if !has('python')
 else
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
-" Set delay to prevent extra search
-let g:ctrlp_lazy_update = 350
 
 " Do not clear filenames cache, to improve CtrlP startup
 " You can manualy clear it by <F5>
@@ -206,6 +205,15 @@ let g:goldenview__enable_default_mapping=0
 " {{{ Large file editing
 let g:LargeFile=1
 " }}}
+" {{{ Pencil
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init({'wrap': 'hard'})
+augroup END
+" }}}
 " {{{ Pymode
 let g:pymode_lint_config = '$HOME/.pylint.rc'
 let g:pymode_options_max_line_length=100
@@ -213,6 +221,10 @@ let g:pymode_rope=0
 " }}}
 " {{{ Rainbow
 let g:rainbow_active = 1
+" }}}
+" {{{ Terraform
+" Make commentary use the correct comment style in terraform files.
+autocmd FileType terraform setlocal commentstring=#%s
 " }}}
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"

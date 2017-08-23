@@ -35,82 +35,13 @@ then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
-function instgrep()
-{
-    instances | instance-tags | grep $1 | instance-ssh-details
-}
-
-function issh()
-{
-    ssh `instances | instance-tags | grep $1 | instance-ip | awk '{ print $2; }'`
-}
-
-function essh()
-{
-    ssh `instances | instance-tags | grep $1 | instance-ip | awk '{ print $3; }'`
-}
-
-function ipuplog()
-{
-    set -uo pipefail
-    IP=$(instances | instance-tags | grep $1 | instance-ip | awk '{ print $2; }')
-
-    if [ "$?" -ne "0" ];
-    then
-        echo 'Failed to find any instances'
-        return "1"
-    fi
-
-    ssh -t $IP "sudo cp /var/log/puppetlabs/puppet/puppet.json ~alan/ && sudo chown alan:alan ~alan/puppet.json"
-    if [ "$?" -ne "0" ];
-    then
-        echo 'Failed to copy + chown the puppet log.'
-        return "2"
-    fi
-
-    scp ${IP}:puppet.json /tmp/puppet.json
-
-    if [ "$?" -ne "0" ];
-    then
-        echo 'Failed download the puppet log.'
-        return "3"
-    fi
-
-    /home/alan/git/puppet-log-reader/plr.py -p /tmp/puppet.json
-    set +uo pipefail
-}
-
-function ippuplog()
-{
-    set -uo pipefail
-    IP=$1
-
-    ssh -t $IP "sudo cp /var/log/puppetlabs/puppet/puppet.json ~alan/ && sudo chown alan:alan ~alan/puppet.json"
-
-    if [ "$?" -ne "0" ];
-    then
-        echo 'Failed to copy + chown the puppet log.'
-        return "2"
-    fi
-
-    scp ${IP}:puppet.json /tmp/puppet.json
-
-    if [ "$?" -ne "0" ];
-    then
-        echo 'Failed download the puppet log.'
-        return "3"
-    fi
-
-    /home/alan/git/puppet-log-reader/plr.py -p /tmp/puppet.json
-    set +uo pipefail
-}
-
 SOURCE_FILES=(
     /home/alan/git/bashton-my-aws/functions
     /home/alan/git/bashton-sshuttle/sshuttle-vpn
     /usr/share/bash-completion/bash_completion
     /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
+    /home/alan/git/puppet-log-reader/bash-functions.sh
 )
 
 for FILE in "${SOURCE_FILES[@]}";

@@ -30,7 +30,7 @@ font pango:monospace 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/alan/bin/st -e tmux a
+bindsym $mod+Return exec /home/alan/bin/st -e tmux new-session -A -s main
 bindsym $mod+Shift+Return exec /home/alan/bin/st
 
 # kill focused window
@@ -259,7 +259,7 @@ bindsym $mod+b exec i3finder -a back
 # exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id ~/.fehbg
 exec /usr/bin/slack
-exec /home/alan/bin/st -e tmux a
+exec /home/alan/bin/st -e tmux new-session -A -s main
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/bashton.kdbx
 exec nm-applet

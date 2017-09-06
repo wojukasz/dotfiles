@@ -10,4 +10,9 @@ locations=(
     ["af0718f475bfd56e38b22f496fb9d330:external_pos"]="right"
     ["af0718f475bfd56e38b22f496fb9d330:external_res"]="3840x2160"
     ["af0718f475bfd56e38b22f496fb9d330:i3_move_workspace_command"]="i3-move-workspaces -a -e 1 -d right"
+    ["2b3d75925ed906c72bff79da6ac0adba:location"]="alan-work"
+    ["2b3d75925ed906c72bff79da6ac0adba:internal_res"]="3200x1800"
+    ["2b3d75925ed906c72bff79da6ac0adba:external_pos"]="right"
+    ["2b3d75925ed906c72bff79da6ac0adba:external_res"]="3840x2160"
+    ["2b3d75925ed906c72bff79da6ac0adba:i3_move_workspace_command"]="i3-move-workspaces -a -e 1 -d right"
 )

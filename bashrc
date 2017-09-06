@@ -38,10 +38,11 @@ fi
 SOURCE_FILES=(
     /home/alan/git/bashton-my-aws/functions
     /home/alan/git/bashton-sshuttle/sshuttle-vpn
+    /home/alan/git/puppet-log-reader/bash-functions.sh
     /usr/share/bash-completion/bash_completion
     /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
-    /home/alan/git/puppet-log-reader/bash-functions.sh
+    /usr/share/git/completion/git-prompt.sh
 )
 
 for FILE in "${SOURCE_FILES[@]}";
@@ -51,3 +52,11 @@ do
         source "$FILE"
     fi
 done
+
+# setup git ps1 prompt
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM="auto"
+
+PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'

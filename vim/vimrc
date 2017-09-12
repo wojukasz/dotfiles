@@ -35,6 +35,8 @@ call plug#begin()
 " Plug 'mivok/vimtodo'
 " Plug 'myint/syntastic-extras'
 " Plug 'puppetlabs/puppet-syntax-vim'
+" Plug 'python-mode/python-mode'
+" Plug 'rafaqz/ranger.vim'
 " Plug 'scrooloose/syntastic'
 " Plug 'snipmate'
 " Plug 'svermeulen/vim-easyclip'
@@ -42,7 +44,6 @@ call plug#begin()
 " Plug 'tomtom/ttodo_vim'
 " Plug 'tpope/vim-vinegar'
 " Plug 'vim-scripts/hexman'
-" Plug 'rafaqz/ranger.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Lokaltog/vim-easymotion'
@@ -107,7 +108,6 @@ Plug 'myhere/vim-nodejs-complete'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'python-mode/python-mode'
 Plug 'reedes/vim-pencil'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/snipmate-snippets'
@@ -171,7 +171,7 @@ elseif executable('ag')
 endif
 "}}}
 " {{{ ale linters
-let g:ale_linters = {'gitcommit': ['proselint']}
+let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8', 'mypy', 'pycodestyle', 'pylint' ] }
 " }}}
 " {{{ CTRLP
 if !has('python')

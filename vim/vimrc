@@ -29,6 +29,7 @@ call plug#begin()
 " Plug 'Raimondi/delimitMate'
 " Plug 'Townk/vim-autoclose'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer --racer-completer' }
+" Plug 'bling/vim-bufferline'
 " Plug 'freitass/todo.txt-vim'
 " Plug 'garbas/vim-snipmate'
 " Plug 'gmarik/snipmate.vim'
@@ -58,7 +59,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ajh17/VimCompletesMe',
 Plug 'altercation/vim-colors-solarized'
 Plug 'bashton-ajenkins/ultisnips-terraform-snippets'
-Plug 'bling/vim-bufferline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'burnettk/vim-angular'
 Plug 'chase/vim-ansible-yaml'
@@ -94,6 +94,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'lifepillar/vim-solarized8'
 Plug 'lukaszb/vim-web-indent'
 Plug 'luochen1990/rainbow'
+Plug 'm-kat/aws-vim'
 Plug 'majutsushi/tagbar'
 Plug 'markcornick/vim-vagrant'
 Plug 'matthewsimo/angular-vim-snippets'
@@ -172,7 +173,7 @@ elseif executable('ag')
 endif
 "}}}
 " {{{ ale linters
-let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8', 'mypy', 'pycodestyle', 'pylint' ] }
+let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ] }
 " }}}
 " {{{ CTRLP
 if !has('python')
@@ -343,6 +344,7 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 " " }}}
 " Key mappings " {{{
 let mapleader = "\<Space>"

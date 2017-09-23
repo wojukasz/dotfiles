@@ -75,7 +75,7 @@ Plug 'dbeniamine/todo.txt-vim' " todo.txt syntax plugin for vim.
 Plug 'digitaltoad/vim-pug' " Pug templating engine syntax support.
 Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax and Snipmate snippets for Dockerfile.
 Plug 'elzr/vim-json' " Improved editing of JSON files (syntax).
-Plug 'evanmiller/nginx-vim-syntax' " Nginx config file syntax.
+Plug 'chr4/nginx.vim' " Nginx config file syntax.
 Plug 'evidens/vim-twig' " Twig template engine syntax.
 Plug 'groenewege/vim-less' " Syntax support for the LESS CSS preprocessor.
 Plug 'hashivim/vim-terraform' " Terraform syntax support.

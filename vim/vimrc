@@ -3,24 +3,24 @@
 let vimPlugNOTInstalled=1
 let vimPlugURI='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after/
 
-    let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
-    if !filereadable(vimplugpath)
-        echo "Installing vim-plug.."
-        echo ""
-        silent :exe '!mkdir -p ' . $HOME .'\.vim\autoload'
-        silent :exe "!powershell -command \"(New-Object Net.WebClient).DownloadFile(\\\"" . vimPlugURI . "\\\", \\\"" . vimplugpath . "\\\")\""
-        let vimPlugNOTInstalled=0
-    endif
+  let vimplugpath=expand('$HOME/.vim/autoload/plug.vim')
+  if !filereadable(vimplugpath)
+    echo "Installing vim-plug.."
+    echo ""
+    silent :exe '!mkdir -p ' . $HOME .'\.vim\autoload'
+    silent :exe "!powershell -command \"(New-Object Net.WebClient).DownloadFile(\\\"" . vimPlugURI . "\\\", \\\"" . vimplugpath . "\\\")\""
+    let vimPlugNOTInstalled=0
+  endif
 else
-    let vimplugpath=expand('~/.vim/autoload/plug.vim')
-    if !filereadable(vimplugpath)
-        echo "Installing vim-plug.."
-        echo ""
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        let vimPlugNOTInstalled=0
-    endif
+  let vimplugpath=expand('~/.vim/autoload/plug.vim')
+  if !filereadable(vimplugpath)
+    echo "Installing vim-plug.."
+    echo ""
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let vimPlugNOTInstalled=0
+  endif
 endif"}}}
 " Plugins " {{{
 filetype off
@@ -154,14 +154,14 @@ Plug 'w0rp/ale' " Asyncronous linting engine (does linting and sytnax checking o
 Plug 'zhaocai/GoldenView.Vim' " Resizes Vim splits based on the golden ratio to ensure that you are able to see what you are editing.
 
 if has('win32') || has('win64')
-    Plug 'powerline/fonts', { 'do': './install.ps1' }
+  Plug 'powerline/fonts', { 'do': './install.ps1' }
 else
-    Plug 'powerline/fonts', { 'do': './install.sh' }
+  Plug 'powerline/fonts', { 'do': './install.sh' }
 endif
 call plug#end()
 
 if !vimPlugNOTInstalled
-    PlugUpdate
+  PlugUpdate
 endif
 
 " " }}}
@@ -170,7 +170,7 @@ endif
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
 elseif executable('ag')
-    let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep'
 endif
 "}}}
 " {{{ ale linters
@@ -290,11 +290,11 @@ set ignorecase  " Do case in sensitive matching with
 set smartcase   " be sensitive when there's a capital letter
 " allows cursor change in tmux mode
 if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 " "}}}
 " Formatting "{{{
@@ -359,22 +359,22 @@ au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 let mapleader = "\<Space>"
 let maplocalleader = ","
 if has('win32') || has('win64')
-    let directory=.,$TEMP " Swap file support for windows.
-    let vimrcpath = $HOME . "/_vimrc"
-    nnoremap <silent> <LocalLeader>vs :source $HOME/_vimrc<CR>
-    nnoremap <silent> <LocalLeader>vt :tabnew $HOME/_vimrc<CR>
-    nnoremap <silent> <LocalLeader>ve :e $HOME/_vimrc<CR>
-    nnoremap <silent> <LocalLeader>vd :e $HOME/.vim/ <CR>
-    " nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
-    " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
+  let directory=.,$TEMP " Swap file support for windows.
+  let vimrcpath = $HOME . "/_vimrc"
+  nnoremap <silent> <LocalLeader>vs :source $HOME/_vimrc<CR>
+  nnoremap <silent> <LocalLeader>vt :tabnew $HOME/_vimrc<CR>
+  nnoremap <silent> <LocalLeader>ve :e $HOME/_vimrc<CR>
+  nnoremap <silent> <LocalLeader>vd :e $HOME/.vim/ <CR>
+  " nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
+  " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 else
-    let vimrcpath = $HOME . "/git/dotfiles/vim/vimrc"
-    nnoremap <silent> <LocalLeader>vs :source ~/git/dotfiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotfiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
-    nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
-    nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo/todo.txt<CR>
-    " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
+  let vimrcpath = $HOME . "/git/dotfiles/vim/vimrc"
+  nnoremap <silent> <LocalLeader>vs :source ~/git/dotfiles/vim/vimrc<CR>
+  nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotfiles/vim/vimrc<CR>
+  nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
+  nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
+  nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo/todo.txt<CR>
+  " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 endif
 
 nnoremap <silent> <LocalLeader><Space> :noh<CR>
@@ -450,19 +450,19 @@ set splitright
 " "}}}
 " Gui and theme options"{{{
 if has('gui_running')
-    set background=dark
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=r
+  set background=dark
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=r
 else
-    set background=dark
+  set background=dark
 endif
 
 if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    " see also http://sunaku.github.io/vim-256color-bce.html
-    set t_ut=
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://sunaku.github.io/vim-256color-bce.html
+  set t_ut=
 endif
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

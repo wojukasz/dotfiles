@@ -61,31 +61,33 @@ call plug#begin()
 " Plug 'tpope/vim-sleuth' " Automatically detects the indentation settings of the current file and adjusts shiftwidth and expandtab to match.
 " Plug 'altercation/vim-colors-solarized'              " solarized colour theme.
 " Plug 'christoomey/vim-system-copy'                   " Adds cp normal mode command for copying to the system clipboard works with motions to select text.
+" Plug 'luochen1990/rainbow'                           " Adds 'rainbow' parenthesis (colour codes them to easier see matching pairs)
 " }}}
 " {{{ Syntax plugins
-Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 syntax support
 Plug 'LaTeX-Box-Team/LaTeX-Box' " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
 Plug 'Matt-Deacalion/vim-systemd-syntax' " systemd syntax support
 Plug 'StanAngeloff/php.vim' " php syntax support.
 Plug 'burnettk/vim-angular' " AngularJS syntax support
 Plug 'chase/vim-ansible-yaml' " Ansible yaml syntax support.
+Plug 'chr4/nginx.vim' " Nginx config file syntax.
 Plug 'chrisbra/csv.vim' " Enhanced CSV file editing plugin (CSV syntax and mappings).
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim' " Adds CSS3 syntax support.
 Plug 'dbeniamine/todo.txt-vim' " todo.txt syntax plugin for vim.
 Plug 'digitaltoad/vim-pug' " Pug templating engine syntax support.
 Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax and Snipmate snippets for Dockerfile.
 Plug 'elzr/vim-json' " Improved editing of JSON files (syntax).
-Plug 'chr4/nginx.vim' " Nginx config file syntax.
 Plug 'evidens/vim-twig' " Twig template engine syntax.
 Plug 'groenewege/vim-less' " Syntax support for the LESS CSS preprocessor.
 Plug 'hashivim/vim-terraform' " Terraform syntax support.
 Plug 'jtratner/vim-flavored-markdown' " Github flavoured Markdown syntax support.
+Plug 'lepture/vim-jinja' " Jinja2 syntax support
 Plug 'm-kat/aws-vim' " Adds auto completion for Cloudformation templates and improves syntax highlighting.
 Plug 'mhinz/vim-hugefile' " Disables Filetype autocmds, syntax highlighting, folding, swapfiles, MatchParen for files bigger than 2MB to ensure that Vim opens them quickly.
 Plug 'mustache/vim-mustache-handlebars' " Adds mustache and handlebars templating syntax.
 Plug 'othree/javascript-libraries-syntax.vim' " Adds syntax support for various Javascript libraries.
 Plug 'pangloss/vim-javascript' " Javascript syntax file with improved indentation support.
 Plug 'rodjek/vim-puppet' " Adds Puppet syntax, formatting guides, automatic alignment, ctags support
+Plug 'sophacles/vim-bundle-mako' " Mako syntax support
 Plug 'spf13/PIV' " PHP integration for Vim. Updated syntax support, better folding, better completion, php documentation generator.
 Plug 'tmux-plugins/vim-tmux' " tmux.conf syntax file for vim.
 Plug 'tpope/vim-git' " Adds syntax, indent, and filetype plugin files for git, gitcommit, gitconfig, gitrebase, and gitsendemail.
@@ -93,6 +95,7 @@ Plug 'tpope/vim-haml' " Adds syntax support for Haml, Sass and SCSS.
 Plug 'vim-ruby/vim-ruby' " Adds enhanced Ruby syntax for Vim.
 Plug 'vim-scripts/autohotkey-ahk' " Autohotkey syntax support for Vim.
 Plug 'vim-scripts/jQuery' " Adds syntax support for JQuery.
+Plug 'wting/cheetah.vim' " Cheetah templating syntax support.
 " }}}
 " {{{ Git plugins
 Plug 'airblade/vim-gitgutter' " adds a +-~ to the gutter where things have been changed from what git is aware.
@@ -124,7 +127,6 @@ Plug 'Yggdroot/indentLine'                           " adds indentation lines sh
 Plug 'gorodinskiy/vim-coloresque'                    " highlights colour descriptions in CSS files with the colour they will create.
 Plug 'jnurmine/Zenburn'                              " Adds the Zenburn theme.
 Plug 'lifepillar/vim-solarized8'                     " Adds a 256 colour versions of the Solarized light and dark
-Plug 'luochen1990/rainbow'                           " Adds 'rainbow' parenthesis (colour codes them to easier see matching pairs)
 Plug 'vim-airline/vim-airline'                       " Adds a pretty and useful Vim status line.
 Plug 'vim-airline/vim-airline-themes'                " Themes for Vim Airline.
 Plug 'zhaocai/GoldenView.Vim'                        " Resizes Vim splits based on the golden ratio to ensure that you are able to see what you are editing.

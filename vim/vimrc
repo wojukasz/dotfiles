@@ -245,13 +245,13 @@ nnoremap <leader>u :GundoToggle<CR>
 let g:LargeFile=1
 " }}}
 " {{{ Pencil
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+" let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd,vimwiki call pencil#init()
-  autocmd FileType text                 call pencil#init({'wrap': 'hard'})
-augroup END
+" augroup pencil
+"   autocmd!
+"   autocmd FileType markdown,mkd,vimwiki call pencil#init()
+"   autocmd FileType text                 call pencil#init({'wrap': 'hard'})
+" augroup END
 " }}}
 " {{{ Pymode
 let g:pymode_lint_config = '$HOME/.pylint.rc'
@@ -401,7 +401,9 @@ else
   nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
   nnoremap <silent> <LocalLeader>vc :vsplit ~/git/dotfiles/vim/cheatsheet.md<CR>
   nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
-  nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/todo/todo.txt<CR>
+  nnoremap <silent> <LocalLeader>tN :e ~/Dropbox/todo/todo.txt<CR>
+  nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/quicktask/tasks.quicktask<CR>
+  nnoremap <silent> <LocalLeader>tp :e ~/Dropbox/quicktask/tasks-personal.quicktask<CR>
   " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
 endif
 

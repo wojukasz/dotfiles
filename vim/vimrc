@@ -62,6 +62,7 @@ call plug#begin()
 " Plug 'altercation/vim-colors-solarized'              " solarized colour theme.
 " Plug 'christoomey/vim-system-copy'                   " Adds cp normal mode command for copying to the system clipboard works with motions to select text.
 " Plug 'luochen1990/rainbow'                           " Adds 'rainbow' parenthesis (colour codes them to easier see matching pairs)
+" Plug 'reedes/vim-pencil'                             " Adds various tweaks to improve Vim for writing documentation. (disabled as it kept wrapping things it should not).
 " }}}
 " {{{ Syntax plugins
 Plug 'LaTeX-Box-Team/LaTeX-Box' " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
@@ -122,6 +123,7 @@ Plug 'honza/vim-snippets'                            " Snippets for various prog
 Plug 'matthewsimo/angular-vim-snippets'              " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                    " Nodejs omnicompletion support.
 Plug 'scrooloose/snipmate-snippets'                  " A collection of Snipmate snippets.
+Plug 'juliosueiras/vim-terraform-completion'         " Auto completion for terraform.
 " }}}
 " {{{ Vim colour themes and appearance plugins
 Plug 'Yggdroot/indentLine'                           " adds indentation lines showing the different indentation levels.
@@ -146,7 +148,6 @@ Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine t
 Plug 'godlygeek/tabular'                             " Plugin for aligning text.
 Plug 'lukaszb/vim-web-indent'                        " Auto indentation support for Javascript and HTML.
 Plug 'mattn/emmet-vim'                               " Allows you to write abbreviated HTML and then when a trigger key combo is pressed expand to full length html (key combo is C-y).
-Plug 'reedes/vim-pencil'                             " Adds various tweaks to improve Vim for writing documentation.
 Plug 'tommcdo/vim-exchange'                          " Easy text exchange operator for vim use cx{motion} to initiate exchange. Go to what you want to exchange and do the same and they will be swapped.
 Plug 'tpope/vim-commentary'                          " Commenting plugin, use gcc to comment out a line. gc and then a motion to comment out that area.
 Plug 'tpope/vim-cucumber'                            " Adds support for the Cucumber Ruby acceptance testing framework to Vim.
@@ -276,6 +277,14 @@ nmap <F8> :TagbarToggle<CR>
 " Make commentary use the correct comment style in terraform files.
 autocmd FileType terraform setlocal commentstring=#%s
 " }}}
+" {{{ Terraform completion
+" (Optional)Remove Info(Preview) window
+" set completeopt-=preview
+
+" (Optional)Hide Info(Preview) window after completions
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" }}}
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-custom-snippets"]
@@ -322,6 +331,8 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+" Completion
+set omnifunc=syntaxcomplete#Complete
 " "}}}
 " Formatting "{{{
 set fo-=o " Do not automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.

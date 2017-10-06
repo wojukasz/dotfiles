@@ -73,6 +73,7 @@ Plug 'chr4/nginx.vim' " Nginx config file syntax.
 Plug 'chrisbra/csv.vim' " Enhanced CSV file editing plugin (CSV syntax and mappings).
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim' " Adds CSS3 syntax support.
 Plug 'dbeniamine/todo.txt-vim' " todo.txt syntax plugin for vim.
+Plug 'aaronbieber/vim-quicktask' " A task / project management plugin for Vim.
 Plug 'digitaltoad/vim-pug' " Pug templating engine syntax support.
 Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax and Snipmate snippets for Dockerfile.
 Plug 'elzr/vim-json' " Improved editing of JSON files (syntax).
@@ -256,6 +257,11 @@ augroup END
 let g:pymode_lint_config = '$HOME/.pylint.rc'
 let g:pymode_options_max_line_length=100
 let g:pymode_rope=0
+" }}}
+" {{{ Quicktask
+let g:quicktask_autosave = 1
+let g:quicktask_snip_path = "~/quicktask-snips"
+autocmd BufNewFile,BufRead *.quicktask setf quicktask
 " }}}
 " {{{ Rainbow
 let g:rainbow_active = 1

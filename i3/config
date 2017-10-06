@@ -258,12 +258,12 @@ bindsym $mod+b exec i3finder -a back
 # autostart
 # exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id ~/.fehbg
-exec /usr/bin/slack
+exec /usr/bin/nice -n 19 /usr/bin/slack
 exec /home/alan/bin/st -e tmux new-session -A -s main
-exec /usr/bin/google-chrome-stable
+exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/bashton.kdbx
 exec nm-applet
-exec /usr/bin/spotify
+exec /usr/bin/nice -n 19 /usr/bin/spotify
 
 # Set window classes per workspace
 assign [class="^Slack$"] → 1

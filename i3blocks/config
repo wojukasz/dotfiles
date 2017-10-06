@@ -28,6 +28,11 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+# Pomodoro
+[i3pomo]
+command=~/git/i3doro/block_command.sh
+label=Pomodoro
+interval=1
 
 # Disk usage
 #

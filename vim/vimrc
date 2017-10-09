@@ -157,8 +157,8 @@ Plug 'vim-scripts/Align'                             " Adds an Align command for
 Plug 'vim-scripts/DrawIt'                            " Drawit allows you to draw ascii art using Vim. Useful for making textual diagrams. See :help drawit.
 Plug 'vim-scripts/VOoM'                              " Vim Outliner of Markups. Allows you to create outlines of code and markup files.
 Plug 'vimwiki/vimwiki'                               " Adds Vim wiki for taking notes (use <Space>ww to open) see :help vimwiki.
-" Plug 'w0rp/ale'                                      " Asyncronous linting engine (does linting and sytnax checking of source code while you edit it).
-Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
+Plug 'w0rp/ale'                                      " Asyncronous linting engine (does linting and sytnax checking of source code while you edit it).
+" Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 " }}}
 " {{{ Vim functionality improvements
 Plug 'haya14busa/incsearch.vim'                      " Improves incremental searching in Vim.

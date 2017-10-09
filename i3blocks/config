@@ -33,6 +33,7 @@ markup=none
 command=~/git/i3doro/block_command.sh
 label=Pomodoro
 interval=1
+markup=pango
 
 # Disk usage
 #

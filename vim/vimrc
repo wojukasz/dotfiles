@@ -63,6 +63,7 @@ call plug#begin()
 " Plug 'christoomey/vim-system-copy'                   " Adds cp normal mode command for copying to the system clipboard works with motions to select text.
 " Plug 'luochen1990/rainbow'                           " Adds 'rainbow' parenthesis (colour codes them to easier see matching pairs)
 " Plug 'reedes/vim-pencil'                             " Adds various tweaks to improve Vim for writing documentation. (disabled as it kept wrapping things it should not).
+" Plug 'ajh17/VimCompletesMe'                          " minimalistic vimscript auto completion. (disabled because switched to Neocomplete).
 " }}}
 " {{{ Syntax plugins
 Plug 'LaTeX-Box-Team/LaTeX-Box' " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
@@ -117,8 +118,8 @@ Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
 Plug 'SirVer/ultisnips'                              " python based snippet engine.
-Plug 'ajh17/VimCompletesMe'                          " minimalistic vimscript auto completion.
-Plug 'bashton-ajenkins/ultisnips-terraform-snippets' " terraform snippets for ultisnips.
+Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin.
+Plug 'hposca/ultisnips-terraform-snippets'           " terraform snippets for ultisnips.
 Plug 'honza/vim-snippets'                            " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'matthewsimo/angular-vim-snippets'              " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                    " Nodejs omnicompletion support.
@@ -156,7 +157,8 @@ Plug 'vim-scripts/Align'                             " Adds an Align command for
 Plug 'vim-scripts/DrawIt'                            " Drawit allows you to draw ascii art using Vim. Useful for making textual diagrams. See :help drawit.
 Plug 'vim-scripts/VOoM'                              " Vim Outliner of Markups. Allows you to create outlines of code and markup files.
 Plug 'vimwiki/vimwiki'                               " Adds Vim wiki for taking notes (use <Space>ww to open) see :help vimwiki.
-Plug 'w0rp/ale'                                      " Asyncronous linting engine (does linting and sytnax checking of source code while you edit it).
+" Plug 'w0rp/ale'                                      " Asyncronous linting engine (does linting and sytnax checking of source code while you edit it).
+Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 " }}}
 " {{{ Vim functionality improvements
 Plug 'haya14busa/incsearch.vim'                      " Improves incremental searching in Vim.
@@ -245,6 +247,70 @@ nnoremap <leader>u :GundoToggle<CR>
 " {{{ Large file editing
 let g:LargeFile=1
 " }}}
+" {{{ Neocomplete
+let g:acp_enableAtStartup = 0           " Disable AutoComplPop.
+let g:neocomplete#enable_at_startup = 1 " Use neocomplete.
+let g:neocomplete#enable_smart_case = 1 " Use smartcase.
+let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
+
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" }}}
 " {{{ Pencil
 " let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
@@ -262,13 +328,23 @@ let g:pymode_rope=0
 " {{{ Quicktask
 let g:quicktask_autosave = 1
 let g:quicktask_snip_path = "~/quicktask-snips"
-autocmd BufNewFile,BufRead *.quicktask setf quicktask
+let g:quicktask_task_added_include_time = 1
 " }}}
 " {{{ Rainbow
 let g:rainbow_active = 1
 " }}}
 " {{{ scratch
 let g:scratch_persistence_file=expand("~/.vim/scratchfile")
+" }}}
+" {{{ Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_terraform_tffilter_plan = 1
 " }}}
 " {{{ Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -287,11 +363,13 @@ autocmd FileType terraform setlocal commentstring=#%s
 " }}}
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"
+let g:UltiSnipsSnippetsDir="~/.vim/my-snippets"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-custom-snippets"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 " {{{ Undotree
 nnoremap <F5> :UndotreeToggle<CR>
@@ -371,6 +449,7 @@ comm! W exec 'w !sudo tee % > /dev/null' | e!
 
 "Auto commands
 " au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
+au BufRead,BufNewFile *.quicktask                                     setf quicktask
 au BufRead,BufNewFile *.ino                                           set filetype=arduino
 au BufRead,BufNewFile *.pde                                           set filetype=arduino
 au BufRead,BufNewFile {*.html}                                        set ft=html
@@ -389,6 +468,7 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=git
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
+au FileType quicktask setlocal nocindent
 au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 " " }}}

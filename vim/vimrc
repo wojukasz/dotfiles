@@ -144,9 +144,11 @@ Plug 'tpope/vim-eunuch'                              " Adds support for many uni
 Plug 'tpope/vim-tbone'                               " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).
 " }}}
 " {{{ Text / code editing
+" Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 Plug 'bronson/vim-trailing-whitespace'               " Highlights trailing whitespace in red, adds :FixWhitespace command to strip.
 Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine tests.
 Plug 'godlygeek/tabular'                             " Plugin for aligning text.
+Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
 Plug 'lukaszb/vim-web-indent'                        " Auto indentation support for Javascript and HTML.
 Plug 'mattn/emmet-vim'                               " Allows you to write abbreviated HTML and then when a trigger key combo is pressed expand to full length html (key combo is C-y).
 Plug 'tommcdo/vim-exchange'                          " Easy text exchange operator for vim use cx{motion} to initiate exchange. Go to what you want to exchange and do the same and they will be swapped.
@@ -158,7 +160,6 @@ Plug 'vim-scripts/DrawIt'                            " Drawit allows you to draw
 Plug 'vim-scripts/VOoM'                              " Vim Outliner of Markups. Allows you to create outlines of code and markup files.
 Plug 'vimwiki/vimwiki'                               " Adds Vim wiki for taking notes (use <Space>ww to open) see :help vimwiki.
 Plug 'w0rp/ale'                                      " Asyncronous linting engine (does linting and sytnax checking of source code while you edit it).
-" Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 " }}}
 " {{{ Vim functionality improvements
 Plug 'haya14busa/incsearch.vim'                      " Improves incremental searching in Vim.
@@ -467,6 +468,7 @@ au BufRead,BufNewFile {COMMIT_EDITMSG}                                set comple
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
 au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
+au BufRead,BufNewFile */cloudformation/*.json                         set filetype=aws.json
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 au FileType quicktask setlocal nocindent
 au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2

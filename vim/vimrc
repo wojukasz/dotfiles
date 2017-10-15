@@ -69,13 +69,13 @@ call plug#begin()
 Plug 'LaTeX-Box-Team/LaTeX-Box' " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
 Plug 'Matt-Deacalion/vim-systemd-syntax' " systemd syntax support
 Plug 'StanAngeloff/php.vim' " php syntax support.
+Plug 'aaronbieber/vim-quicktask' " A task / project management plugin for Vim.
 Plug 'burnettk/vim-angular' " AngularJS syntax support
 Plug 'chase/vim-ansible-yaml' " Ansible yaml syntax support.
 Plug 'chr4/nginx.vim' " Nginx config file syntax.
 Plug 'chrisbra/csv.vim' " Enhanced CSV file editing plugin (CSV syntax and mappings).
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim' " Adds CSS3 syntax support.
 Plug 'dbeniamine/todo.txt-vim' " todo.txt syntax plugin for vim.
-Plug 'aaronbieber/vim-quicktask' " A task / project management plugin for Vim.
 Plug 'digitaltoad/vim-pug' " Pug templating engine syntax support.
 Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax and Snipmate snippets for Dockerfile.
 Plug 'elzr/vim-json' " Improved editing of JSON files (syntax).
@@ -87,6 +87,7 @@ Plug 'lepture/vim-jinja' " Jinja2 syntax support
 Plug 'm-kat/aws-vim' " Adds auto completion for Cloudformation templates and improves syntax highlighting.
 Plug 'mhinz/vim-hugefile' " Disables Filetype autocmds, syntax highlighting, folding, swapfiles, MatchParen for files bigger than 2MB to ensure that Vim opens them quickly.
 Plug 'mustache/vim-mustache-handlebars' " Adds mustache and handlebars templating syntax.
+Plug 'mxw/vim-jsx'              " Syntax plugin for editing JSX files.
 Plug 'othree/javascript-libraries-syntax.vim' " Adds syntax support for various Javascript libraries.
 Plug 'pangloss/vim-javascript' " Javascript syntax file with improved indentation support.
 Plug 'rodjek/vim-puppet' " Adds Puppet syntax, formatting guides, automatic alignment, ctags support
@@ -365,7 +366,7 @@ autocmd FileType terraform setlocal commentstring=#%s
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetsDir="~/.vim/my-snippets"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-custom-snippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "./plugged/aws-vim/snips", "my-custom-snippets"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"

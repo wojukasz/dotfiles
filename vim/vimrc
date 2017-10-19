@@ -200,8 +200,8 @@ elseif executable('ag')
 endif
 "}}}
 " {{{ ale linters
-let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'jsx': ['eslint', 'stylelint'] }
-let g:ale_linter_aliases = {'jsx': 'css'}
+let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'javascript': ['eslint'], 'jsx': ['eslint'] }
+" let g:ale_linter_aliases = {'jsx': 'css'}
 " }}}
 " {{{ CTRLP
 if !has('python')
@@ -257,13 +257,13 @@ let g:neocomplete#enable_smart_case = 1 " Use smartcase.
 let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
 
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions'
+      \ }
 
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -429,9 +429,9 @@ set softtabstop=2
 set shiftwidth=2 " Set the default shift width for indents
 set expandtab   " Make tabs into spaces (set by tabstop)
 
-set cindent
-set cinoptions=:s,ps,ts,cs
-set cinwords=if,else,while,do,for,switch,case
+" set cindent
+" set cinoptions=:s,ps,ts,cs
+" set cinwords=if,else,while,do,for,switch,case
 
 filetype indent plugin indent on             " Automatically detect file types.
 " HTML Formatting
@@ -453,24 +453,25 @@ comm! W exec 'w !sudo tee % > /dev/null' | e!
 "Auto commands
 " au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
 au BufRead,BufNewFile *.quicktask                                     setf quicktask
-au BufRead,BufNewFile *.ino                                           set filetype=arduino
-au BufRead,BufNewFile *.pde                                           set filetype=arduino
-au BufRead,BufNewFile {*.html}                                        set ft=html
-au BufRead,BufNewFile {*.jade}                                        set ft=jade
-au BufRead,BufNewFile {*.less}                                        set ft=less
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set complete=.,w,b,u,t,kspell
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set spell
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set wrap
-au BufRead,BufNewFile {*.php}                                         set ft=php
-au BufRead,BufNewFile {*.taskpaper}                                   set ft=taskpaper
+au BufRead,BufNewFile *.ino                                           setlocal filetype=arduino
+au BufRead,BufNewFile *.pde                                           setlocal filetype=arduino
+au BufRead,BufNewFile {*.html}                                        setlocal ft=html
+au BufRead,BufNewFile {*.jade}                                        setlocal ft=jade
+au BufRead,BufNewFile {*.less}                                        setlocal ft=less
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal ft=markdown
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal spell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal wrap
+au BufRead,BufNewFile {*.php}                                         setlocal ft=php
+au BufRead,BufNewFile {*.taskpaper}                                   setlocal ft=taskpaper
 au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
 au BufRead,BufNewFile {*.tick}                                        :AnsiEsc
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                set complete=.,w,b,u,t,kspell
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                set spell
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
-au BufRead,BufNewFile */cloudformation/*.json                         set filetype=aws.json
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal ft=gitcommit
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal spell
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     setlocal ft=ruby
+au BufRead,BufNewFile */cloudformation/*.json                         setlocal filetype=aws.json
+au BufRead,BufNewFile *.scss                                          setlocal tabstop=4 shiftwidth=4 softtabstop=4
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 au FileType quicktask setlocal nocindent
 au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2

@@ -13,6 +13,7 @@ alias ll='ls --color=always'
 alias ls='ls --color=always'
 alias misg="cd ~/git/missguided"
 alias rewifi="sudo systemctl restart wpa_supplicant@wlp58s0"
+alias ewm="cd ~/git/ewmg"
 alias sdl="cd ~/git/superdry/laguna"
 alias sdo="cd ~/git/superdry/osaka"
 alias sdw="cd ~/git/superdry/windcheater"

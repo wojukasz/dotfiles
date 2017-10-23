@@ -263,6 +263,7 @@ exec /home/alan/bin/st -e tmux new-session -A -s main
 exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/bashton.kdbx
 # exec nm-applet
+exec wpa_gui
 exec /usr/bin/nice -n 19 /usr/bin/spotify
 
 # Set window classes per workspace

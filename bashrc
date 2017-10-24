@@ -23,6 +23,7 @@ alias snowtick="~/git/bashton-servicenow/view-ticket.py --nobox"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 
+export AWS_DEFAULT_REGION="eu-west-1"
 export EDITOR="vim"
 export GOPATH="/home/alan/go"
 export HISTCONTROL=ignoredups:ignorespace

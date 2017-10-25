@@ -118,14 +118,17 @@ Plug 'kien/ctrlp.vim'          " Vim fuzzy buffer / file finder.
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
+Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin. - Disabled as deoplete is it's replacement
 Plug 'SirVer/ultisnips'                              " python based snippet engine.
-Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin.
-Plug 'hposca/ultisnips-terraform-snippets'           " terraform snippets for ultisnips.
 Plug 'honza/vim-snippets'                            " Snippets for various programming languages in Ultisnips and snipmate format.
+Plug 'hposca/ultisnips-terraform-snippets'           " terraform snippets for ultisnips.
+Plug 'juliosueiras/vim-terraform-completion'         " Auto completion for terraform.
 Plug 'matthewsimo/angular-vim-snippets'              " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                    " Nodejs omnicompletion support.
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'scrooloose/snipmate-snippets'                  " A collection of Snipmate snippets.
-Plug 'juliosueiras/vim-terraform-completion'         " Auto completion for terraform.
 " }}}
 " {{{ Vim colour themes and appearance plugins
 Plug 'Yggdroot/indentLine'                           " adds indentation lines showing the different indentation levels.
@@ -227,6 +230,9 @@ elseif executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
 endif
+" }}}
+" {{{ Deoplete
+let g:deoplete#enable_at_startup = 1
 " }}}
 " {{{ dbeniamine/todo.txt-vim
 " Use todo#Complete as the omni complete function for todo files

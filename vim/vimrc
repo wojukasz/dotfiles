@@ -113,6 +113,7 @@ Plug 'tpope/vim-fugitive' " Adds git integration to Vim. Many commands are added
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlp by using a Python backend
 Plug 'justinmk/vim-dirvish'    " Fast file / directory explorer plugin for Vim.
 Plug 'kien/ctrlp.vim'          " Vim fuzzy buffer / file finder.
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternative to CTRLP).
 " }}}
 " {{{ Buffer navigation plugins
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
@@ -255,6 +256,9 @@ nnoremap <leader>u :GundoToggle<CR>
 " }}}
 " {{{ Large file editing
 let g:LargeFile=1
+" }}}
+" LeaderF {{{
+
 " }}}
 " {{{ Neocomplete
 let g:acp_enableAtStartup = 0           " Disable AutoComplPop.

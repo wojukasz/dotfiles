@@ -32,6 +32,7 @@ export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
 export PATH="$PATH:/home/alan/git/tfenv/bin"
 export PATH="$PATH:/home/alan/go/bin"
 export PATH="$PATH:/home/alan/bin"
+export PATH="$PATH:/home/alan/.local/bin"
 
 if [ -z "$SSH_AUTH_SOCK" ];
 then

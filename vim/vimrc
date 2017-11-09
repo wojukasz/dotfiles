@@ -64,55 +64,57 @@ call plug#begin()
 " Plug 'luochen1990/rainbow'                           " Adds 'rainbow' parenthesis (colour codes them to easier see matching pairs)
 " Plug 'reedes/vim-pencil'                             " Adds various tweaks to improve Vim for writing documentation. (disabled as it kept wrapping things it should not).
 " Plug 'ajh17/VimCompletesMe'                          " minimalistic vimscript auto completion. (disabled because switched to Neocomplete).
+" Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin. - Disabled as deoplete is it's replacement
+" Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 " }}}
 " {{{ Syntax plugins
-Plug 'LaTeX-Box-Team/LaTeX-Box' " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
-Plug 'Matt-Deacalion/vim-systemd-syntax' " systemd syntax support
-Plug 'StanAngeloff/php.vim' " php syntax support.
-Plug 'aaronbieber/vim-quicktask' " A task / project management plugin for Vim.
-Plug 'burnettk/vim-angular' " AngularJS syntax support
-Plug 'chase/vim-ansible-yaml' " Ansible yaml syntax support.
-Plug 'chr4/nginx.vim' " Nginx config file syntax.
-Plug 'chrisbra/csv.vim' " Enhanced CSV file editing plugin (CSV syntax and mappings).
-Plug 'chrisyip/Better-CSS-Syntax-for-Vim' " Adds CSS3 syntax support.
-Plug 'dbeniamine/todo.txt-vim' " todo.txt syntax plugin for vim.
-Plug 'digitaltoad/vim-pug' " Pug templating engine syntax support.
-Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax and Snipmate snippets for Dockerfile.
-Plug 'elzr/vim-json' " Improved editing of JSON files (syntax).
-Plug 'evidens/vim-twig' " Twig template engine syntax.
-Plug 'groenewege/vim-less' " Syntax support for the LESS CSS preprocessor.
-Plug 'hashivim/vim-terraform' " Terraform syntax support.
-Plug 'jtratner/vim-flavored-markdown' " Github flavoured Markdown syntax support.
-Plug 'lepture/vim-jinja' " Jinja2 syntax support
-Plug 'm-kat/aws-vim' " Adds auto completion for Cloudformation templates and improves syntax highlighting.
-Plug 'mhinz/vim-hugefile' " Disables Filetype autocmds, syntax highlighting, folding, swapfiles, MatchParen for files bigger than 2MB to ensure that Vim opens them quickly.
-Plug 'mustache/vim-mustache-handlebars' " Adds mustache and handlebars templating syntax.
-Plug 'mxw/vim-jsx'              " Syntax plugin for editing JSX files.
+Plug 'LaTeX-Box-Team/LaTeX-Box'               " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
+Plug 'Matt-Deacalion/vim-systemd-syntax'      " systemd syntax support
+Plug 'StanAngeloff/php.vim'                   " php syntax support.
+Plug 'aaronbieber/vim-quicktask'              " A task / project management plugin for Vim.
+Plug 'burnettk/vim-angular'                   " AngularJS syntax support
+Plug 'chase/vim-ansible-yaml'                 " Ansible yaml syntax support.
+Plug 'chr4/nginx.vim'                         " Nginx config file syntax.
+Plug 'chrisbra/csv.vim'                       " Enhanced CSV file editing plugin (CSV syntax and mappings).
+Plug 'chrisyip/Better-CSS-Syntax-for-Vim'     " Adds CSS3 syntax support.
+Plug 'dbeniamine/todo.txt-vim'                " todo.txt syntax plugin for vim.
+Plug 'digitaltoad/vim-pug'                    " Pug templating engine syntax support.
+Plug 'ekalinin/Dockerfile.vim'                " Dockerfile syntax and Snipmate snippets for Dockerfile.
+Plug 'elzr/vim-json'                          " Improved editing of JSON files (syntax).
+Plug 'evidens/vim-twig'                       " Twig template engine syntax.
+Plug 'groenewege/vim-less'                    " Syntax support for the LESS CSS preprocessor.
+Plug 'hashivim/vim-terraform'                 " Terraform syntax support.
+Plug 'jtratner/vim-flavored-markdown'         " Github flavoured Markdown syntax support.
+Plug 'lepture/vim-jinja'                      " Jinja2 syntax support
+Plug 'm-kat/aws-vim'                          " Adds auto completion for Cloudformation templates and improves syntax highlighting.
+Plug 'mhinz/vim-hugefile'                     " Disables Filetype autocmds, syntax highlighting, folding, swapfiles, MatchParen for files bigger than 2MB to ensure that Vim opens them quickly.
+Plug 'mustache/vim-mustache-handlebars'       " Adds mustache and handlebars templating syntax.
+Plug 'mxw/vim-jsx'                            " Syntax plugin for editing JSX files.
 Plug 'othree/javascript-libraries-syntax.vim' " Adds syntax support for various Javascript libraries.
-Plug 'pangloss/vim-javascript' " Javascript syntax file with improved indentation support.
-Plug 'rodjek/vim-puppet' " Adds Puppet syntax, formatting guides, automatic alignment, ctags support
-Plug 'sophacles/vim-bundle-mako' " Mako syntax support
-Plug 'spf13/PIV' " PHP integration for Vim. Updated syntax support, better folding, better completion, php documentation generator.
-Plug 'tmux-plugins/vim-tmux' " tmux.conf syntax file for vim.
-Plug 'tpope/vim-git' " Adds syntax, indent, and filetype plugin files for git, gitcommit, gitconfig, gitrebase, and gitsendemail.
-Plug 'tpope/vim-haml' " Adds syntax support for Haml, Sass and SCSS.
-Plug 'vim-ruby/vim-ruby' " Adds enhanced Ruby syntax for Vim.
-Plug 'vim-scripts/autohotkey-ahk' " Autohotkey syntax support for Vim.
-Plug 'vim-scripts/jQuery' " Adds syntax support for JQuery.
-Plug 'wting/cheetah.vim' " Cheetah templating syntax support.
+Plug 'pangloss/vim-javascript'                " Javascript syntax file with improved indentation support.
+Plug 'rodjek/vim-puppet'                      " Adds Puppet syntax, formatting guides, automatic alignment, ctags support
+Plug 'sophacles/vim-bundle-mako'              " Mako syntax support
+Plug 'spf13/PIV'                              " PHP integration for Vim. Updated syntax support, better folding, better completion, php documentation generator.
+Plug 'tmux-plugins/vim-tmux'                  " tmux.conf syntax file for vim.
+Plug 'tpope/vim-git'                          " Adds syntax, indent, and filetype plugin files for git, gitcommit, gitconfig, gitrebase, and gitsendemail.
+Plug 'tpope/vim-haml'                         " Adds syntax support for Haml, Sass and SCSS.
+Plug 'vim-ruby/vim-ruby'                      " Adds enhanced Ruby syntax for Vim.
+Plug 'vim-scripts/autohotkey-ahk'             " Autohotkey syntax support for Vim.
+Plug 'vim-scripts/jQuery'                     " Adds syntax support for JQuery.
+Plug 'wting/cheetah.vim'                      " Cheetah templating syntax support.
 " }}}
 " {{{ Git plugins
 Plug 'airblade/vim-gitgutter' " adds a +-~ to the gutter where things have been changed from what git is aware.
-Plug 'gregsexton/gitv' " Extension to fugitive to see the git branching history.
-Plug 'int3/vim-extradite' " Extension to fugitive that adds a git commit browser.
-Plug 'junegunn/gv.vim' " A git log viewer.
-Plug 'mattn/gist-vim' " Adds :Gist command for creating a Github gist from the current buffer or selected text.
-Plug 'tpope/vim-fugitive' " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
+Plug 'gregsexton/gitv'        " Extension to fugitive to see the git branching history.
+Plug 'int3/vim-extradite'     " Extension to fugitive that adds a git commit browser.
+Plug 'junegunn/gv.vim'        " A git log viewer.
+Plug 'mattn/gist-vim'         " Adds :Gist command for creating a Github gist from the current buffer or selected text.
+Plug 'tpope/vim-fugitive'     " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
 " }}}
 " {{{ File / directory navigation plugins
-Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlp by using a Python backend
-Plug 'justinmk/vim-dirvish'    " Fast file / directory explorer plugin for Vim.
-Plug 'kien/ctrlp.vim'          " Vim fuzzy buffer / file finder.
+Plug 'FelikZ/ctrlp-py-matcher'                    " speeds up ctrlp by using a Python backend
+Plug 'justinmk/vim-dirvish'                       " Fast file / directory explorer plugin for Vim.
+Plug 'kien/ctrlp.vim'                             " Vim fuzzy buffer / file finder.
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternative to CTRLP).
 " }}}
 " {{{ Buffer navigation plugins
@@ -120,7 +122,6 @@ Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
 Plug 'Shougo/deoplete.nvim'
-" Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin. - Disabled as deoplete is it's replacement
 Plug 'SirVer/ultisnips'                              " python based snippet engine.
 Plug 'honza/vim-snippets'                            " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'hposca/ultisnips-terraform-snippets'           " terraform snippets for ultisnips.
@@ -149,7 +150,6 @@ Plug 'tpope/vim-eunuch'                              " Adds support for many uni
 Plug 'tpope/vim-tbone'                               " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).
 " }}}
 " {{{ Text / code editing
-" Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 Plug 'bronson/vim-trailing-whitespace'               " Highlights trailing whitespace in red, adds :FixWhitespace command to strip.
 Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine tests.
 Plug 'godlygeek/tabular'                             " Plugin for aligning text.

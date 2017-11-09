@@ -13,6 +13,7 @@ ForwardAgent yes
 HashKnownHosts no
 #ConnectTimeout 2
 #IdentitiesOnly yes
+IdentityFile ~/.ssh/id_bashton_alan
 
 # My Hosts
 #Host hostname hostname.fqdn.com

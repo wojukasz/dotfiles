@@ -265,6 +265,7 @@ exec /usr/bin/keepass ~/bashton.kdbx
 # exec nm-applet
 exec wpa_gui -t
 exec /usr/bin/nice -n 19 /usr/bin/spotify
+exec /usr/bin/nice -n 19 /usr/bin/run_keybase
 
 # Set window classes per workspace
 assign [class="^Slack$"] → 1

@@ -30,8 +30,8 @@ font pango:monospace 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/alan/bin/st -e tmux new-session -A -s main
-bindsym $mod+Shift+Return exec /home/alan/bin/st
+bindsym $mod+Return exec termite -e "tmux new-session -A -s main"
+bindsym $mod+Shift+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill

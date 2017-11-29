@@ -259,7 +259,7 @@ bindsym $mod+b exec i3finder -a back
 # exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id ~/.fehbg
 exec /usr/bin/nice -n 19 /usr/bin/slack
-exec /home/alan/bin/st -e tmux new-session -A -s main
+exec termite -e "tmux new-session -A -s main"
 exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/bashton.kdbx
 # exec nm-applet

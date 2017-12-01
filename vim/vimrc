@@ -64,7 +64,6 @@ call plug#begin()
 " Plug 'luochen1990/rainbow'                           " Adds 'rainbow' parenthesis (colour codes them to easier see matching pairs)
 " Plug 'reedes/vim-pencil'                             " Adds various tweaks to improve Vim for writing documentation. (disabled as it kept wrapping things it should not).
 " Plug 'ajh17/VimCompletesMe'                          " minimalistic vimscript auto completion. (disabled because switched to Neocomplete).
-" Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin. - Disabled as deoplete is it's replacement
 " Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 " }}}
 " {{{ Syntax plugins
@@ -121,7 +120,11 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternati
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+else
+  Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin. - Disabled as deoplete is it's replacement
+endif
 Plug 'SirVer/ultisnips'                              " python based snippet engine.
 Plug 'honza/vim-snippets'                            " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'hposca/ultisnips-terraform-snippets'           " terraform snippets for ultisnips.

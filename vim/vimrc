@@ -122,19 +122,19 @@ Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim'                          " Autocomplete plugin for Neovim (Neocomplete sequal).
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete plugin (Neocomplete sequal).
 else
-  Plug 'Shougo/neocomplete.vim'                        " Good autocompletion plugin. - Disabled as deoplete is it's replacement
+  Plug 'Shougo/deoplete.nvim'                                   " Autocomplete plugin (Neocomplete sequal).
+  Plug 'roxma/nvim-yarp'                                        " deoplete dependency when used on vim 8.
+  Plug 'roxma/vim-hug-neovim-rpc'                               " deoplete dependency when used on vim 8.
 endif
-Plug 'SirVer/ultisnips'                              " python based snippet engine.
-Plug 'honza/vim-snippets'                            " Snippets for various programming languages in Ultisnips and snipmate format.
-Plug 'hposca/ultisnips-terraform-snippets'           " terraform snippets for ultisnips.
-Plug 'juliosueiras/vim-terraform-completion'         " Auto completion for terraform.
-Plug 'matthewsimo/angular-vim-snippets'              " Adds AngularJS vim snippets.
-Plug 'myhere/vim-nodejs-complete'                    " Nodejs omnicompletion support.
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'scrooloose/snipmate-snippets'                  " A collection of Snipmate snippets.
+Plug 'SirVer/ultisnips'                                         " python based snippet engine.
+Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
+Plug 'hposca/ultisnips-terraform-snippets'                      " terraform snippets for ultisnips.
+Plug 'juliosueiras/vim-terraform-completion'                    " Auto completion for terraform.
+Plug 'matthewsimo/angular-vim-snippets'                         " Adds AngularJS vim snippets.
+Plug 'myhere/vim-nodejs-complete'                               " Nodejs omnicompletion support.
+Plug 'scrooloose/snipmate-snippets'                             " A collection of Snipmate snippets.
 " }}}
 " {{{ Vim colour themes and appearance plugins
 Plug 'Yggdroot/indentLine'                           " adds indentation lines showing the different indentation levels.

@@ -21,7 +21,7 @@ DOTFILES=git/dotfiles
 #aptitude
 #cmus
 #ctags/ctags
-#gnupg
+gnupg
 #grc
 #irssi
 #mercurial/hgignore

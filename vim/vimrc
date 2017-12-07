@@ -113,6 +113,7 @@ Plug 'mattn/gist-vim'         " Adds :Gist command for creating a Github gist fr
 Plug 'jreybert/vimagit'       " Adds a nice Vim UI for staging hunks of files. Use :Magit to activate.
 Plug 'lambdalisue/gina.vim'   " Asynchronous Git plugin. Use check help at :help gina-usage
 Plug 'neoclide/vim-easygit'   " A replacement for tpope/vim-fugitive. Supposedly works better (testing).
+Plug 'rhysd/committia.vim'    " Improved commit message window.
 " }}}
 " {{{ File / directory navigation plugins
 Plug 'FelikZ/ctrlp-py-matcher'                    " speeds up ctrlp by using a Python backend

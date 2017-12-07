@@ -195,6 +195,8 @@ if has('nvim')
 else
   Plug 'Shougo/denite.nvim'                            " A recommended search plugin (testing).
 endif
+Plug 'kana/vim-operator-user'                        " Dependency of vim-operator-flashy.
+Plug 'haya14busa/vim-operator-flashy'                " Adds a temporary highlight of what text was yanked.
 " }}}
 
 if has('win32') || has('win64')
@@ -409,6 +411,10 @@ nnoremap <F5> :UndotreeToggle<CR>
 " {{{ vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
+" }}}
+" {{{ vim-operator-flashy
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
 " }}}
 filetype plugin indent on
 "}}}

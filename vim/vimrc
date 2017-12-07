@@ -109,10 +109,9 @@ Plug 'gregsexton/gitv'        " Extension to fugitive to see the git branching h
 Plug 'int3/vim-extradite'     " Extension to fugitive that adds a git commit browser.
 Plug 'junegunn/gv.vim'        " A git log viewer.
 Plug 'mattn/gist-vim'         " Adds :Gist command for creating a Github gist from the current buffer or selected text.
-" Plug 'tpope/vim-fugitive'     " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
+Plug 'tpope/vim-fugitive'     " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
 Plug 'jreybert/vimagit'       " Adds a nice Vim UI for staging hunks of files. Use :Magit to activate.
 Plug 'lambdalisue/gina.vim'   " Asynchronous Git plugin. Use check help at :help gina-usage
-Plug 'neoclide/vim-easygit'   " A replacement for tpope/vim-fugitive. Supposedly works better (testing).
 Plug 'rhysd/committia.vim'    " Improved commit message window.
 " }}}
 " {{{ File / directory navigation plugins
@@ -275,9 +274,6 @@ let g:LargeFile=1
 " }}}
 " LeaderF {{{
 
-" }}}
-" {{{ neoclide/vim-easygit
-let g:easygit_enable_command = 1
 " }}}
 " {{{ Neocomplete
 if has('nvim') == 0

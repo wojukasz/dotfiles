@@ -111,6 +111,7 @@ Plug 'junegunn/gv.vim'        " A git log viewer.
 Plug 'mattn/gist-vim'         " Adds :Gist command for creating a Github gist from the current buffer or selected text.
 Plug 'tpope/vim-fugitive'     " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
 Plug 'jreybert/vimagit'       " Adds a nice Vim UI for staging hunks of files. Use :Magit to activate.
+Plug 'lambdalisue/gina.vim'   " Asynchronous Git plugin. Use check help at :help gina-usage
 " }}}
 " {{{ File / directory navigation plugins
 Plug 'FelikZ/ctrlp-py-matcher'                    " speeds up ctrlp by using a Python backend

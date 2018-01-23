@@ -66,3 +66,6 @@ GIT_PS1_SHOWUPSTREAM="auto"
 PROMPT_DIRTRIM=2
 
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+
+# direnv
+eval "$(direnv hook bash)"

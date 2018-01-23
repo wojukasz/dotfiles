@@ -269,7 +269,7 @@ exec /usr/bin/keepass ~/git/keepass/bashton.kdbx
 # exec nm-applet
 exec wpa_gui -t
 exec cbatticon
-exec /usr/bin/nice -n 19 /usr/bin/spotify
+#exec /usr/bin/nice -n 19 /usr/bin/spotify
 exec /usr/bin/nice -n 19 /usr/bin/run_keybase
 exec /usr/bin/nice -n 19 /usr/bin/pidgin
 

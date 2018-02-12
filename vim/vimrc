@@ -124,13 +124,14 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternati
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete plugin (Neocomplete sequal).
-else
-  Plug 'Shougo/deoplete.nvim'                                   " Autocomplete plugin (Neocomplete sequal).
-  Plug 'roxma/nvim-yarp'                                        " deoplete dependency when used on vim 8.
-  Plug 'roxma/vim-hug-neovim-rpc'                               " deoplete dependency when used on vim 8.
-endif
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete plugin (Neocomplete sequal).
+" else
+"   Plug 'Shougo/deoplete.nvim'                                   " Autocomplete plugin (Neocomplete sequal).
+"   Plug 'roxma/nvim-yarp'                                        " deoplete dependency when used on vim 8.
+"   Plug 'roxma/vim-hug-neovim-rpc'                               " deoplete dependency when used on vim 8.
+" endif
 Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'hposca/ultisnips-terraform-snippets'                      " terraform snippets for ultisnips.
@@ -538,6 +539,12 @@ nmap <silent> <LocalLeader>d :bp\|bd #<CR>
 nmap <silent> <LocalLeader>n :bn<CR>
 "" Previous buffer
 nmap <silent> <LocalLeader>n :bp<CR>
+
+" Folding shortcuts
+"" Fold all the things
+nmap <silent> <Leader>zc :set foldlevel=0<CR>
+"" Unfold top level.
+nmap <silent> <Leader>za :set foldlevel=1<CR>
 
 " Split line(opposite to S-J joining line)
 nnoremap <silent> <C-J> gEa<CR><ESC>ew

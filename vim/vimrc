@@ -74,10 +74,12 @@ Plug 'StanAngeloff/php.vim'                   " php syntax support.
 Plug 'aaronbieber/vim-quicktask'              " A task / project management plugin for Vim.
 Plug 'burnettk/vim-angular'                   " AngularJS syntax support
 Plug 'chase/vim-ansible-yaml'                 " Ansible yaml syntax support.
+Plug 'farseer90718/vim-taskwarrior'           " Task warrior syntax support.
 Plug 'chr4/nginx.vim'                         " Nginx config file syntax.
 Plug 'chrisbra/csv.vim'                       " Enhanced CSV file editing plugin (CSV syntax and mappings).
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim'     " Adds CSS3 syntax support.
 Plug 'dbeniamine/todo.txt-vim'                " todo.txt syntax plugin for vim.
+" Plug 'tbabej/taskwiki'                        " Taskwiki format (integrates with Task warrior (depends on it)).
 Plug 'digitaltoad/vim-pug'                    " Pug templating engine syntax support.
 Plug 'ekalinin/Dockerfile.vim'                " Dockerfile syntax and Snipmate snippets for Dockerfile.
 Plug 'elzr/vim-json'                          " Improved editing of JSON files (syntax).
@@ -134,7 +136,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " endif
 Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
-Plug 'hposca/ultisnips-terraform-snippets'                      " terraform snippets for ultisnips.
+Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
 Plug 'juliosueiras/vim-terraform-completion'                    " Auto completion for terraform.
 Plug 'matthewsimo/angular-vim-snippets'                         " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                               " Nodejs omnicompletion support.
@@ -177,7 +179,8 @@ Plug 'w0rp/ale'                                      " Asyncronous linting engin
 " }}}
 " {{{ Vim functionality improvements
 Plug 'haya14busa/incsearch.vim'                      " Improves incremental searching in Vim.
-Plug 'jbnicolai/vim-AnsiEsc'                         " Adds :AnsiEsc command for converting Ansi colour codes to Vim colour codes.
+" Plug 'jbnicolai/vim-AnsiEsc'                         " Adds :AnsiEsc command for converting Ansi colour codes to Vim colour codes.
+Plug 'powerman/vim-plugin-AnsiEsc'                   " ANSI colour code support (using for taskwiki).
 Plug 'kshenoy/vim-signature'                         " Enhanced vim mark support (adds gutter icons for marks and extra mappings).
 Plug 'majutsushi/tagbar'                             " Adds a tagbar for exhuberant ctags command is :TagbarToggle (mapped to F8 key).
 Plug 'mbbill/undotree'                               " Adds :UndotreeToggle command to enable you to visualise your undo history and the changes you have made to the file (mapped to F5).

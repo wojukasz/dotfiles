@@ -380,12 +380,15 @@ let g:terraform_align=1
 let g:terraform_fold_sections=1
 " }}}
 " {{{ Terraform completion
-" (Optional)Remove Info(Preview) window
-" set completeopt-=preview
+"(Optional)Remove Info(Preview) window
+set completeopt-=preview
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
 
 " (Optional)Hide Info(Preview) window after completions
-" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " }}}
 " {{{ Ultisnips
 let g:UltiSnipsEditSplit="context"
@@ -568,10 +571,10 @@ map <silent> <F12> :set invlist<CR>
 
 map <F1> :Gwrite<CR>
 map <F2> :Gcommit<CR>
-map <F3> :Git push<CR>
+map <F3> :Gina push<CR>
 imap <F1> <ESC>:Gwrite<CR>i
 imap <F2> <ESC>:Gcommit<CR>
-imap <F3> <ESC>:Git push<CR>i
+imap <F3> <ESC>:Gina push<CR>i
 
 " generate HTML version current buffer using current color scheme
 map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>

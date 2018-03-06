@@ -104,6 +104,7 @@ Plug 'vim-ruby/vim-ruby'                      " Adds enhanced Ruby syntax for Vi
 Plug 'vim-scripts/autohotkey-ahk'             " Autohotkey syntax support for Vim.
 Plug 'vim-scripts/jQuery'                     " Adds syntax support for JQuery.
 Plug 'wting/cheetah.vim'                      " Cheetah templating syntax support.
+Plug 'fatih/vim-go'                           " Golang syntax.
 " }}}
 " {{{ Git plugins
 Plug 'airblade/vim-gitgutter' " adds a +-~ to the gutter where things have been changed from what git is aware.

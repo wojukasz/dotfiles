@@ -34,10 +34,11 @@ alias snowrep="~/git/bashton-servicenow/reports.py"
 alias snowtick="~/git/bashton-servicenow/view-ticket.py --nobox"
 alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
-alias vim="nvim"
+alias tw="task +work"
+alias tp="task +personal"
 
 export AWS_DEFAULT_REGION="eu-west-1"
-export EDITOR="nvim"
+export EDITOR="vim"
 export GOPATH="/home/alan/go"
 export HISTCONTROL=ignoredups:ignorespace
 export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"

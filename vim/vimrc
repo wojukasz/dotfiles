@@ -175,6 +175,7 @@ Plug 'tpope/vim-scriptease'                          " A Vim plugin to help with
 Plug 'vim-scripts/Align'                             " Adds an Align command for aligning based on a character for example select text you want to align and then run ( :'<,'>Align = ) to align the lines by their '=' sign. See :help align.
 Plug 'vim-scripts/DrawIt'                            " Drawit allows you to draw ascii art using Vim. Useful for making textual diagrams. See :help drawit.
 Plug 'vim-scripts/VOoM'                              " Vim Outliner of Markups. Allows you to create outlines of code and markup files.
+Plug 'vimoutliner/vimoutliner'                       " Adds an outliner to vim for planning things out.
 Plug 'vimwiki/vimwiki'                               " Adds Vim wiki for taking notes (use <Space>ww to open) see :help vimwiki.
 Plug 'w0rp/ale'                                      " Asyncronous linting engine (does linting and sytnax checking of source code while you edit it).
 " }}}

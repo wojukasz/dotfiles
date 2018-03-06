@@ -1,6 +1,17 @@
-alias awsconsole="~/git/awsconsole/awsconsole -b google-chrome-stable"
+# Easier navigation
+## .., ..., ...., ....., and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+
+alias cdd="cd ~/Downloads/"
 alias cdg="cd ~/git/"
 alias cdot="cd ~/git/dotfiles/"
+
+# Misc
+alias awsconsole="~/git/awsconsole/awsconsole -b google-chrome-stable"
 alias ewm="cd ~/git/ewmg"
 alias fpm='docker run -v "$PWD":/dir -it fpm-centos-7 bash'
 alias jctlw="sudo journalctl -u wpa_supplicant@wlp58s0"

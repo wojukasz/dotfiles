@@ -162,10 +162,10 @@ Plug 'tpope/vim-tbone'                               " Adds tmux support to Vim 
 Plug 'itchyny/calendar.vim'                          " Adds a Calendar to Vim. Has Google calendar integration.
 " }}}
 " {{{ Text / code editing
+" Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
 Plug 'bronson/vim-trailing-whitespace'               " Highlights trailing whitespace in red, adds :FixWhitespace command to strip.
 Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine tests.
 Plug 'godlygeek/tabular'                             " Plugin for aligning text.
-" Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
 Plug 'lukaszb/vim-web-indent'                        " Auto indentation support for Javascript and HTML.
 Plug 'mattn/emmet-vim'                               " Allows you to write abbreviated HTML and then when a trigger key combo is pressed expand to full length html (key combo is C-y).
 Plug 'tommcdo/vim-exchange'                          " Easy text exchange operator for vim use cx{motion} to initiate exchange. Go to what you want to exchange and do the same and they will be swapped.

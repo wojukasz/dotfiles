@@ -74,6 +74,7 @@ i3status:.config/i3status
 input/editrc
 input/inputrc
 monitor_hotplug:.config/monitor_hotplug
+mimeapps.list:.config/mimeapps.list
 mysql/my.cnf
 nvim:.config/nvim
 obs-studio:.config/obs-studio

@@ -107,15 +107,16 @@ Plug 'wting/cheetah.vim'                      " Cheetah templating syntax suppor
 Plug 'fatih/vim-go'                           " Golang syntax.
 " }}}
 " {{{ Git plugins
-Plug 'airblade/vim-gitgutter' " adds a +-~ to the gutter where things have been changed from what git is aware.
-Plug 'gregsexton/gitv'        " Extension to fugitive to see the git branching history.
-Plug 'int3/vim-extradite'     " Extension to fugitive that adds a git commit browser.
-Plug 'junegunn/gv.vim'        " A git log viewer.
-Plug 'mattn/gist-vim'         " Adds :Gist command for creating a Github gist from the current buffer or selected text.
-Plug 'tpope/vim-fugitive'     " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
-Plug 'jreybert/vimagit'       " Adds a nice Vim UI for staging hunks of files. Use :Magit to activate.
-Plug 'lambdalisue/gina.vim'   " Asynchronous Git plugin. Use check help at :help gina-usage
-Plug 'rhysd/committia.vim'    " Improved commit message window.
+Plug 'airblade/vim-gitgutter'     " adds a +-~ to the gutter where things have been changed from what git is aware.
+Plug 'christoomey/vim-conflicted' " Aids in resolving merge conflicts.
+Plug 'gregsexton/gitv'            " Extension to fugitive to see the git branching history.
+Plug 'int3/vim-extradite'         " Extension to fugitive that adds a git commit browser.
+Plug 'jreybert/vimagit'           " Adds a nice Vim UI for staging hunks of files. Use :Magit to activate.
+Plug 'junegunn/gv.vim'            " A git log viewer.
+Plug 'lambdalisue/gina.vim'       " Asynchronous Git plugin. Use check help at :help gina-usage
+Plug 'mattn/gist-vim'             " Adds :Gist command for creating a Github gist from the current buffer or selected text.
+Plug 'rhysd/committia.vim'        " Improved commit message window.
+Plug 'tpope/vim-fugitive'         " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
 " }}}
 " {{{ File / directory navigation plugins
 Plug 'FelikZ/ctrlp-py-matcher'                    " speeds up ctrlp by using a Python backend

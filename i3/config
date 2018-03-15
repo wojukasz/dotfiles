@@ -264,8 +264,8 @@ bindsym $mod+b exec i3finder -a back
 exec --no-startup-id ~/.fehbg
 exec /usr/bin/nice -n 19 /usr/bin/slack
 exec termite -e "tmux new-session -A -s main"
-exec /usr/bin/firefox
-#exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
+# exec /usr/bin/firefox
+exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/git/keepass/bashton.kdbx
 # exec nm-applet
 exec wpa_gui -t

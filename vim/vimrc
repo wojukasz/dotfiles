@@ -226,7 +226,7 @@ elseif executable('ag')
 endif
 "}}}
 " {{{ ale linters
-let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'javascript': ['eslint'], 'jsx': ['eslint'] }
+let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'javascript': ['eslint'], 'jsx': ['eslint'], 'terraform': ['tflint'] }
 " let g:ale_linter_aliases = {'jsx': 'css'}
 " }}}
 " {{{ CTRLP
@@ -381,6 +381,7 @@ nmap <F8> :TagbarToggle<CR>
 autocmd FileType terraform setlocal commentstring=#%s
 let g:terraform_align=1
 let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
 " }}}
 " {{{ Terraform completion
 "(Optional)Remove Info(Preview) window

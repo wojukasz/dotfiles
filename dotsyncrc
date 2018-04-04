@@ -82,7 +82,7 @@ omf:.config/omf
 python/pylintrc
 python/pythonrc
 rofi:.config/rofi
-ssh/config:.ssh/config
+ssh/config
 systemd:.config/systemd
 termite:.config/termite
 tmux/tmux.conf

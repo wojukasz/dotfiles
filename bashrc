@@ -10,6 +10,9 @@ alias cdd="cd ~/Downloads/"
 alias cdg="cd ~/git/"
 alias cdot="cd ~/git/dotfiles/"
 
+# Archlinux specific aliases
+alias makepkg='chrt --idle 0 ionice -c idle makepkg'
+
 # Misc
 alias awsconsole="~/git/awsconsole/awsconsole -b google-chrome-stable"
 alias ewm="cd ~/git/ewmg"

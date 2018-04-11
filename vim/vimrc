@@ -196,6 +196,7 @@ Plug 'tpope/vim-sensible'                            " Vim sensible defaults (al
 Plug 'tpope/vim-speeddating'                         " Improves the CTRL-A and CTRL-X increment and decrement shortcuts to work with dates.
 Plug 'tpope/vim-surround'                            " Adds mappings to work with surrounding quotes / tags / parenthesis / more.
 Plug 'tpope/vim-unimpaired'                          " Adds various mappings for, moving between files, buffers and toggling Vim options on and off (see :help unimpaired ).
+Plug 'diepm/vim-rest-console'                        " Adds the ability to use Vim as a REST client. Requires cURL.
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' } " A recommended search plugin (testing).
 else

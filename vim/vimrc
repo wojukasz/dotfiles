@@ -74,7 +74,9 @@ Plug 'StanAngeloff/php.vim'                   " php syntax support.
 Plug 'aaronbieber/vim-quicktask'              " A task / project management plugin for Vim.
 Plug 'burnettk/vim-angular'                   " AngularJS syntax support
 Plug 'chase/vim-ansible-yaml'                 " Ansible yaml syntax support.
-Plug 'farseer90718/vim-taskwarrior'           " Task warrior syntax support.
+if executable('task')
+  Plug 'farseer90718/vim-taskwarrior'           " Task warrior syntax support.
+endif
 Plug 'chr4/nginx.vim'                         " Nginx config file syntax.
 Plug 'chrisbra/csv.vim'                       " Enhanced CSV file editing plugin (CSV syntax and mappings).
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim'     " Adds CSS3 syntax support.
@@ -128,7 +130,11 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternati
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+if executable('cmake')
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+else
+  Plug 'ajh17/VimCompletesMe'
+endif
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete plugin (Neocomplete sequal).
 " else

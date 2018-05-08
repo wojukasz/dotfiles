@@ -18,12 +18,12 @@ alias awsconsole="~/git/awsconsole/awsconsole -b google-chrome-stable"
 alias ewm="cd ~/git/ewmg"
 alias fpm='docker run -v "$PWD":/dir -it fpm-centos-7 bash'
 alias jctlw="sudo journalctl -u wpa_supplicant@wlp58s0"
-alias key="ssh-add ~/.ssh/id_bashton_alan"
-alias keyb="ssh-add ~/.ssh/id_bashton"
+alias key="ssh-add ~/git/ssh-keys/id_bashton_alan"
+alias keyb="ssh-add ~/git/ssh-keys/id_bashton"
 alias keycl="ssh-add -D"
-alias keyp="ssh-add ~/.ssh/id_personal"
-alias keypa="ssh-add ~/.ssh/id_alan-aws"
-alias keypo="ssh-add ~/.ssh/id_personal_old"
+alias keyp="ssh-add ~/git/ssh-keys/id_personal"
+alias keypa="ssh-add ~/git/ssh-keys/id_alan-aws"
+alias keypo="ssh-add ~/git/ssh-keys/id_personal_old"
 alias kmse='export EYAML_CONFIG=$PWD/.kms-eyaml.yaml'
 alias ll='ls --color=always'
 alias ls='ls --color=always'

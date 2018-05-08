@@ -155,13 +155,14 @@ Plug 'vim-airline/vim-airline-themes'                " Themes for Vim Airline.
 Plug 'jszakmeister/vim-togglecursor'                 " Handles changing the cursor shape while taking into account things that can break it.
 " }}}
 " {{{ External tool integration
-Plug 'jplaut/vim-arduino-ino'                        " Adds support for the Arduino Ino commandline interface for programming Arduinos.
-Plug 'markcornick/vim-vagrant'                       " Adds :Vagrant command for interacting with Vagrant from within Vim.
-Plug 'mileszs/ack.vim'                               " Adds the :Ack command which allows you to 'grep' for files very quickly using 'silversearcher' or 'ripgrep'
-Plug 'tmux-plugins/vim-tmux-focus-events'            " Focus gained and focus lost (used by plugins) do not work in Tmux, this fixes that.
-Plug 'tpope/vim-eunuch'                              " Adds support for many unix commands into Vim (too many commands added to list here).
-Plug 'tpope/vim-tbone'                               " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).
-Plug 'itchyny/calendar.vim'                          " Adds a Calendar to Vim. Has Google calendar integration.
+Plug 'jplaut/vim-arduino-ino'                                              " Adds support for the Arduino Ino commandline interface for programming Arduinos.
+Plug 'markcornick/vim-vagrant'                                             " Adds :Vagrant command for interacting with Vagrant from within Vim.
+Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] } " Asynchronous grepping using a variety of Grep varients.
+Plug 'tmux-plugins/vim-tmux-focus-events'                                  " Focus gained and focus lost (used by plugins) do not work in Tmux, this fixes that.
+Plug 'tpope/vim-eunuch'                                                    " Adds support for many unix commands into Vim (too many commands added to list here).
+Plug 'tpope/vim-tbone'                                                     " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).
+Plug 'itchyny/calendar.vim'                                                " Adds a Calendar to Vim. Has Google calendar integration.
+" Plug 'mileszs/ack.vim'                               " Adds the :Ack command which allows you to 'grep' for files very quickly using 'silversearcher' or 'ripgrep'
 " }}}
 " {{{ Text / code editing
 " Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
@@ -273,6 +274,10 @@ let g:vim_json_syntax_conceal = 0 " stop vim hding quotes in json files.
 " }}}
 " {{{ Goldenview
 let g:goldenview__enable_default_mapping=0
+" }}}
+" {{{ Grepper
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
 " }}}
 " {{{ Gundo
 " toggle gundo

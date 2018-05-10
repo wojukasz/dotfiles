@@ -163,7 +163,7 @@ Plug 'jszakmeister/vim-togglecursor'                 " Handles changing the curs
 " {{{ External tool integration
 Plug 'jplaut/vim-arduino-ino'                                              " Adds support for the Arduino Ino commandline interface for programming Arduinos.
 Plug 'markcornick/vim-vagrant'                                             " Adds :Vagrant command for interacting with Vagrant from within Vim.
-Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] } " Asynchronous grepping using a variety of Grep varients.
+Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] } " Asynchronous grepping using a variety of Grep varients. https://github.com/mhinz/vim-grepper
 Plug 'tmux-plugins/vim-tmux-focus-events'                                  " Focus gained and focus lost (used by plugins) do not work in Tmux, this fixes that.
 Plug 'tpope/vim-eunuch'                                                    " Adds support for many unix commands into Vim (too many commands added to list here).
 Plug 'tpope/vim-tbone'                                                     " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).

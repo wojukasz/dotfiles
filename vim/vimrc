@@ -130,11 +130,11 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternati
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
-if executable('cmake')
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-else
+" if executable('cmake')
+"   Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" else
   Plug 'ajh17/VimCompletesMe'
-endif
+" endif
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete plugin (Neocomplete sequal).
 " else
@@ -142,9 +142,9 @@ endif
 "   Plug 'roxma/nvim-yarp'                                        " deoplete dependency when used on vim 8.
 "   Plug 'roxma/vim-hug-neovim-rpc'                               " deoplete dependency when used on vim 8.
 " endif
-Plug 'SirVer/ultisnips'                                         " python based snippet engine.
+" Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
-Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
+" Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
 Plug 'juliosueiras/vim-terraform-completion'                    " Auto completion for terraform.
 Plug 'matthewsimo/angular-vim-snippets'                         " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                               " Nodejs omnicompletion support.

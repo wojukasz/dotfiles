@@ -73,6 +73,7 @@ i3blocks:.config/i3blocks
 i3status:.config/i3status
 input/editrc
 input/inputrc
+kitty:.config/kitty
 monitor_hotplug:.config/monitor_hotplug
 mimeapps.list:.config/mimeapps.list
 mysql/my.cnf

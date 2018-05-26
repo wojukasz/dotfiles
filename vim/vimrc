@@ -196,7 +196,7 @@ Plug 'w0rp/ale'                                      " Asyncronous linting engin
 " {{{ Vim functionality improvements
 " Plug 'jbnicolai/vim-AnsiEsc'                       " Adds :AnsiEsc command for converting Ansi colour codes to Vim colour codes.
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}           " asynchronous execution plugin for Vim.
-Plug 'haya14busa/incsearch.vim'                      " Improves incremental searching in Vim.
+Plug 'haya14busa/is.vim'                             " Improves incremental searching in Vim.
 Plug 'powerman/vim-plugin-AnsiEsc'                   " ANSI colour code support (using for taskwiki).
 Plug 'kshenoy/vim-signature'                         " Enhanced vim mark support (adds gutter icons for marks and extra mappings).
 Plug 'majutsushi/tagbar'                             " Adds a tagbar for exhuberant ctags command is :TagbarToggle (mapped to F8 key).
@@ -680,7 +680,7 @@ endif
 
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
-colorscheme desert
+colorscheme solarized8
 
 " cursor will change color depending on vim mode in use
 " let &t_SI = "\<Esc>]12;yellow\x7"

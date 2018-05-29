@@ -30,8 +30,8 @@ font pango:monospace 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite -e "tmux new-session -A -s main"
-bindsym $mod+Shift+Return exec termite
+bindsym $mod+Return exec kitty --single-instance --session ~/.config/kitty/session-tmux.conf
+bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -263,7 +263,7 @@ bindsym $mod+b exec i3finder -a back
 # exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id ~/.fehbg
 exec /usr/bin/nice -n 19 /usr/bin/slack
-exec termite -e "tmux new-session -A -s main"
+exec kitty --single-instance --session ~/.config/kitty/session-tmux.conf
 # exec /usr/bin/firefox
 exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/git/keepass/bashton.kdbx
@@ -279,6 +279,7 @@ assign [class="^Slack$"] → 1
 assign [class="^Termite$"] → 2
 assign [class="^st$"] → 2
 assign [class="^st-256color$"] → 2
+assign [class="^kitty$"] → 2
 assign [window_role="^browser$"] → 3
 # workaround for spotify not setting window hints correctly.
 for_window [class="Spotify"] move to workspace 9

@@ -447,12 +447,12 @@ nnoremap <F5> :UndotreeToggle<CR>
 " nnoremap <space>s :Unite -quick-match buffer<cr>
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <localleader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <localleader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <localleader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <localleader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <localleader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <localleader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <localleader>t :Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <localleader>f :Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <localleader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <localleader>o :Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <localleader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <localleader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()

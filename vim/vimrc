@@ -159,6 +159,7 @@ Plug 'scrooloose/snipmate-snippets'                             " A collection o
 Plug 'Yggdroot/indentLine'                           " adds indentation lines showing the different indentation levels.
 Plug 'gorodinskiy/vim-coloresque'                    " highlights colour descriptions in CSS files with the colour they will create.
 Plug 'jnurmine/Zenburn'                              " Adds the Zenburn theme.
+Plug 'chriskempson/base16-vim'                       " Adds the base16 colour themes.
 Plug 'lifepillar/vim-solarized8'                     " Adds a 256 colour versions of the Solarized light and dark
 Plug 'roman/golden-ratio'                            " Resizes Vim splits based on the golden ratio to ensure that you are able to see what you are editing.
 Plug 'vim-airline/vim-airline'                       " Adds a pretty and useful Vim status line.
@@ -694,6 +695,13 @@ endif
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
 colorscheme solarized8
+
+" If base16 is in use make vim use the same colourscheme as the rest of the
+" terminal
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " cursor will change color depending on vim mode in use
 " let &t_SI = "\<Esc>]12;yellow\x7"

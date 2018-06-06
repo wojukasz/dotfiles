@@ -1,4 +1,5 @@
-# Easier navigation
+# {{{ Aliases
+# {{{ Easier navigation
 ## .., ..., ...., ....., and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -9,11 +10,11 @@ alias -- -="cd -"
 alias cdd="cd ~/Downloads/"
 alias cdg="cd ~/git/"
 alias cdot="cd ~/git/dotfiles/"
-
-# Archlinux specific aliases
+# }}}
+# {{{ Archlinux specific aliases
 alias makepkg='chrt --idle 0 ionice -c idle makepkg'
-
-# Misc
+# }}}
+# {{{ Misc
 alias awsconsole="~/git/awsconsole/awsconsole -b google-chrome-stable"
 alias ewm="cd ~/git/ewmg"
 alias fpm='docker run -v "$PWD":/dir -it fpm-centos-7 bash'
@@ -39,13 +40,14 @@ alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 alias tw="task +work"
 alias tp="task +personal"
-
+# }}}
+# }}}
+# {{{ Environment variables
 export AWS_DEFAULT_REGION="eu-west-1"
 export EDITOR="vim"
 export GOPATH="/home/alan/go"
 export HISTCONTROL=ignoredups:ignorespace
 export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
-export PATH="$PATH:/home/alan/git/tfenv/bin"
 export PATH="$PATH:/home/alan/go/bin"
 export PATH="$PATH:/home/alan/bin"
 export PATH="$PATH:/home/alan/.local/bin"
@@ -55,7 +57,27 @@ if [ -z "$SSH_AUTH_SOCK" ];
 then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
+# }}}
+# {{{ Bash helper functions
+if [ ! -e "$HOME/.local/share" ]; then
+  mkdir -p "$HOME/.local/share"
+fi
 
+# {{{ Installations
+# {{{ Asdf installation
+ASDF_DIR="$HOME/.local/share/asdf"
+if [ ! -e "$ASDF_DIR" ]; then
+  git clone https://github.com/asdf-vm/asdf.git "$ASDF_DIR" --branch v0.5.0
+fi
+# }}}
+# {{{ base16 installation
+BASE16_SHELL="$HOME/.config/base16-shell/"
+if [ ! -e "${BASE16_SHELL}" ]; then
+  git clone git@github.com:chriskempson/base16-shell.git "${BASE16_SHELL}"
+fi
+# }}}
+# }}}
+# {{{ Source existing files bash helpers
 SOURCE_FILES=(
     /home/alan/git/bashton-my-aws/functions
     /home/alan/git/bashton-sshuttle/sshuttle-vpn
@@ -64,6 +86,8 @@ SOURCE_FILES=(
     /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
     /usr/share/git/completion/git-prompt.sh
+    "$HOME/.local/share/asdf/completions/asdf.bash"
+    "$HOME/.local/share/asdf/asdf.sh"
 )
 
 for FILE in "${SOURCE_FILES[@]}";
@@ -73,13 +97,29 @@ do
         source "$FILE"
     fi
 done
+# }}}
+# {{{ ASDF plugin installation
+ASDF_PLUGINS=(
+  kops
+  kubecfg
+  kubectl
+  ruby
+  terraform
+  tflint
+)
 
-# bash base16 colour support
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
+for plugin in "${ASDF_PLUGINS[@]}"; do
+  if [ ! -e "${ASDF_DIR}/plugins/${plugin}" ]; then
+    asdf plugin-add "${plugin}"
+    ASDF_LATEST=$(asdf list-all "${plugin}" | tail -n1)
+    asdf install "${plugin}" "${ASDF_LATEST}"
+    asdf global "${plugin}" "${ASDF_LATEST}"
+    unset ASDF_LATEST
+  fi
+done
+# }}}
+# }}}
+# {{{ Bash prompt config
 # setup git ps1 prompt
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -89,5 +129,9 @@ PROMPT_DIRTRIM=2
 
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
-# direnv
-eval "$(direnv hook bash)"
+# {{{ base16 colour theme setup
+[ -n "$PS1" ] && \
+[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+eval "$("$BASE16_SHELL/profile_helper.sh")"
+# }}}
+# }}}

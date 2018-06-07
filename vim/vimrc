@@ -233,6 +233,176 @@ if !vimPlugNOTInstalled
 endif
 
 " " }}}
+" General "{{{
+set autowrite  " Writes on make/shell commands
+set ttyfast     " Improves terminal redraw
+set lazyredraw  " redraw only when we need to.
+set ttimeoutlen=100 " the time in milliseconds for a key sequence to complete.
+set nocompatible  " disable vi compatibility.
+set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
+set path+=**
+set tags=./tags;$HOME " walk directory tree upto $HOME looking for tags
+set timeoutlen=600  " Time to wait after ESC (default causes an annoying delay)
+let &t_ut='' " Disable background colour erase
+" Modeline
+set modeline
+set modelines=5 " default numbers of lines to read for modeline instructions
+" Backup
+set nowritebackup
+set nobackup
+set directory=/tmp// " prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+" Buffers
+set hidden      " The current buffer can be put to the background without writing to disk
+" Match and search
+set hlsearch    " highlight search
+set ignorecase  " Do case in sensitive matching with
+set smartcase   " be sensitive when there's a capital letter
+" Don't automatically add newlines to end of file:
+set nofixeol
+set noeol
+" Completion
+set omnifunc=syntaxcomplete#Complete
+" "}}}
+" Formatting "{{{
+set fo-=o " Do not automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set fo-=r " Do not automatically insert a comment leader after an enter
+set fo-=t " Do no auto-wrap text using textwidth (does not apply to comments)
+
+set nowrap
+set textwidth=0     " Don't wrap lines by default
+set wildmode=longest,list " At command line, complete longest common string, then list alternatives.
+
+set tabstop=2    " Set the default tabstop
+set softtabstop=2
+set shiftwidth=2 " Set the default shift width for indents
+set expandtab   " Make tabs into spaces (set by tabstop)
+
+set cindent
+set cinoptions=:s,ps,ts,cs
+set cinwords=if,else,while,do,for,switch,case
+
+filetype indent plugin indent on             " Automatically detect file types.
+" HTML Formatting
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+let g:html_indent_inctags = "html,body,head,tbody,div,table,tr,p"
+
+" PHP Formatting
+let g:PHP_outdentphpescape = 1
+let g:PHP_removeCRwhenUnix = 1
+let g:PHP_outdentSLComments = 1
+let g:PHP_default_indenting = 1
+let g:PHP_vintage_case_default_indent = 1
+" "}}}
+" Command and Auto commands " {{{
+" Sudo write
+comm! W exec 'w !sudo tee % > /dev/null' | e!
+
+"Auto commands
+" au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
+au BufRead,BufNewFile *.quicktask                                     setf quicktask
+au BufRead,BufNewFile *.ino                                           setlocal filetype=arduino
+au BufRead,BufNewFile *.pde                                           setlocal filetype=arduino
+au BufRead,BufNewFile {*.html}                                        setlocal ft=html
+au BufRead,BufNewFile {*.jade}                                        setlocal ft=jade
+au BufRead,BufNewFile {*.less}                                        setlocal ft=less
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal ft=markdown
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal spell
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal wrap
+au BufRead,BufNewFile {*.php}                                         setlocal ft=php
+au BufRead,BufNewFile {*.taskpaper}                                   setlocal ft=taskpaper
+au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
+au BufRead,BufNewFile {*.tick}                                        :AnsiEsc
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal complete=.,w,b,u,t,kspell
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal ft=gitcommit
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal spell
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     setlocal ft=ruby
+au BufRead,BufNewFile */cloudformation/*.json                         setlocal filetype=aws.json
+au BufRead,BufNewFile *.scss                                          setlocal tabstop=4 shiftwidth=4 softtabstop=4
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
+au FileType quicktask setlocal nocindent
+au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+" " }}}
+" Key mappings " {{{
+let mapleader = "\<Space>"
+let maplocalleader = ","
+if has('win32') || has('win64')
+  let directory=.,$TEMP " Swap file support for windows.
+  let vimrcpath = $HOME . "/_vimrc"
+  nnoremap <silent> <LocalLeader>vs :source $HOME/_vimrc<CR>
+  nnoremap <silent> <LocalLeader>vt :tabnew $HOME/_vimrc<CR>
+  nnoremap <silent> <LocalLeader>ve :e $HOME/_vimrc<CR>
+  nnoremap <silent> <LocalLeader>vd :e $HOME/.vim/ <CR>
+  nnoremap <silent> <LocalLeader>vc :vsplit $HOME/.vim/cheatsheet.md<CR>
+  " nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
+  " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
+else
+  let vimrcpath = $HOME . "/git/dotfiles/vim/vimrc"
+  nnoremap <silent> <LocalLeader>vs :source ~/git/dotfiles/vim/vimrc<CR>
+  nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotfiles/vim/vimrc<CR>
+  nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
+  nnoremap <silent> <LocalLeader>vc :vsplit ~/git/dotfiles/vim/cheatsheet.md<CR>
+  nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
+  nnoremap <silent> <LocalLeader>tN :e ~/Dropbox/todo/todo.txt<CR>
+  nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/quicktask/tasks.quicktask<CR>
+  nnoremap <silent> <LocalLeader>tp :e ~/Dropbox/quicktask/tasks-personal.quicktask<CR>
+  " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
+endif
+
+nnoremap <silent> <LocalLeader><Space> :noh<CR>
+
+" Buffer maps
+"" Close buffer without closing split
+nmap <silent> <LocalLeader>d :bp\|bd #<CR>
+"" Next buffer
+nmap <silent> <LocalLeader>n :bn<CR>
+"" Previous buffer
+nmap <silent> <LocalLeader>n :bp<CR>
+
+" Folding shortcuts
+"" Fold all the things
+nmap <silent> <Leader>zc :set foldlevel=0<CR>
+"" Unfold top level.
+nmap <silent> <Leader>za :set foldlevel=1<CR>
+
+" Split line(opposite to S-J joining line)
+nnoremap <silent> <C-J> gEa<CR><ESC>ew
+
+" Add a new line at the end of the line.
+map <S-CR> A<CR><ESC>
+
+imap <C-Space> <C-X><C-O>
+
+" Control+S and Control+Q are flow-control characters: disable them in your terminal settings.
+" $ stty -ixon -ixoff
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
+
+" show/Hide hidden Chars
+map <silent> <F12> :set invlist<CR>
+
+map <F1> :Gwrite<CR>
+map <F2> :Gcommit<CR>
+map <F3> :Gina push<CR>
+imap <F1> <ESC>:Gwrite<CR>i
+imap <F2> <ESC>:Gcommit<CR>
+imap <F3> <ESC>:Gina push<CR>i
+
+" generate HTML version current buffer using current color scheme
+map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
+
+" Expand region mappings for terryma/vim-expand-region plugin.
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Jump around using enter and backspace instead of g
+" nnoremap <CR> G
+" nnoremap <BS> gg
+nmap <silent> <Leader>s :Startify<CR>
+" " }}}
 " Plugin Config " {{{
 " {{{ ack.vim
 if executable('rg')
@@ -477,176 +647,6 @@ let g:vimfiler_as_default_explorer = 1
 " }}}
 filetype plugin indent on
 "}}}
-" General "{{{
-set autowrite  " Writes on make/shell commands
-set ttyfast     " Improves terminal redraw
-set lazyredraw  " redraw only when we need to.
-set ttimeoutlen=100 " the time in milliseconds for a key sequence to complete.
-set nocompatible  " disable vi compatibility.
-set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
-set path+=**
-set tags=./tags;$HOME " walk directory tree upto $HOME looking for tags
-set timeoutlen=600  " Time to wait after ESC (default causes an annoying delay)
-let &t_ut='' " Disable background colour erase
-" Modeline
-set modeline
-set modelines=5 " default numbers of lines to read for modeline instructions
-" Backup
-set nowritebackup
-set nobackup
-set directory=/tmp// " prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
-" Buffers
-set hidden      " The current buffer can be put to the background without writing to disk
-" Match and search
-set hlsearch    " highlight search
-set ignorecase  " Do case in sensitive matching with
-set smartcase   " be sensitive when there's a capital letter
-" Don't automatically add newlines to end of file:
-set nofixeol
-set noeol
-" Completion
-set omnifunc=syntaxcomplete#Complete
-" "}}}
-" Formatting "{{{
-set fo-=o " Do not automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
-set fo-=r " Do not automatically insert a comment leader after an enter
-set fo-=t " Do no auto-wrap text using textwidth (does not apply to comments)
-
-set nowrap
-set textwidth=0     " Don't wrap lines by default
-set wildmode=longest,list " At command line, complete longest common string, then list alternatives.
-
-set tabstop=2    " Set the default tabstop
-set softtabstop=2
-set shiftwidth=2 " Set the default shift width for indents
-set expandtab   " Make tabs into spaces (set by tabstop)
-
-set cindent
-set cinoptions=:s,ps,ts,cs
-set cinwords=if,else,while,do,for,switch,case
-
-filetype indent plugin indent on             " Automatically detect file types.
-" HTML Formatting
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-let g:html_indent_inctags = "html,body,head,tbody,div,table,tr,p"
-
-" PHP Formatting
-let g:PHP_outdentphpescape = 1
-let g:PHP_removeCRwhenUnix = 1
-let g:PHP_outdentSLComments = 1
-let g:PHP_default_indenting = 1
-let g:PHP_vintage_case_default_indent = 1
-" "}}}
-" Command and Auto commands " {{{
-" Sudo write
-comm! W exec 'w !sudo tee % > /dev/null' | e!
-
-"Auto commands
-" au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php
-au BufRead,BufNewFile *.quicktask                                     setf quicktask
-au BufRead,BufNewFile *.ino                                           setlocal filetype=arduino
-au BufRead,BufNewFile *.pde                                           setlocal filetype=arduino
-au BufRead,BufNewFile {*.html}                                        setlocal ft=html
-au BufRead,BufNewFile {*.jade}                                        setlocal ft=jade
-au BufRead,BufNewFile {*.less}                                        setlocal ft=less
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal complete=.,w,b,u,t,kspell
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal ft=markdown
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal spell
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         setlocal wrap
-au BufRead,BufNewFile {*.php}                                         setlocal ft=php
-au BufRead,BufNewFile {*.taskpaper}                                   setlocal ft=taskpaper
-au BufRead,BufNewFile {*.tex}                                         nnoremap <F2> :!make<CR>
-au BufRead,BufNewFile {*.tick}                                        :AnsiEsc
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal complete=.,w,b,u,t,kspell
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal ft=gitcommit
-au BufRead,BufNewFile {COMMIT_EDITMSG}                                setlocal spell
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     setlocal ft=ruby
-au BufRead,BufNewFile */cloudformation/*.json                         setlocal filetype=aws.json
-au BufRead,BufNewFile *.scss                                          setlocal tabstop=4 shiftwidth=4 softtabstop=4
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
-au FileType quicktask setlocal nocindent
-au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
-au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
-" " }}}
-" Key mappings " {{{
-let mapleader = "\<Space>"
-let maplocalleader = ","
-if has('win32') || has('win64')
-  let directory=.,$TEMP " Swap file support for windows.
-  let vimrcpath = $HOME . "/_vimrc"
-  nnoremap <silent> <LocalLeader>vs :source $HOME/_vimrc<CR>
-  nnoremap <silent> <LocalLeader>vt :tabnew $HOME/_vimrc<CR>
-  nnoremap <silent> <LocalLeader>ve :e $HOME/_vimrc<CR>
-  nnoremap <silent> <LocalLeader>vd :e $HOME/.vim/ <CR>
-  nnoremap <silent> <LocalLeader>vc :vsplit $HOME/.vim/cheatsheet.md<CR>
-  " nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/TaskPaper/Todo.taskpaper<CR>
-  " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
-else
-  let vimrcpath = $HOME . "/git/dotfiles/vim/vimrc"
-  nnoremap <silent> <LocalLeader>vs :source ~/git/dotfiles/vim/vimrc<CR>
-  nnoremap <silent> <LocalLeader>vt :tabnew ~/git/dotfiles/vim/vimrc<CR>
-  nnoremap <silent> <LocalLeader>ve :e ~/git/dotfiles/vim/vimrc<CR>
-  nnoremap <silent> <LocalLeader>vc :vsplit ~/git/dotfiles/vim/cheatsheet.md<CR>
-  nnoremap <silent> <LocalLeader>vd :e ~/.vim/ <CR>
-  nnoremap <silent> <LocalLeader>tN :e ~/Dropbox/todo/todo.txt<CR>
-  nnoremap <silent> <LocalLeader>tn :e ~/Dropbox/quicktask/tasks.quicktask<CR>
-  nnoremap <silent> <LocalLeader>tp :e ~/Dropbox/quicktask/tasks-personal.quicktask<CR>
-  " nnoremap <silent> <LocalLeader>ts :e ~/Dropbox/TaskPaper/TodoSomeday.taskpaper<CR>
-endif
-
-nnoremap <silent> <LocalLeader><Space> :noh<CR>
-
-" Buffer maps
-"" Close buffer without closing split
-nmap <silent> <LocalLeader>d :bp\|bd #<CR>
-"" Next buffer
-nmap <silent> <LocalLeader>n :bn<CR>
-"" Previous buffer
-nmap <silent> <LocalLeader>n :bp<CR>
-
-" Folding shortcuts
-"" Fold all the things
-nmap <silent> <Leader>zc :set foldlevel=0<CR>
-"" Unfold top level.
-nmap <silent> <Leader>za :set foldlevel=1<CR>
-
-" Split line(opposite to S-J joining line)
-nnoremap <silent> <C-J> gEa<CR><ESC>ew
-
-" Add a new line at the end of the line.
-map <S-CR> A<CR><ESC>
-
-imap <C-Space> <C-X><C-O>
-
-" Control+S and Control+Q are flow-control characters: disable them in your terminal settings.
-" $ stty -ixon -ixoff
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <C-O>:update<CR>
-
-" show/Hide hidden Chars
-map <silent> <F12> :set invlist<CR>
-
-map <F1> :Gwrite<CR>
-map <F2> :Gcommit<CR>
-map <F3> :Gina push<CR>
-imap <F1> <ESC>:Gwrite<CR>i
-imap <F2> <ESC>:Gcommit<CR>
-imap <F3> <ESC>:Gina push<CR>i
-
-" generate HTML version current buffer using current color scheme
-map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
-
-" Expand region mappings for terryma/vim-expand-region plugin.
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
-" Jump around using enter and backspace instead of g
-" nnoremap <CR> G
-" nnoremap <BS> gg
-nmap <silent> <Leader>s :Startify<CR>
-" " }}}
 " Visual "{{{
 set number  " Line numbers on
 set relativenumber " and relative numbering too!

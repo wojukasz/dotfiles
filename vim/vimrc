@@ -135,21 +135,10 @@ Plug 'tpope/vim-vinegar'                          " Allows quickly exploring the
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 " }}}
 " {{{ Snippet and completion plugins
-" if executable('cmake')
-"   Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" else
-  Plug 'ajh17/VimCompletesMe'
-" endif
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete plugin (Neocomplete sequal).
-" else
-"   Plug 'Shougo/deoplete.nvim'                                   " Autocomplete plugin (Neocomplete sequal).
-"   Plug 'roxma/nvim-yarp'                                        " deoplete dependency when used on vim 8.
-"   Plug 'roxma/vim-hug-neovim-rpc'                               " deoplete dependency when used on vim 8.
-" endif
-" Plug 'SirVer/ultisnips'                                         " python based snippet engine.
+Plug 'maralla/completor.vim'                                      " An alternative completion engine using Vim's Python support
+Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
-" Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
+Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
 Plug 'bashton-ajenkins/vim-terraform-completion'                    " Auto completion for terraform.
 Plug 'matthewsimo/angular-vim-snippets'                         " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                               " Nodejs omnicompletion support.
@@ -414,6 +403,11 @@ endif
 " {{{ ale linters
 let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'javascript': ['eslint'], 'jsx': ['eslint'], 'terraform': ['tflint'] }
 " let g:ale_linter_aliases = {'jsx': 'css'}
+" }}}
+" {{{ Completor
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " }}}
 " {{{ CTRLP
 if !has('python')

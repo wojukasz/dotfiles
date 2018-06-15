@@ -43,6 +43,7 @@ alias tp="task +personal"
 # }}}
 # }}}
 # {{{ Environment variables
+export ARDUINO_PATH="/usr/share/arduino"
 export AWS_DEFAULT_REGION="eu-west-1"
 export EDITOR="vim"
 export GOPATH="/home/alan/go"

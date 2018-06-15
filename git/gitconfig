@@ -73,6 +73,7 @@
     bM = branch -M
     bs = show-branch
     bS = show-branch -a
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
     # checkout/fetch/merge/push/rebase
     # checkout
@@ -139,6 +140,16 @@
     rea = remote add
     rex = remote rm
     rem = remote rename
+
+    # Push the current branch to the remote "origin", and set it to track
+    # the upstream branch
+    publish = "!git push -u origin $(git branch-name)"
+    # Delete the remote version of the current branch
+    unpublish = "!git push origin :$(git branch-name)"
+
+    # Delete any branches that have been merged into master
+    # See also: https://gist.github.com/robmiller/5133264
+    delete-merged-branches = "!git checkout master && git branch --no-color --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
 [push]
     default = matching

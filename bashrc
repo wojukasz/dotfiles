@@ -10,6 +10,7 @@ alias -- -="cd -"
 alias cdd="cd ~/Downloads/"
 alias cdg="cd ~/git/"
 alias cdot="cd ~/git/dotfiles/"
+alias cdgo="cd \$GOPATH"
 # }}}
 # {{{ Archlinux specific aliases
 alias makepkg='chrt --idle 0 ionice -c idle makepkg'
@@ -87,8 +88,8 @@ SOURCE_FILES=(
     /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
     /usr/share/git/completion/git-prompt.sh
-    "$HOME/.local/share/asdf/completions/asdf.bash"
-    "$HOME/.local/share/asdf/asdf.sh"
+    # "$HOME/.local/share/asdf/completions/asdf.bash"
+    # "$HOME/.local/share/asdf/asdf.sh"
 )
 
 for FILE in "${SOURCE_FILES[@]}";

@@ -100,6 +100,11 @@ do
     fi
 done
 # }}}
+# {{{ FASD Initialisation
+if command -v fasd &>/dev/null; then
+  eval "$(fasd --init auto)"
+fi
+# }}}
 # {{{ ASDF plugin installation
 ASDF_PLUGINS=(
   kops

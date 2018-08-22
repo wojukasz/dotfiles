@@ -306,13 +306,11 @@ bindsym $mod+b exec i3finder -a back
 exec --no-startup-id ~/.fehbg
 exec /usr/bin/nice -n 19 /usr/bin/slack
 exec kitty --single-instance --session ~/.config/kitty/session-tmux.conf
-# exec /usr/bin/firefox
+# exec /usr/bin/nice -n 19 /usr/bin/firefox
 exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
 exec /usr/bin/keepass ~/git/keepass/bashton.kdbx
-# exec nm-applet
 exec wpa_gui -t
 exec cbatticon
-#exec /usr/bin/nice -n 19 /usr/bin/spotify
 exec /usr/bin/nice -n 19 /usr/bin/run_keybase
 exec /usr/bin/nice -n 19 /usr/bin/pidgin
 
@@ -331,6 +329,9 @@ assign [class="^KeePass2$"] → 10
 ## Google Chrome
 for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
 for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
+
+## Keybase
+for_window [class="Keybase"] floating enable, move position mouse
 
 # floating windows
 for_window [window_role="pop-up"] floating enable

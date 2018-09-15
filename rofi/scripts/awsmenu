@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+private_mode=0
+
+if [[ $1 == "--private-mode" ]]; then
+  private_mode=1
+  shift
+fi
+
+aws_profiles=( $(grep '\[profile ' ~/.aws/config | sed -e 's/\[profile //' -e 's/\]//') )
+
+profile=$(printf '%s\n' "${aws_profiles[@]}" | rofi -dmenu "$@")
+
+[[ -n $profile ]] || exit
+
+if [[ $private_mode -eq 0 ]]; then
+  # normal mode (use current session)
+else
+  # private mode
+fi

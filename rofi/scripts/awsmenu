@@ -17,6 +17,8 @@ profile=$(printf '%s\n' "${aws_profiles[@]}" | rofi -dmenu "$@")
 
 if [[ $private_mode -eq 0 ]]; then
   # normal mode (use current session)
+  ~/git/awsconsole/awsconsole --browser google-chrome-stable "$profile"
 else
   # private mode
+  ~/git/awsconsole/awsconsole --browser google-chrome-stable --incognito "$profile"
 fi

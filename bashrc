@@ -88,6 +88,7 @@ SOURCE_FILES=(
     /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
     /usr/share/git/completion/git-prompt.sh
+    /usr/lib/ruby/gems/2.5.0/gems/tmuxinator-0.12.0/completion/tmuxinator.bash
     # "$HOME/.local/share/asdf/completions/asdf.bash"
     # "$HOME/.local/share/asdf/asdf.sh"
 )

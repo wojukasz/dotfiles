@@ -143,3 +143,5 @@ PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 eval "$("$BASE16_SHELL/profile_helper.sh")"
 # }}}
 # }}}
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

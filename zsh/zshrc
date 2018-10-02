@@ -135,3 +135,5 @@ export PATH="$PATH:/home/alan/go/bin"
 source /home/alan/git/bashton-my-aws/functions # bashton-my-aws
 source /home/alan/git/bashton-sshuttle/sshuttle-vpn # bashton-sshuttle
 source /usr/share/git/completion/git-completion.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

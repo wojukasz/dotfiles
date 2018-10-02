@@ -468,6 +468,8 @@ let g:goldenview__enable_default_mapping=0
 " {{{ Grepper
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
+nnoremap <leader>g :Grepper -tool rg<cr>
+nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 " }}}
 " {{{ Gundo
 " toggle gundo

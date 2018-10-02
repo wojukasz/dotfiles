@@ -32,6 +32,12 @@ call plug#begin()
 " Plug 'Shougo/neocomplete' " enhanced completion
 " Plug 'Shougo/neosnippet' " vimscript base snippets.
 " Plug 'Shougo/neosnippet-snippets' " snippets for neosnippet
+" Plug 'Shougo/neomru.vim'                          " Most Recently Used Plugin for Unite
+" Plug 'Shougo/neoyank.vim'                         " Yank plugin for Unite.
+" Plug 'Shougo/unite-outline'                       " Outline plugin for Unite.
+" Plug 'Shougo/unite.vim'                           " Unite is a fuzzy searcher for just about everything (also a dependency of VimFiler)
+" Plug 'tpope/vim-vinegar'                          " Allows quickly exploring the folder that the file is in using '-' usually uses netrw but is configured to use Vimfiler.
+" Plug 'Shougo/vimfiler.vim'                        " A Vim file tree plugin like NerdTree
 " Plug 'Townk/vim-autoclose'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer --racer-completer' }
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " File fuzzy finder (alternative to CTRLP).
@@ -124,12 +130,8 @@ Plug 'rhysd/committia.vim'        " Improved commit message window.
 Plug 'tpope/vim-fugitive'         " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
 " }}}
 " {{{ File / directory navigation plugins
-Plug 'Shougo/neomru.vim'                          " Most Recently Used Plugin for Unite
-Plug 'Shougo/neoyank.vim'                         " Yank plugin for Unite.
-Plug 'Shougo/unite-outline'                       " Outline plugin for Unite.
-Plug 'Shougo/unite.vim'                           " Unite is a fuzzy searcher for just about everything (also a dependency of VimFiler)
-Plug 'Shougo/vimfiler.vim'                        " A Vim file tree plugin like NerdTree
-Plug 'tpope/vim-vinegar'                          " Allows quickly exploring the folder that the file is in using '-' usually uses netrw but is configured to use Vimfiler.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder of files (mapped to <leader>;)
+Plug 'jeetsukumaran/vim-filebeagle'                               " File browser
 " }}}
 " {{{ Buffer navigation plugins
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
@@ -462,6 +464,9 @@ let g:EasyMotion_smartcase = 1
 set conceallevel=0
 let g:vim_json_syntax_conceal = 0 " stop vim hding quotes in json files.
 " }}}
+" FZF {{{
+nnoremap <leader>; :FZF<cr>
+" }}}
 " {{{ Goldenview
 let g:goldenview__enable_default_mapping=0
 " }}}
@@ -612,23 +617,23 @@ nnoremap <F5> :UndotreeToggle<CR>
 " let g:unite_source_history_yank_enable = 1
 " nnoremap <space>y :Unite history/yank<cr>
 " nnoremap <space>s :Unite -quick-match buffer<cr>
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <LocalLeader>t :Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <LocalLeader>f :Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <LocalLeader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <LocalLeader>o :Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <LocalLeader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <LocalLeader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
+" let g:unite_source_history_yank_enable = 1
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" nnoremap <LocalLeader>t :Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+" nnoremap <LocalLeader>f :Unite -no-split -buffer-name=files   -start-insert file<cr>
+" nnoremap <LocalLeader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+" nnoremap <LocalLeader>o :Unite -no-split -buffer-name=outline -start-insert outline<cr>
+" nnoremap <LocalLeader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
+" nnoremap <LocalLeader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
 " Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
+" autocmd FileType unite call s:unite_settings()
+" function! s:unite_settings()
+"   " Play nice with supertab
+"   let b:SuperTabDisabled=1
+"   " Enable navigation with control-j and control-k in insert mode
+"   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+"   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+" endfunction
 " }}}
 " {{{ vim-airline
 let g:airline_powerline_fonts = 1

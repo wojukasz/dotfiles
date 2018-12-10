@@ -135,6 +135,7 @@ Plug 'jeetsukumaran/vim-filebeagle'                               " File browser
 " }}}
 " {{{ Buffer navigation plugins
 Plug 'Lokaltog/vim-easymotion' " Adds extra motions
+Plug 'google/vim-searchindex'  " Adds search indexing (match x of x when searching)
 " }}}
 " {{{ Snippet and completion plugins
 Plug 'maralla/completor.vim'                                      " An alternative completion engine using Vim's Python support

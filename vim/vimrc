@@ -141,7 +141,8 @@ Plug 'maralla/completor.vim'                                      " An alternati
 Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
-Plug 'bashton-ajenkins/vim-terraform-completion'                    " Auto completion for terraform.
+" Plug 'bashton-ajenkins/vim-terraform-completion'                " Auto completion for terraform.
+Plug 'juliosueiras/vim-terraform-completion'                    " Auto completion for terraform.
 Plug 'matthewsimo/angular-vim-snippets'                         " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                               " Nodejs omnicompletion support.
 Plug 'scrooloose/snipmate-snippets'                             " A collection of Snipmate snippets.

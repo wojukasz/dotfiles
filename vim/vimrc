@@ -131,6 +131,7 @@ Plug 'tpope/vim-fugitive'         " Adds git integration to Vim. Many commands a
 " }}}
 " {{{ File / directory navigation plugins
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder of files (mapped to <leader>;)
+Plug 'junegunn/fzf.vim'                                           " Fuzzy finder of files (mapped to <leader>;) part 2
 Plug 'jeetsukumaran/vim-filebeagle'                               " File browser
 " }}}
 " {{{ Buffer navigation plugins

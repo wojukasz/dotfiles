@@ -220,6 +220,11 @@ if has('win32') || has('win64')
 else
   Plug 'powerline/fonts', { 'do': './install.sh' }
 endif
+
+if has('mac')
+  Plug 'tonsky/FiraCode', { 'do':  'cd distr/otf && find $(pwd) -name ''*.otf'' -type f -print0 \| xargs -0 -I{} ln -sf {} ~/Library/Fonts' }
+endif
+
 call plug#end()
 
 if !vimPlugNOTInstalled

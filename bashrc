@@ -27,8 +27,6 @@ alias keyp="ssh-add ~/git/ssh-keys/id_personal"
 alias keypa="ssh-add ~/git/ssh-keys/id_alan-aws"
 alias keypo="ssh-add ~/git/ssh-keys/id_personal_old"
 alias kmse='export EYAML_CONFIG=$PWD/.kms-eyaml.yaml'
-alias ll='ls --color=always'
-alias ls='ls --color=always'
 alias misg="cd ~/git/missguided"
 alias rewifi="sudo systemctl restart wpa_supplicant@wlp58s0"
 alias sdl="cd ~/git/superdry/laguna"
@@ -42,6 +40,14 @@ alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 alias tw="task +work"
 alias tp="task +personal"
+
+if uname -a | grep 'Darwin' &> /dev/null; then
+  alias ll='ls -G';
+  alias ls='ls -G';
+else
+  alias ll='ls --color=always';
+  alias ls='ls --color=always';
+fi
 # }}}
 # }}}
 # {{{ Environment variables
@@ -88,10 +94,12 @@ SOURCE_FILES=(
     /usr/share/bash-completion/bash_completion
     /usr/share/doc/pkgfile/command-not-found.bash
     /usr/share/git/completion/git-completion.bash
+    /usr/local/git/contrib/completion/git-completion.bash
     /usr/share/git/completion/git-prompt.sh
+    /usr/local/etc/bash_completion.d/git-prompt.sh
     /usr/lib/ruby/gems/2.5.0/gems/tmuxinator-0.12.0/completion/tmuxinator.bash
-    # "$HOME/.local/share/asdf/completions/asdf.bash"
-    # "$HOME/.local/share/asdf/asdf.sh"
+    "$HOME/.local/share/asdf/completions/asdf.bash"
+    "$HOME/.local/share/asdf/asdf.sh"
 )
 
 for FILE in "${SOURCE_FILES[@]}";

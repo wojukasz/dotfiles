@@ -56,6 +56,7 @@ export AWS_DEFAULT_REGION="eu-west-1"
 export EDITOR="vim"
 export GOPATH="/home/alan/go"
 export HISTCONTROL=ignoredups:ignorespace
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/home/alan/.gem/ruby/2.4.0/bin"
 export PATH="$PATH:/home/alan/go/bin"

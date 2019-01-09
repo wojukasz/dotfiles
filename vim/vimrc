@@ -75,6 +75,7 @@ call plug#begin()
 " Plug 'vim-scripts/hexman'
 " Plug 'vim-syntastic/syntastic'                       " Syntax checking (alternative to ale but required for Terraform plugins).
 " Plug 'zhaocai/GoldenView.Vim'                      " Resizes Vim splits based on the golden ratio to ensure that you are able to see what you are editing. - Disabled in favour of a better golden-ratio plugin.
+" Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] } " Asynchronous grepping using a variety of Grep varients. https://github.com/mhinz/vim-grepper
 " }}}
 " {{{ Syntax plugins
 Plug 'LaTeX-Box-Team/LaTeX-Box'               " Syntax for Latex with improved mappings and motions and auto background compilation of changes.
@@ -116,6 +117,7 @@ Plug 'vim-scripts/autohotkey-ahk'             " Autohotkey syntax support for Vi
 Plug 'vim-scripts/jQuery'                     " Adds syntax support for JQuery.
 Plug 'wting/cheetah.vim'                      " Cheetah templating syntax support.
 Plug 'fatih/vim-go'                           " Golang syntax.
+Plug 'tmhedberg/SimpylFold'                   " simple, correct folding for Python.
 " }}}
 " {{{ Git plugins
 Plug 'airblade/vim-gitgutter'     " adds a +-~ to the gutter where things have been changed from what git is aware.
@@ -163,7 +165,6 @@ Plug 'jszakmeister/vim-togglecursor'                 " Handles changing the curs
 " {{{ External tool integration
 Plug 'jplaut/vim-arduino-ino'                                              " Adds support for the Arduino Ino commandline interface for programming Arduinos.
 Plug 'markcornick/vim-vagrant'                                             " Adds :Vagrant command for interacting with Vagrant from within Vim.
-Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] } " Asynchronous grepping using a variety of Grep varients. https://github.com/mhinz/vim-grepper
 Plug 'tmux-plugins/vim-tmux-focus-events'                                  " Focus gained and focus lost (used by plugins) do not work in Tmux, this fixes that.
 Plug 'tpope/vim-eunuch'                                                    " Adds support for many unix commands into Vim (too many commands added to list here).
 Plug 'tpope/vim-tbone'                                                     " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).
@@ -323,6 +324,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "norma
 au FileType quicktask setlocal nocindent
 au FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType json setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 " " }}}
 " Key mappings " {{{
 let mapleader = "\<Space>"
@@ -449,15 +451,16 @@ let g:vim_json_syntax_conceal = 0 " stop vim hding quotes in json files.
 " }}}
 " FZF {{{
 nnoremap <leader>; :FZF<cr>
+nnoremap <leader>g :Rg<cr>
 " }}}
 " {{{ Goldenview
 let g:goldenview__enable_default_mapping=0
 " }}}
 " {{{ Grepper
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
-nnoremap <leader>g :Grepper -tool rg<cr>
-nnoremap <leader>G :Grepper -tool rg -buffers<cr>
+" nmap gs  <plug>(GrepperOperator)
+" xmap gs  <plug>(GrepperOperator)
+" nnoremap <leader>g :Grepper -tool rg<cr>
+" nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 " }}}
 " {{{ Gundo
 " toggle gundo
@@ -559,6 +562,9 @@ let g:rainbow_active = 1
 " }}}
 " {{{ scratch
 let g:scratch_persistence_file=expand("~/.vim/scratchfile")
+" }}}
+" {{{ SimpylFold
+let g:SimpylFold_docstring_preview = 1
 " }}}
 " {{{ Tagbar
 nmap <F8> :TagbarToggle<CR>

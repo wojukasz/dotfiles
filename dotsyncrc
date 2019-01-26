@@ -21,7 +21,6 @@ DOTFILES=git/dotfiles
 #aptitude
 #cmus
 #ctags/ctags
-gnupg
 #grc
 #irssi
 #mercurial/hgignore
@@ -44,19 +43,13 @@ gnupg
 #screen/screenrc
 #shell/hushlogin
 #shell/urlview
+#ssh/config
 #subversion
 #task/task
 #task/taskrc
-zsh/dotzsh:.zsh
-zsh/fasdrc
-zsh/zlogin
-zsh/zlogout
-zsh/zprofile
-zsh/zshenv
-zsh/zshrc
 Xdefaults
-bashrc
 bash_profile
+bashrc
 beets:.config/beets
 bin:bin
 curl/curlrc
@@ -67,6 +60,7 @@ git/gitconfig
 git/gitignore
 git/gitk
 git/tigrc
+gnupg
 htop:.config/htop
 i3:.config/i3
 i3blocks:.config/i3blocks
@@ -74,7 +68,6 @@ i3status:.config/i3status
 input/editrc
 input/inputrc
 kitty:.config/kitty
-monitor_hotplug:.config/monitor_hotplug
 mimeapps.list:.config/mimeapps.list
 monitor_hotplug:.config/monitor_hotplug
 mopidy:.config/mopidy
@@ -85,11 +78,11 @@ omf:.config/omf
 python/pylintrc
 python/pythonrc
 rofi:.config/rofi
-#ssh/config
+sxiv:.config/sxiv
 systemd:.config/systemd
 termite:.config/termite
-tmux/tmux.conf
 tmux/dottmux:.tmux
+tmux/tmux.conf
 tmux/tmuxinator
 unik:.unik
 uzbl:.config/uzbl
@@ -98,6 +91,13 @@ vim/gvimrc
 vim/vimrc
 wget/wgetrc
 xscreensaver
+zsh/dotzsh:.zsh
+zsh/fasdrc
+zsh/zlogin
+zsh/zlogout
+zsh/zprofile
+zsh/zshenv
+zsh/zshrc
 [endfiles]
 
 # Hosts to sync

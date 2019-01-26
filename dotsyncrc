@@ -76,6 +76,8 @@ input/inputrc
 kitty:.config/kitty
 monitor_hotplug:.config/monitor_hotplug
 mimeapps.list:.config/mimeapps.list
+monitor_hotplug:.config/monitor_hotplug
+mopidy:.config/mopidy
 mysql/my.cnf
 nvim:.config/nvim
 obs-studio:.config/obs-studio

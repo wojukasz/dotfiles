@@ -179,7 +179,7 @@ Plug 'itchyny/calendar.vim'                                                " Add
 " Plug 'mileszs/ack.vim'                               " Adds the :Ack command which allows you to 'grep' for files very quickly using 'silversearcher' or 'ripgrep'
 " }}}
 " {{{ Text / code editing
-" Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
+Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
 Plug 'bronson/vim-trailing-whitespace'               " Highlights trailing whitespace in red, adds :FixWhitespace command to strip.
 Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine tests.
 Plug 'godlygeek/tabular'                             " Plugin for aligning text.
@@ -221,7 +221,6 @@ else
 endif
 Plug 'kana/vim-operator-user'                        " Dependency of vim-operator-flashy.
 Plug 'haya14busa/vim-operator-flashy'                " Adds a temporary highlight of what text was yanked.
-" }}}
 
 if has('win32') || has('win64')
   Plug 'powerline/fonts', { 'do': './install.ps1' }
@@ -232,13 +231,13 @@ endif
 if has('mac')
   Plug 'tonsky/FiraCode', { 'do':  'cd distr/otf && find $(pwd) -name ''*.otf'' -type f -print0 \| xargs -0 -I{} ln -sf {} ~/Library/Fonts' }
 endif
-
+" " }}}
+" {{{ End plugin initialisation
 call plug#end()
 
 if !vimPlugNOTInstalled
   PlugUpdate
 endif
-
 " " }}}
 " General "{{{
 set autowrite  " Writes on make/shell commands
@@ -412,6 +411,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 nmap <silent> <Leader>s :Startify<CR>
 " " }}}
 " Plugin Config " {{{
+" {{{ autopairs
+let g:AutoPairsShortcutToggle = '<LocalLeader>p'
+" }}}
 " {{{ ack.vim
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'

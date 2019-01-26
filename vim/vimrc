@@ -141,7 +141,14 @@ Plug 'Lokaltog/vim-easymotion' " Adds extra motions
 Plug 'google/vim-searchindex'  " Adds search indexing (match x of x when searching)
 " }}}
 " {{{ Snippet and completion plugins
-Plug 'maralla/completor.vim'                                      " An alternative completion engine using Vim's Python support
+" Plug 'maralla/completor.vim'                                      " An alternative completion engine using Vim's Python support
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
@@ -422,7 +429,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " }}}
 " {{{ Deoplete
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 let g:deoplete#enable_at_startup = 1
+call deoplete#initialize()
 " }}}
 " {{{ dbeniamine/todo.txt-vim
 " Use todo#Complete as the omni complete function for todo files

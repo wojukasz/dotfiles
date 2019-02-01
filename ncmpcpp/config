@@ -501,12 +501,9 @@ header_window_color = "default"
 #
 #active_window_border = "red"
 
-colors_enabled = "yes"
 color1 = "cyan"
 color2 = "blue"
 #statusbar_color = "black"
-empty_tag_color = "green"
 main_window_color = "white" 
-main_window_highlight_color = "cyan"
 #header_window_color = "black"
 volume_color = "black"

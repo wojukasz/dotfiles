@@ -308,7 +308,6 @@ exec /usr/bin/nice -n 19 /usr/bin/slack
 exec kitty --single-instance --session ~/.config/kitty/session-tmux.conf
 # exec /usr/bin/nice -n 19 /usr/bin/firefox
 exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
-exec /usr/bin/keepass ~/git/keepass/bashton.kdbx
 exec wpa_gui -t
 exec cbatticon
 exec /usr/bin/nice -n 19 /usr/bin/run_keybase

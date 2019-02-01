@@ -40,6 +40,8 @@ alias suspend="xscreensaver-command -lock && sleep 1 && sudo systemctl suspend"
 alias tf="terraform"
 alias tw="task +work"
 alias tp="task +personal"
+alias vim="nvim"
+alias vi="nvim"
 
 if uname -a | grep 'Darwin' &> /dev/null; then
   alias ll='ls -G';

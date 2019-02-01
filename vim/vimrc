@@ -149,10 +149,10 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'ervandew/supertab'                                        " Use tab for completion.
 Plug 'SirVer/ultisnips'                                         " python based snippet engine.
 Plug 'honza/vim-snippets'                                       " Snippets for various programming languages in Ultisnips and snipmate format.
 Plug 'alanjjenkins/ultisnips-terraform-snippets'                " terraform snippets for ultisnips.
-" Plug 'bashton-ajenkins/vim-terraform-completion'                " Auto completion for terraform.
 Plug 'juliosueiras/vim-terraform-completion'                    " Auto completion for terraform.
 Plug 'matthewsimo/angular-vim-snippets'                         " Adds AngularJS vim snippets.
 Plug 'myhere/vim-nodejs-complete'                               " Nodejs omnicompletion support.
@@ -176,10 +176,11 @@ Plug 'tmux-plugins/vim-tmux-focus-events'                                  " Foc
 Plug 'tpope/vim-eunuch'                                                    " Adds support for many unix commands into Vim (too many commands added to list here).
 Plug 'tpope/vim-tbone'                                                     " Adds tmux support to Vim (:Tmux for running any tmux command, :Tyank for yanking to Tmux's clipboard, :Tput for pasting from Tmux's clipboard and more).
 Plug 'itchyny/calendar.vim'                                                " Adds a Calendar to Vim. Has Google calendar integration.
-" Plug 'mileszs/ack.vim'                               " Adds the :Ack command which allows you to 'grep' for files very quickly using 'silversearcher' or 'ripgrep'
 " }}}
 " {{{ Text / code editing
-Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
+" Plug 'jiangmiao/auto-pairs'                          " Automatically creates paired brackets and quotes. Has a toggle shortcut <Alt-p>.
+" Plug 'tpope/vim-endwise'                             " Intelligently ends certain structures automatically if you did not close them manually.
+Plug 'Raimondi/delimitMate'                          " Automatic closing of brackets / parens / etc
 Plug 'bronson/vim-trailing-whitespace'               " Highlights trailing whitespace in red, adds :FixWhitespace command to strip.
 Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine tests.
 Plug 'godlygeek/tabular'                             " Plugin for aligning text.
@@ -380,8 +381,6 @@ nnoremap <silent> <C-J> gEa<CR><ESC>ew
 " Add a new line at the end of the line.
 map <S-CR> A<CR><ESC>
 
-imap <C-Space> <C-X><C-O>
-
 " Control+S and Control+Q are flow-control characters: disable them in your terminal settings.
 " $ stty -ixon -ixoff
 noremap <C-S> :update<CR>
@@ -411,29 +410,16 @@ vmap <C-v> <Plug>(expand_region_shrink)
 nmap <silent> <Leader>s :Startify<CR>
 " " }}}
 " Plugin Config " {{{
-" {{{ autopairs
-let g:AutoPairsShortcutToggle = '<LocalLeader>p'
-" }}}
-" {{{ ack.vim
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading'
-elseif executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-"}}}
 " {{{ ale linters
 let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'javascript': ['eslint'], 'jsx': ['eslint'], 'terraform': ['tflint'] }
-" let g:ale_linter_aliases = {'jsx': 'css'}
-" }}}
-" {{{ Completor
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " }}}
 " {{{ Deoplete
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', {
+\ 'complete_method': 'omnifunc',
+\ 'terraform': '[^ *\t"{=$]\w*',
+\})
+
 call deoplete#initialize()
 " }}}
 " {{{ dbeniamine/todo.txt-vim
@@ -457,6 +443,9 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 " }}}
+" {{{ Emmet
+let g:user_emmet_mode='a'
+" }}}
 " {{{ elzr/vim-json
 set conceallevel=0
 let g:vim_json_syntax_conceal = 0 " stop vim hding quotes in json files.
@@ -468,115 +457,22 @@ nnoremap <leader>g :Rg<cr>
 " {{{ Goldenview
 let g:goldenview__enable_default_mapping=0
 " }}}
-" {{{ Grepper
-" nmap gs  <plug>(GrepperOperator)
-" xmap gs  <plug>(GrepperOperator)
-" nnoremap <leader>g :Grepper -tool rg<cr>
-" nnoremap <leader>G :Grepper -tool rg -buffers<cr>
-" }}}
-" {{{ Gundo
-" toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
-" }}}
 " {{{ Large file editing
 let g:LargeFile=1
-" }}}
-" LeaderF {{{
-
-" }}}
-"" {{{ Neocomplete
-"if has('nvim') == 0
-"  let g:acp_enableAtStartup = 0           " Disable AutoComplPop.
-"  let g:neocomplete#enable_at_startup = 1 " Use neocomplete.
-"  let g:neocomplete#enable_smart_case = 1 " Use smartcase.
-"  let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
-
-"  let g:neocomplete#sources#dictionary#dictionaries = {
-"        \ 'default' : '',
-"        \ 'vimshell' : $HOME.'/.vimshell_hist',
-"        \ 'scheme' : $HOME.'/.gosh_completions'
-"        \ }
-
-"  if !exists('g:neocomplete#keyword_patterns')
-"    let g:neocomplete#keyword_patterns = {}
-"  endif
-"  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-"  inoremap <expr><C-g>     neocomplete#undo_completion()
-"  inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-"  " Recommended key-mappings.
-"  " <CR>: close popup and save indent.
-"  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"  function! s:my_cr_function()
-"    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"    " For no inserting <CR> key.
-"    "return pumvisible() ? "\<C-y>" : "\<CR>"
-"  endfunction
-"  " <TAB>: completion.
-"  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"  " <C-h>, <BS>: close popup and delete backword char.
-"  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"  " Close popup by <Space>.
-"  "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-"  " AutoComplPop like behavior.
-"  let g:neocomplete#enable_auto_select = 1
-
-"  " Shell like behavior(not recommended).
-"  "set completeopt+=longest
-"  "let g:neocomplete#enable_auto_select = 1
-"  "let g:neocomplete#disable_auto_complete = 1
-"  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-"  " Enable omni completion.
-"  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-"  " Enable heavy omni completion.
-"  if !exists('g:neocomplete#sources#omni#input_patterns')
-"    let g:neocomplete#sources#omni#input_patterns = {}
-"  endif
-"  "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"  "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"  "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-"  " For perlomni.vim setting.
-"  " https://github.com/c9s/perlomni.vim
-"  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"endif
-"" }}}
-" {{{ Pencil
-" let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-
-" augroup pencil
-"   autocmd!
-"   autocmd FileType markdown,mkd,vimwiki call pencil#init()
-"   autocmd FileType text                 call pencil#init({'wrap': 'hard'})
-" augroup END
 " }}}
 " {{{ Pymode
 let g:pymode_lint_config = '$HOME/.pylint.rc'
 let g:pymode_options_max_line_length=100
 let g:pymode_rope=0
 " }}}
-" {{{ Quicktask
-let g:quicktask_autosave = 1
-let g:quicktask_snip_path = "~/quicktask-snips"
-let g:quicktask_task_added_include_time = 1
-" }}}
-" {{{ Rainbow
-let g:rainbow_active = 1
-" }}}
 " {{{ scratch
 let g:scratch_persistence_file=expand("~/.vim/scratchfile")
 " }}}
 " {{{ SimpylFold
 let g:SimpylFold_docstring_preview = 1
+" }}}
+" {{{ Supertab
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " }}}
 " {{{ Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -612,30 +508,6 @@ let g:UltiSnipsEditSplit="vertical"
 " {{{ Undotree
 nnoremap <F5> :UndotreeToggle<CR>
 " }}}
-" {{{ Unite
-" nnoremap <C-p> :Unite file_rec/async<cr>
-" nnoremap <space>/ :Unite grep:.<cr>
-" let g:unite_source_history_yank_enable = 1
-" nnoremap <space>y :Unite history/yank<cr>
-" nnoremap <space>s :Unite -quick-match buffer<cr>
-" let g:unite_source_history_yank_enable = 1
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" nnoremap <LocalLeader>t :Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-" nnoremap <LocalLeader>f :Unite -no-split -buffer-name=files   -start-insert file<cr>
-" nnoremap <LocalLeader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-" nnoremap <LocalLeader>o :Unite -no-split -buffer-name=outline -start-insert outline<cr>
-" nnoremap <LocalLeader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
-" nnoremap <LocalLeader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
-" Custom mappings for the unite buffer
-" autocmd FileType unite call s:unite_settings()
-" function! s:unite_settings()
-"   " Play nice with supertab
-"   let b:SuperTabDisabled=1
-"   " Enable navigation with control-j and control-k in insert mode
-"   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-"   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-" endfunction
-" }}}
 " {{{ vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
@@ -644,11 +516,8 @@ let g:airline#extensions#tabline#enabled = 0
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 " }}}
-" {{{ vimfiler
-let g:vimfiler_as_default_explorer = 1
-" }}}
 filetype plugin indent on
-"}}}
+" }}}
 " Visual "{{{
 set number  " Line numbers on
 set relativenumber " and relative numbering too!
@@ -674,6 +543,11 @@ set splitbelow
 set splitright
 
 " "}}}
+" {{{ Neovim tweaks
+if has("nvim")
+  set inccommand=split
+end
+" }}}
 " Gui and theme options"{{{
 if has('gui_running')
   set background=dark

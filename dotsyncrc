@@ -29,7 +29,6 @@ DOTFILES=git/dotfiles
 #mutt
 #mutt/muttrc
 #mutt/offlineimaprc
-#ncmpcpp/config
 #ncmpcpp/error.log
 #postgresql/psqlrc
 #rpm/rpmmacros
@@ -54,6 +53,7 @@ beets:.config/beets
 bin:bin
 curl/curlrc
 dotsyncrc
+dunst:.config/dunst
 fish:.config/fish
 git/gitattributes
 git/gitconfig
@@ -72,6 +72,8 @@ mimeapps.list:.config/mimeapps.list
 monitor_hotplug:.config/monitor_hotplug
 mopidy:.config/mopidy
 mysql/my.cnf
+ncmpcpp/bindings:.ncmpcpp/bindings
+ncmpcpp/config:.ncmpcpp/config
 nvim:.config/nvim
 obs-studio:.config/obs-studio
 omf:.config/omf

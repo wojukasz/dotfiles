@@ -170,6 +170,7 @@ Plug 'vim-airline/vim-airline-themes'                " Themes for Vim Airline.
 Plug 'jszakmeister/vim-togglecursor'                 " Handles changing the cursor shape while taking into account things that can break it.
 " }}}
 " {{{ External tool integration
+Plug 'lambdalisue/suda.vim'                                                " Adds the ability to write to a file using sudo
 Plug 'jplaut/vim-arduino-ino'                                              " Adds support for the Arduino Ino commandline interface for programming Arduinos.
 Plug 'markcornick/vim-vagrant'                                             " Adds :Vagrant command for interacting with Vagrant from within Vim.
 Plug 'tmux-plugins/vim-tmux-focus-events'                                  " Focus gained and focus lost (used by plugins) do not work in Tmux, this fixes that.
@@ -303,7 +304,7 @@ let g:PHP_vintage_case_default_indent = 1
 " "}}}
 " Command and Auto commands " {{{
 " Sudo write
-comm! W exec 'w !sudo tee % > /dev/null' | e!
+comm! W exec 'w suda://%'
 
 "Auto commands
 " au BufRead,BufNewFile {*.php}                                         UltiSnipsAddFiletypes php

@@ -51,6 +51,7 @@ bash_profile
 bashrc
 beets:.config/beets
 bin:bin
+compton.conf:.config/compton.conf
 curl/curlrc
 dotsyncrc
 dunst:.config/dunst

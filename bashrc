@@ -30,6 +30,7 @@ alias kmse='export EYAML_CONFIG=$PWD/.kms-eyaml.yaml'
 alias misg="cd ~/git/missguided"
 alias rewifi="sudo systemctl restart wpa_supplicant@wlp58s0"
 alias sdl="cd ~/git/superdry/laguna"
+alias sdm="cd ~/git/superdry/superdry-maverick"
 alias sdo="cd ~/git/superdry/osaka"
 alias sdw="cd ~/git/superdry/windcheater"
 alias sdh="cd ~/git/superdry/superdry-henley"

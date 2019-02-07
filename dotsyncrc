@@ -79,6 +79,7 @@ obs-studio:.config/obs-studio
 omf:.config/omf
 python/pylintrc
 python/pythonrc
+ranger:.config/ranger
 rofi:.config/rofi
 sxiv:.config/sxiv
 systemd:.config/systemd

@@ -51,3 +51,17 @@ vim/dotvim/spell/*
 bin/_vpn-bash_completion.sh
 systemd/user/default.target.wants/*
 tmux/dottmux/plugins/*
+beets/state.pickle
+bin/aws
+bin/python
+bin/terraform-docs
+bin/unik
+gnupg/tofu.db
+nvim/autoload/
+nvim/plugged/
+obs-studio/plugin_config/rtmp-services/twitch_ingests.json
+tmux/dottmux/plugins/tpm
+unik/aws/
+unik/client-config.yaml
+vim/dotvim/scratchfile
+vim/dotvim/view/

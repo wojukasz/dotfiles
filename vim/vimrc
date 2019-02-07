@@ -414,7 +414,6 @@ nmap <silent> <Leader>s :Startify<CR>
 let g:ale_linters = { 'gitcommit': ['proselint'], 'python': [ 'flake8' ], 'javascript': ['eslint'], 'jsx': ['eslint'], 'terraform': ['tflint'] }
 " }}}
 " {{{ Deoplete
-let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('omni_patterns', {
 \ 'complete_method': 'omnifunc',
 \ 'terraform': '[^ *\t"{=$]\w*',

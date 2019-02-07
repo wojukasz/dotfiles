@@ -67,6 +67,11 @@ export PATH="$PATH:/home/alan/bin"
 export PATH="$PATH:/home/alan/.local/bin"
 export PATH="$PATH:/home/alan/.gem/ruby/2.5.0/bin"
 
+# {{{ nnn settings
+export NNN_USE_EDITOR=1
+export NNN_BMS="h:~;d:~/Downloads;S:~/git/superdry;g:~/git;D:~/Documents;"
+# }}}
+
 if [ -z "$SSH_AUTH_SOCK" ];
 then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

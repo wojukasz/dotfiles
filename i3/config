@@ -221,17 +221,22 @@ mode "$mode_monitor" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+Mod1+m mode "$mode_monitor"
-bindsym Hyper+m exec --no-startup-id i3-msg "workspace 2; move workspace to DP-1; workspace 3; move workspace to DP-1; workspace 10; move workspace to DP-1; workspace 1;"
+# bindsym Hyper+m exec --no-startup-id i3-msg "workspace 2; move workspace to DP-1; workspace 3; move workspace to DP-1; workspace 10; move workspace to DP-1; workspace 1;"
 
 # Screenshot mode
-set $mode_screenshot Active window to clipboard (a), Active window to file (A), Screen to clipboard (s), Screen to file (S), Selected rectangle to clipboard (r), Selected rectangle to file (R)
+set $mode_screenshot Active window to clipboard (a), Active window to file (A), Screen to clipboard (s), Screen to file (S), Selected rectangle to clipboard (r), Selected rectangle to file (R), Active monitor (m), Active monitor to file (M)
 mode "$mode_screenshot" {
-    bindsym a exec --no-startup-id maim -i$(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-    bindsym Shift+a exec --no-startup-id maim -i$(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png
-    bindsym s exec --no-startup-id maim | xclip -selection clipboard -t image/png
-    bindsym Shift+s exec --no-startup-id maim ~/Pictures/screenshots/$(date +%s).png
-    bindsym r exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-    bindsym Shift+r exec --no-startup-id maim -s ~/Pictures/screenshots/$(date +%s).png
+    bindsym a exec --no-startup-id  ~/.config/i3/scripts/screenshot/active_window.sh -clipboard
+    bindsym Shift+a exec --no-startup-id  ~/.config/i3/scripts/screenshot/active_window.sh
+
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/screenshot/screen.sh -clipboard
+    bindsym Shift+s exec --no-startup-id ~/.config/i3/scripts/screenshot/screen.sh
+
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/screenshot/rectangle.sh -clipboard
+    bindsym Shift+r exec --no-startup-id ~/.config/i3/scripts/screenshot/rectangle.sh
+
+    bindsym m exec --no-startup-id ~/.config/i3/scripts/screenshot/monitor.sh -clipboard
+    bindsym Shift+m exec --no-startup-id ~/.config/i3/scripts/screenshot/monitor.sh
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -307,7 +312,8 @@ exec --no-startup-id ~/.fehbg
 exec /usr/bin/nice -n 19 /usr/bin/slack
 exec kitty --single-instance --session ~/.config/kitty/session-tmux.conf
 # exec /usr/bin/nice -n 19 /usr/bin/firefox
-exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
+# exec /usr/bin/nice -n 19 /usr/bin/google-chrome-stable
+exec /usr/bin/nice -n 19 /usr/bin/chromium
 exec wpa_gui -t
 exec cbatticon
 exec /usr/bin/nice -n 19 /usr/bin/run_keybase
@@ -336,3 +342,15 @@ for_window [class="Keybase"] floating enable, move position mouse
 # floating windows
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+
+output "*" background "/home/alan/Pictures/wallpapers/japanese_wave_vista_background_by_silverjerk_dutff0-pre.jpg" fill
+
+output eDP-1 {
+  pos 0 0 res 3200x1800
+  scale 1.5
+}
+
+output DP-1 {
+  pos 2133 0 res 3440x1440
+}
+

@@ -14,7 +14,11 @@ if has('win32') || has('win64')
     let vimPlugNOTInstalled=0
   endif
 else
-  let vimplugpath=expand('~/.vim/autoload/plug.vim')
+  if has('nvim')
+    let vimplugpath=expand('~/.config/nvim/autoload/plug.vim')
+  else
+    let vimplugpath=expand('~/.vim/autoload/plug.vim')
+  endif
   if !filereadable(vimplugpath)
     echo "Installing vim-plug.."
     echo ""
@@ -85,13 +89,15 @@ Plug 'aaronbieber/vim-quicktask'              " A task / project management plug
 Plug 'burnettk/vim-angular'                   " AngularJS syntax support
 Plug 'chase/vim-ansible-yaml'                 " Ansible yaml syntax support.
 if executable('task')
-  Plug 'farseer90718/vim-taskwarrior'           " Task warrior syntax support.
+  Plug 'farseer90718/vim-taskwarrior', {'on': ['TW', 'TWUndo', 'TWEditTaskrc', 'TWEditVitrc', 'TWDeleteCompleted', 'TWAdd', 'TWAnnotate', 'TWComplete', 'TWDelete', 'TWDeleteAnnotation', 'TWModifyInteractive', 'TWReportInfo', 'TWSync', 'TWToggleReadonly', 'TWToggleHLField', 'TWHistory', 'TWHistoryClear', 'TWBookmark', 'TWBookmarkClear']} " Task warrior syntax support.
 endif
 Plug 'chr4/nginx.vim'                         " Nginx config file syntax.
 Plug 'chrisbra/csv.vim'                       " Enhanced CSV file editing plugin (CSV syntax and mappings).
 Plug 'chrisyip/Better-CSS-Syntax-for-Vim'     " Adds CSS3 syntax support.
 Plug 'dbeniamine/todo.txt-vim'                " todo.txt syntax plugin for vim.
-" Plug 'tbabej/taskwiki'                        " Taskwiki format (integrates with Task warrior (depends on it)).
+if executable('task')
+  Plug 'tbabej/taskwiki'                        " Taskwiki format (integrates with Task warrior (depends on it)).
+endif
 Plug 'digitaltoad/vim-pug'                    " Pug templating engine syntax support.
 Plug 'ekalinin/Dockerfile.vim'                " Dockerfile syntax and Snipmate snippets for Dockerfile.
 Plug 'elzr/vim-json'                          " Improved editing of JSON files (syntax).
@@ -100,7 +106,7 @@ Plug 'groenewege/vim-less'                    " Syntax support for the LESS CSS 
 Plug 'hashivim/vim-terraform'                 " Terraform syntax support.
 Plug 'jtratner/vim-flavored-markdown'         " Github flavoured Markdown syntax support.
 Plug 'lepture/vim-jinja'                      " Jinja2 syntax support
-Plug 'm-kat/aws-vim'                          " Adds auto completion for Cloudformation templates and improves syntax highlighting.
+" Plug 'm-kat/aws-vim'                          " Adds auto completion for Cloudformation templates and improves syntax highlighting.
 Plug 'mhinz/vim-hugefile'                     " Disables Filetype autocmds, syntax highlighting, folding, swapfiles, MatchParen for files bigger than 2MB to ensure that Vim opens them quickly.
 Plug 'mustache/vim-mustache-handlebars'       " Adds mustache and handlebars templating syntax.
 Plug 'mxw/vim-jsx'                            " Syntax plugin for editing JSX files.
@@ -132,6 +138,7 @@ Plug 'rhysd/committia.vim'        " Improved commit message window.
 Plug 'tpope/vim-fugitive'         " Adds git integration to Vim. Many commands are added but :Gwrite is mapped to F1 and :Gcommit is mapped to F2.
 " }}}
 " {{{ File / directory navigation plugins
+Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder of files (mapped to <leader>;)
 Plug 'junegunn/fzf.vim'                                           " Fuzzy finder of files (mapped to <leader>;) part 2
 Plug 'jeetsukumaran/vim-filebeagle'                               " File browser
@@ -184,9 +191,10 @@ Plug 'itchyny/calendar.vim'                                                " Add
 Plug 'Raimondi/delimitMate'                          " Automatic closing of brackets / parens / etc
 Plug 'bronson/vim-trailing-whitespace'               " Highlights trailing whitespace in red, adds :FixWhitespace command to strip.
 Plug 'claco/jasmine.vim'                             " Runs Javascript Jasmine tests.
-Plug 'godlygeek/tabular'                             " Plugin for aligning text.
+Plug 'godlygeek/tabular', {'on': ['Tabularize', 'AddTabularPattern', 'AddTabularPipeline']} " Plugin for aligning text.
 Plug 'lukaszb/vim-web-indent'                        " Auto indentation support for Javascript and HTML.
 Plug 'mattn/emmet-vim'                               " Allows you to write abbreviated HTML and then when a trigger key combo is pressed expand to full length html (key combo is C-y).
+Plug 'rhysd/vim-fixjson'                             " Nicely formats JSON and fixes common JSON mistakes (missing commas in arrays... etc)
 Plug 'tommcdo/vim-exchange'                          " Easy text exchange operator for vim use cx{motion} to initiate exchange. Go to what you want to exchange and do the same and they will be swapped.
 Plug 'tpope/vim-commentary'                          " Commenting plugin, use gcc to comment out a line. gc and then a motion to comment out that area.
 Plug 'tpope/vim-cucumber'                            " Adds support for the Cucumber Ruby acceptance testing framework to Vim.

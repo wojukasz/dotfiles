@@ -1,7 +1,0 @@
-directory: /media/storage/music
-library: ~/Dropbox/beets.db
-
-plugins: chroma
-
-import:
-    move: yes
